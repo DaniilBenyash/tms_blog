@@ -1,0 +1,103 @@
+*{
+    @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap');
+}
+.App{
+    display: flex;
+    flex-direction: row;
+}
+.App button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    gap:10px;
+    height: 56px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+.primary{
+    color: #fff;
+    background-color: #2231AA;
+}
+.primary:hover{
+    background-color: #5360CD
+}
+.primary:disabled{
+    color: #8D8E97;
+    background-color: #E8E8E8;
+}
+.secondary{
+    color: #313037;
+    background-color: #E8E8E8;
+}
+.secondary:hover{
+    background-color: #DADADA;
+}
+.secondary:disabled{
+    color: #8D8E97;
+    background-color: #E8E8E8;
+}
+.secondary2{
+    color: #FD3419;
+    background-color: #fff;
+}
+.secondary2:hover{
+    border: 1px solid #DADADA;
+}
+.secondary2:disabled{
+    color: #8D8E97;
+    border: none;
+}
+.buttonWithIcon{
+    color: #313037;
+    background-color: #E8E8E8;
+}
+.buttonWithIcon:hover{
+    color: #fff;
+    background-color: #5360CD;;
+}
+.buttonWithIcon:hover img{
+    filter: brightness(0) invert(1);
+}
+.buttonWithIcon:disabled{
+    color: #8D8E97;
+    background-color: #E8E8E8;
+}
+.buttonWithIcon:disabled img{
+    filter: contrast(0);
+}
+.like{
+    background-color: #E8E8E8;
+}
+.like:hover{
+    background-color: #5360CD;
+}
+.like:hover img{
+    filter: brightness(0) invert(1);
+}
+.like:disabled{
+    background-color: #E8E8E8;
+}
+.like:disabled img{
+    filter: contrast(0);
+}
+.dislike{
+    background-color: #E8E8E8;
+}
+.dislike:hover{
+    background-color: #FD3419;
+}
+.dislike:hover img{
+    filter: brightness(0) invert(1);
+}
+.dislike:disabled{
+    background-color: #E8E8E8;
+}
+.dislike:disabled img{
+    filter: contrast(0);
+}
