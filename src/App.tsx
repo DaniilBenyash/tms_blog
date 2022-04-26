@@ -31,7 +31,7 @@ function App() {
           pdname='Astronauts prep for new solar arrays on nearly seven-hour spacewalk'
           img={SpaceSmall}
         />
-        
+        <Header firstName='Daniil' lastName='Benyash'/>
     </div>
   )
 }

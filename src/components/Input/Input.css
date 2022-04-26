@@ -3,8 +3,8 @@
 }
 .App{
     background-color: #E5E5E5;
-
-    padding: 50px;
+    
+    padding: 100px 50px;
 }
 .App label{
     display: flex;
