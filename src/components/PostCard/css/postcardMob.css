@@ -1,0 +1,25 @@
+.postcardMob{
+    display: flex;
+    flex-direction: column;
+    width: 352px;
+    border-bottom: 1px solid #DADADA;
+    background-color: #fff;
+    padding-bottom: 41px;
+    margin-top: 50px;
+}
+.pdnameMob{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #313037;
+}
+.pdnameMob:hover{
+    cursor: pointer;
+    color: #2231AA;
+}
+.imgMob{
+    width: 96px;
+    height: 96px;
+    margin-left: 34px;
+}
