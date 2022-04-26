@@ -1,25 +1,30 @@
-.postcardMob{
+.postcardBig{
     display: flex;
     flex-direction: column;
     width: 352px;
     border-bottom: 1px solid #DADADA;
     background-color: #fff;
-    padding-bottom: 41px;
+    padding-bottom: 42px;
     margin-top: 50px;
 }
-.pdnameMob{
+.contentBig{
+    display: flex;
+    flex-direction: column;
+}
+.imgBig{
+    width: 352px;
+    height: 246px;
+    margin-bottom: 24px;
+}
+.pdnameBig{
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
     color: #313037;
+    margin: 0;
 }
-.pdnameMob:hover{
+.pdnameBig:hover{
     cursor: pointer;
     color: #2231AA;
-}
-.imgMob{
-    width: 96px;
-    height: 96px;
-    margin-left: 34px;
 }

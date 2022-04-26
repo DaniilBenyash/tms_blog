@@ -4,17 +4,8 @@
     width: 352px;
     border-bottom: 1px solid #DADADA;
     background-color: #fff;
-    padding-bottom: 42px;
+    padding-bottom: 41px;
     margin-top: 50px;
-}
-.contentSmall{
-    display: flex;
-    flex-direction: column;
-}
-.imgSmall{
-    width: 352px;
-    height: 246px;
-    margin-bottom: 24px;
 }
 .pdnameSmall{
     font-style: normal;
@@ -22,9 +13,13 @@
     font-size: 18px;
     line-height: 28px;
     color: #313037;
-    margin: 0;
 }
 .pdnameSmall:hover{
     cursor: pointer;
     color: #2231AA;
+}
+.imgSmall{
+    width: 96px;
+    height: 96px;
+    margin-left: 34px;
 }

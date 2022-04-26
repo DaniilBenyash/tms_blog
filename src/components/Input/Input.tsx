@@ -2,16 +2,12 @@ import React, { useState } from 'react'
 import './Input.css'
 
 type InputProps = {
-    className: string,
     placeholder: string,
     disabled: boolean,
-    type: string,
     label: string,
 }
 
-
-
-export const Input = ({label, className, placeholder, disabled, type}: InputProps) => {
+export const Input = ({label, placeholder, disabled}: InputProps) => {
 
     const [inputValue, setInputValue] = useState('')
 
@@ -31,7 +27,7 @@ export const Input = ({label, className, placeholder, disabled, type}: InputProp
     return (
         <label htmlFor="">
             {label}
-            <input type={type} className={`${error && 'errorInput'} ${ className}`} placeholder={placeholder} disabled={disabled} value={inputValue} onChange={handleChange}/>
+            <input type='input' className={`${error && 'errorInput'} input`}  placeholder={placeholder} disabled={disabled} value={inputValue} onChange={handleChange}/>
             {error && <p className='error'>Error text</p>}
         </label>
     )
