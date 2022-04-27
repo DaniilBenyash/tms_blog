@@ -5,13 +5,13 @@ type ButtonProps = {
     text?: string,
     onClick: () => void,
     className: string,
-    disable: boolean,
+    disabled: boolean,
     icon?: string 
 }
  
-export const Button = ({onClick, text, className, disable, icon}: ButtonProps) => {
+export const Button = ({onClick, text, className, disabled, icon}: ButtonProps) => {
     return (
-        <button type='button' onClick={onClick} className={className} disabled={disable}>
+        <button type='button' onClick={onClick} className={` ${className} button`} disabled={disabled}>
             {icon && <img src={icon} alt='' className='icons'/>}
             {text}
         </button>

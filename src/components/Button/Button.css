@@ -1,11 +1,4 @@
-*{
-    @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap');
-}
-.App{
-    display: flex;
-    flex-direction: row;
-}
-.App button{
+.button{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -20,84 +13,84 @@
     border-radius: 2px;
     margin-right: 10px;
 }
-.primary{
+.button--primary{
     color: #fff;
     background-color: #2231AA;
 }
-.primary:hover{
+.button--primary:hover{
     background-color: #5360CD
 }
-.primary:disabled{
+.button--primary:disabled{
     color: #8D8E97;
     background-color: #E8E8E8;
 }
-.secondary{
+.button--secondary{
     color: #313037;
     background-color: #E8E8E8;
 }
-.secondary:hover{
+.button--secondary:hover{
     background-color: #DADADA;
 }
-.secondary:disabled{
+.button--secondary:disabled{
     color: #8D8E97;
     background-color: #E8E8E8;
 }
-.secondary2{
+.button--secondary2{
     color: #FD3419;
     background-color: #fff;
 }
-.secondary2:hover{
+.button--secondary2:hover{
     border: 1px solid #DADADA;
 }
-.secondary2:disabled{
+.button--secondary2:disabled{
     color: #8D8E97;
     border: none;
 }
-.buttonWithIcon{
+.button--with_icon{
     color: #313037;
     background-color: #E8E8E8;
 }
-.buttonWithIcon:hover{
+.button--with_icon:hover{
     color: #fff;
     background-color: #5360CD;;
 }
-.buttonWithIcon:hover img{
+.button--with_icon:hover img{
     filter: brightness(0) invert(1);
 }
-.buttonWithIcon:disabled{
+.button--with_icon:disabled{
     color: #8D8E97;
     background-color: #E8E8E8;
 }
-.buttonWithIcon:disabled img{
+.button--with_icon:disabled img{
     filter: contrast(0);
 }
-.like{
+.button--like{
     background-color: #E8E8E8;
 }
-.like:hover{
+.button--like:hover{
     background-color: #5360CD;
 }
-.like:hover img{
+.button--like:hover img{
     filter: brightness(0) invert(1);
 }
-.like:disabled{
+.button--like:disabled{
     background-color: #E8E8E8;
 }
-.like:disabled img{
+.button--like:disabled img{
     filter: contrast(0);
 }
-.dislike{
+.button--dislike{
     background-color: #E8E8E8;
 }
-.dislike:hover{
+.button--dislike:hover{
     background-color: #FD3419;
 }
-.dislike:hover img{
+.button--dislike:hover img{
     filter: brightness(0) invert(1);
 }
-.dislike:disabled{
+.button--dislike:disabled{
     background-color: #E8E8E8;
 }
-.dislike:disabled img{
+.button--dislike:disabled img{
     filter: contrast(0);
 }
