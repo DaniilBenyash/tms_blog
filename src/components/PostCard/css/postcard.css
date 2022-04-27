@@ -1,53 +1,46 @@
-.postcard{
+.post-card{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 736px;
-    height: 452px;
     border-bottom: 1px solid #DADADA;
-    background-color: #fff;
-    padding-bottom: 41px;
-    margin-top: 50px;
+    padding-bottom: 42px;
 }
-.content{
+.post-card__content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
 }
-.imgPD{
+.post-card__img{
     width: 256px;
     height: 244px;
+    margin: 0 0 145px 32px;
 }
-.pdleftcontent{
-    width: 448px;
-}
-.date{
+.post-card__date{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     color: #8D8E97;
-    margin: 0 0 8px 0;
+    margin-bottom: 8px;
 }
-.pdname{
+.post-card__name{
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 44px;
     color: #313037;
-    margin: 0;
+    margin-bottom: 24px;
 }
-.pdname:hover{
+.post-card__name:hover{
     cursor: pointer;
     color: #2231AA;
 }
-.contentText{
+.post-card__text{
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
     color: #8D8E97;
-    margin: 24px 0 32.5px 0;
 }
-

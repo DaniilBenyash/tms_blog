@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import './Header.css'
-import Burger from './icons/Burger.svg'
-import closeBurger from './icons/closeBurger.svg'
-import Search from './icons/search.svg'
-import User from './icons/user.svg'
+import Burger from './icon/Burger.svg'
+import closeBurger from './icon/closeBurger.svg'
+import Search from './icon/search.svg'
+import User from './icon/user.svg'
 
 type HeaderProps = {
     firstName?: string,
@@ -11,42 +11,46 @@ type HeaderProps = {
 }
 
 export const Header = ({firstName, lastName}: HeaderProps) => {
+    
     const [burgerValue, setBurgerValue] = useState(false)
     const [searchValue, setSearchValue] = useState(false)
     
     return(
         <header className="header">
 
-            <div className="leftHeader">
+            <div className="header__left-content">
 
-                <button className="burgerButton" onClick={() => {setBurgerValue(burgerValue ? false : true)}}>
+                <button className="header__burger" onClick={() => {setBurgerValue(burgerValue ? false : true)}}>
                     <img src={burgerValue ? closeBurger : Burger} alt="" />
                 </button>
 
                 {searchValue &&
-                     <div className="search">
-                        <input type="input" placeholder="Search..."/>
-                        <button onClick={() => setSearchValue(false)}>
+                     <div className="header__search">
+
+                        <input type="input" placeholder="Search..." className="header__search-input"/>
+
+                        <button onClick={() => setSearchValue(false)} className="header__search-button-close">
                             <img src={closeBurger} alt="" />
                         </button>
+                        
                     </div>
                 }
                 
             </div>
 
-            <div className="rightHeader">
+            <div className="header__right-content">
 
-                <button className="searchButton" onClick={() => setSearchValue(searchValue ? false : true)}>
+                <button className="header__search-button-open" onClick={() => setSearchValue(searchValue ? false : true)}>
                     <img src={Search} alt="" />
                 </button>
 
-                <div className="profileHeader">
+                <div className="header__profile">
                     {!firstName ? 
                         <img src={User} alt="" /> 
                         : 
-                        <div className="name">
-                            <div className="initials">{firstName[0]}{lastName && lastName[0]}</div>
-                            <p>{firstName} {lastName}</p>
+                        <div className="header__profile-name">
+                            <div className="header__profile-name-initials">{firstName[0]}{lastName && lastName[0]}</div>
+                            <p className="header__profile-name-text">{firstName} {lastName}</p>
                         </div>
                     }
                 </div>

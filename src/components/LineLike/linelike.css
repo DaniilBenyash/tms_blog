@@ -1,35 +1,35 @@
-.pdbutton{
+.line-like{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.pdbutton button{
-    cursor: pointer;
-    background-color: #fff;
-    border: none
-}
-.like{
+.line-like__left-button{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.like p{
+.line-like__button_style{
+    cursor: pointer;
+    background-color: #E5E5E5;
+    border: none
+}
+.line-like__number{
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 24px;
     color: #313037;
-    margin: 0;
+    margin: 0 25px 0 8px;
 }
-.marginButton{
-    margin-right: 25px;
-}
-.buttonRight{
+.line-like__right-button{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.bookTrue path{
+.line-like__bookmark_margin{
+    margin-right: 30px;
+}
+.line-like__bookmark_active path{
     fill: red;
 }

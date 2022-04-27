@@ -1,12 +1,4 @@
-*{
-    @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;700&display=swap');
-}
-.App{
-    background-color: #E5E5E5;
-    
-    padding: 100px 50px;
-}
-.App label{
+.input{
     display: flex;
     flex-direction: column;
     font-family: 'Mulish', sans-serif;
@@ -16,7 +8,7 @@
     line-height: 20px;
     color: #313037
 }
-.input{
+.input__form{
     margin-top: 8px;
     width: 544px;
     border-radius: 2px;
@@ -26,20 +18,20 @@
     border: none;
     padding: 18px 0 18px 20px;
 }
-.input:focus{
+.input__form:focus{
     outline: 2px solid #DADADA;
 }
-.input:active{
+.input__form:active{
     border: none;
 }
-.input:disabled{
+.input__form:disabled{
     background-color: #E8E8E8;
     color: #8D8E97;
 }
-.errorInput{
+.input__form_error{
     border: 2px solid #FD3419;
 }
-.error{
+.input__error-text{
     color: #FD3419;
     font-style: normal;
     font-weight: 400;

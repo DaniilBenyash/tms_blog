@@ -1,25 +1,27 @@
-.postcardSmall{
+.post-card-sm{
     display: flex;
     flex-direction: column;
     width: 352px;
     border-bottom: 1px solid #DADADA;
-    background-color: #fff;
-    padding-bottom: 41px;
-    margin-top: 50px;
+    padding-bottom: 42px;
 }
-.pdnameSmall{
+.post-card-sm__content{
+    display: flex;
+    flex-direction: row;
+}
+.post-card-sm__img{
+    width: 96px;
+    height: 96px;
+    margin: 0 0 47px 34px;
+}
+.post-card-sm__name{
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
     color: #313037;
 }
-.pdnameSmall:hover{
+.post-card-sm__name:hover{
     cursor: pointer;
     color: #2231AA;
-}
-.imgSmall{
-    width: 96px;
-    height: 96px;
-    margin-left: 34px;
 }

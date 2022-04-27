@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import LikePD from './icons/like.svg'
-import DislikePD from './icons/dislike.svg'
-import { ReactComponent as Bookmark } from './icons/bookmark.svg';
-import MorePD from './icons/more.svg'
-import './linelike.css'
+import LikePD from './icon/like.svg'
+import DislikePD from './icon/dislike.svg'
+import { ReactComponent as Bookmark } from './icon/bookmark.svg';
+import MorePD from './icon/more.svg'
+import './LineLike.css'
 
 export const LineLike = () => {
+    
     const [likeValue, setLikeValue] = useState(0)
     const [likeBoolValue, setLikeBoolValue] = useState(false)
+
     const [dislikeValue, setDislikeValue] = useState(0)
     const [dislikeBollValue, setDislikeBoolValue] = useState(false)
+    
     const [bookValue, setBookValue] = useState(false)
 
     function addLikeOrDislike(set1: any, set2: any, value1: number, value2: boolean): void{
@@ -22,29 +25,31 @@ export const LineLike = () => {
         }
     }
     return (
-        <div className='pdbutton'>
+        <div className='line-like'>
 
-                <div className='like'>
+                <div className='line-like__left-button'>
 
-                    <button onClick={() => {addLikeOrDislike(setLikeValue, setLikeBoolValue, likeValue, likeBoolValue)}}>
+                    <button onClick={() => {addLikeOrDislike(setLikeValue, setLikeBoolValue, likeValue, likeBoolValue)}} className='line-like__button_style'>
                         <img src={LikePD} alt=""/>
                     </button>
-                    <p>{likeValue > 0 && likeValue}</p>
 
-                    <button onClick={() => {addLikeOrDislike(setDislikeValue, setDislikeBoolValue, dislikeValue, dislikeBollValue)}}>
+                    <p className="line-like__number">{likeValue > 0 && likeValue}</p>
+
+                    <button onClick={() => {addLikeOrDislike(setDislikeValue, setDislikeBoolValue, dislikeValue, dislikeBollValue)}} className='line-like__button_style'>
                         <img src={DislikePD} alt="" />
                     </button>
-                    <p>{dislikeValue > 0 && dislikeValue}</p> 
+
+                    <p className="line-like__number">{dislikeValue > 0 && dislikeValue}</p> 
 
                 </div>
  
-                <div className='buttonRight'>
+                <div className='line-like__right-button'>
 
-                    <button className='marginButton' onClick={() => {setBookValue(bookValue ? false : true)}}>
-                        <Bookmark className={`${bookValue && 'bookTrue'}`}/>
+                    <button className='line-like__button_style line-like__bookmark_margin' onClick={() => {setBookValue(bookValue ? false : true)}}>
+                        <Bookmark className={`${bookValue && 'line-like__bookmark_active'}`}/>
                     </button>
 
-                    <button>
+                    <button className='line-like__button_style'>
                         <img src={MorePD} alt="" />
                     </button>
 

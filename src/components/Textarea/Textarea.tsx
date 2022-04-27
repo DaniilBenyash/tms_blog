@@ -10,9 +10,13 @@ type TextareaProps = {
 
 export const Textarea = ({placeholder, cols, rows, label}: TextareaProps) => {
     return (
-        <label>
+
+        <label className="textarea">
+
             {label}
-            <textarea className='textarea' name='textarea' cols={cols} rows={rows} placeholder={placeholder}></textarea>
+
+            <textarea className='textarea__form' name='textarea' cols={cols} rows={rows} placeholder={placeholder}></textarea>
+            
         </label>
         
     )
