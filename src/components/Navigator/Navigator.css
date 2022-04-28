@@ -1,7 +1,6 @@
 .nav-footer{
     width: 100%;
     padding: 72px 0;
-    border-bottom: 1px solid #DADADA;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
