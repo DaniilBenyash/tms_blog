@@ -1,24 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button } from './components/Button/Button'
+import Bookmark from './components/Button/icon/bookmark.svg'
+import Like from './components/Button/icon/like.svg'
+import Dislike from './components/Button/icon/dislike.svg'
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Button text='Primary' onClick={() => console.log('Text')} className='button--primary' disabled={false}/>
+        <Button text='Secondary' onClick={() => console.log('Text')} className='button--secondary' disabled={false}/>
+        <Button text='Secondary 2' onClick={() => console.log('Text')} className='button--secondary2' disabled={false}/>
+        <Button text='Button with icon' onClick={() => console.log('Text')} className='button--with_icon' disabled={false} icon={Bookmark}/>
+        <Button onClick={() => console.log('Text')} className='button--like' disabled={false} icon={Like}/>
+        <Button onClick={() => console.log('Text')} className='button--dislike' disabled={false} icon={Dislike}/>
     </div>
   );
 }
