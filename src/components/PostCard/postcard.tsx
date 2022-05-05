@@ -16,12 +16,12 @@ type Icons = {
     dislike: string,
     bookmark: string,
     more: string,
-}
-
-let className:  {[item: string]: string}
+} 
 
 export const PostCard = ({size, postcardName, postcardText, img, imgAverage}: PostCardProps) => {
-    
+
+    let className:  {[item: string]: string}
+
     if(size === 'postcard'){
 
         className = {postcard: 'post-card', content: 'post-card__content', img: 'post-card__img', name: 'post-card__name'}
@@ -45,13 +45,13 @@ export const PostCard = ({size, postcardName, postcardText, img, imgAverage}: Po
 
                 {imgAverage && <img src={imgAverage} alt=""  className={className.imgAverage}/>}
 
-                <div className={className.info}>
+                <div>
                     
                     <h4 className='post-card__date'>April 20, 2020</h4>
 
                     <h1 className={className.name}>{postcardName}</h1>
 
-                    {postcardText && <p className='post-card__text'>{postcardText}</p>}
+                    {size === 'postcard' && <p className='post-card__text'>{postcardText}</p>}
                     
                 </div>
 

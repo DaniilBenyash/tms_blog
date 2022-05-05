@@ -1,0 +1,15 @@
+.login{
+    background-color: #313037;
+}
+.login__button-back{
+    color: #fff;
+}
+.login__button-back:visited{
+    color: #fff;
+}
+.login__name{
+    color: #fff;
+}
+.sign-in__button-forgot{
+    color: #fff;
+}

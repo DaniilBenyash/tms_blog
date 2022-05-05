@@ -5,24 +5,12 @@ type InputProps = {
     placeholder: string,
     disabled: boolean,
     label: string,
+    onChange: (event: any) => void,
+    value: any,
+    error: any,
 }
 
-export const Input = ({label, placeholder, disabled}: InputProps) => {
-
-    const [inputValue, setInputValue] = useState('')
-
-    const [error, setError] = useState('')
-
-    const handleChange = (event: any): void => {
-
-    setInputValue(event.target.value)
-
-    if(event.target.value.length > 5){
-        setError('error')
-    }else{
-        setError('')
-    }
-    }
+export const Input = ({label, placeholder, disabled, onChange, value, error}: InputProps) => {
 
     return (
         <label className='input'>
@@ -30,7 +18,7 @@ export const Input = ({label, placeholder, disabled}: InputProps) => {
             {label}
 
             <input type='input' className={`${error && 'input__form_error'} input__form`}
-                placeholder={placeholder} disabled={disabled} value={inputValue} onChange={handleChange}
+                placeholder={placeholder} disabled={disabled} value={value} onChange={onChange}
             />
 
             {error && <p className='input__error-text'>Error text</p>}
