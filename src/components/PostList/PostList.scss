@@ -1,0 +1,106 @@
+@import "../../styles/variables";
+
+.post-list{
+    padding-top: 156px;
+    width: 100%;
+    background-color: $color-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section{
+        width: 1120px;
+    }
+    &__h1{
+        font-style: normal;
+        font-weight: 700;
+        font-size: $font-size-headline-1-desktop;
+        line-height: 80px;
+        color: $color-secondary;
+        margin-bottom: 40px;
+    }
+    &__loading{
+        padding-top: 72px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 24px;
+        color: $color-secondary;
+    }
+    &__content{
+        margin-top: 64px;
+        display: grid;
+        grid-template-columns: max-content;
+        grid-template-rows: max-content;
+        grid-column-gap: 32px;
+        grid-row-gap: 34px;
+    }
+    &__content-item1{
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    &__content-item2{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+    &__content-item3{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+    }
+    &__content-item4{
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 7;
+    }
+    &__content-item5{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 7;
+    }
+    &__content-item6{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    &__content-item7{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+    &__content-item8{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+    }
+    &__content-item9{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+    &__content-item10{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 5;
+        grid-row-end: 6;
+    }
+    &__content-item11{
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 6;
+        grid-row-end: 7;
+    }
+    
+}

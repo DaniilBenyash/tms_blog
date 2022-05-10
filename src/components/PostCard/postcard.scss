@@ -1,0 +1,71 @@
+@import "../../styles/variables";
+
+.post-card-big{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 736px;
+    border-bottom: 1px solid $color-background-primary2;
+    padding-bottom: 42px;
+
+    &__content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__img{
+        width: 256px;
+        height: 244px;
+        margin: 0 0 145px 32px;
+        object-fit: cover;
+    }
+
+    &__text{
+        font-style: normal;
+        font-weight: 400;
+        font-size: $font-size-subline-1;
+        line-height: 28px;
+        color: $color-background-primary;
+    }
+}
+.post-card-medium{
+
+    display: flex;
+    flex-direction: column;
+    width: 352px;
+    border-bottom: 1px solid $color-background-primary2;
+    padding-bottom: 42px;
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img{
+        width: 352px;
+        height: 246px;
+        margin-bottom: 24px;
+        object-fit: cover;
+    }
+}
+.post-card-small{
+    display: flex;
+    flex-direction: column;
+    width: 352px;
+    border-bottom: 1px solid $color-background-primary2;
+    padding-bottom: 42px;
+
+    &__content{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__img{
+        width: 96px;
+        height: 96px;
+        margin: 0 0 47px 34px;
+        object-fit: cover;
+    }
+}

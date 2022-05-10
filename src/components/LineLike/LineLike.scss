@@ -1,0 +1,43 @@
+@import "../../styles/variables";
+
+.line-like{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left-button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    &__button_style{
+        cursor: pointer;
+        background-color: $color-light;
+        border: none
+    }
+
+    &__number{
+        font-style: normal;
+        font-weight: 700;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        color: $color-secondary;
+        margin: 0 25px 0 8px;
+    }
+
+    &__right-button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__bookmark_margin{
+        margin-right: 30px;
+    }
+    
+    &__bookmark_active path{
+        fill: red;
+    }
+}

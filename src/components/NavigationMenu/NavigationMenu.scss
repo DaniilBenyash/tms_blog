@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.navigation-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border-bottom: 1px solid $color-background-primary2;
+    width: 1120px;
+    
+    &__nav-item{
+        background-color: $color-light;
+        border: none;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        color: $color-secondary;
+        padding: 0 50px 24px 50px;
+        cursor: pointer;
+    }
+}
