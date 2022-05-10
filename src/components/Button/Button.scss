@@ -1,0 +1,121 @@
+@import "../../styles/variables";
+
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: InterSemiBold, sans-serif;
+    font-size: $font-size-headline-3-desktop;
+    font-weight: 600;
+    line-height: 24px;
+    gap:10px;
+    height: 56px;
+    padding: 16px 32px;
+    border: none;
+    border-radius: 2px;
+    margin-right: 10px;
+
+    &--primary{
+        color: $color-white;
+        background-color: $color-primary;
+        
+        &:hover{
+            background-color: $color-primary2;
+        }
+
+        &:disabled{
+            color: $color-background-primary;
+            background-color: $color-light;
+        }
+    }
+    &--secondary{
+        color: $color-secondary;
+        background-color: $color-light;
+
+        &:hover{
+            background-color: $color-background-primary2;
+        }
+
+        &:disabled{
+            color: $color-background-primary;
+            background-color: $color-light;
+        }
+    }
+
+    &--secondary2{
+        color: $color-error;
+        background-color: $color-white;
+
+        &:hover{
+            border: 1px solid $color-background-primary2;
+        }
+
+        &:disabled{
+            color: $color-background-primary;
+            border: none;
+        }
+    }
+
+    &--with_icon{
+        color: $color-secondary;
+        background-color: $color-light;
+
+        &:hover{
+            color: $color-white;
+            background-color: $color-primary2;
+        }
+
+        &:disabled{
+            color: $color-background-primary;
+            background-color: $color-light;
+        }
+
+        &:hover svg path{
+            fill: $color-white;
+        }
+
+        &:disabled svg path{
+            fill: $color-background-primary;
+        }
+    }
+
+    &--like{
+        background-color: $color-light;
+
+        &:hover{
+            background-color: $color-primary2;
+        }
+
+        &:disabled{
+            background-color: $color-light;
+        }
+
+        &:hover svg path{
+            fill: $color-white;
+        }
+
+        &:disabled svg path{
+            fill: $color-background-primary;
+        }
+    }
+
+    &--dislike{
+        background-color: $color-light;
+
+        &:hover{
+            background-color: $color-error;
+        }
+
+        &:disabled{
+            background-color: $color-light;
+        }
+
+        &:hover svg path{
+            fill: $color-white;
+        }
+
+        &:disabled svg path{
+            fill: $color-background-primary;
+        }
+    }
+}
