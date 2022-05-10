@@ -101,7 +101,7 @@ const Posts = ({posts}: Posts) => {
                 }else if(id < 6){
                     return (
                         <div key={id} className={`post-list__content-item${id+1}`}>
-                            <Card info={post} size='postcardAverage' />
+                            <Card info={post} size='postcardAvarage' />
                         </div>
                     )
                 }else if(id < 11){
