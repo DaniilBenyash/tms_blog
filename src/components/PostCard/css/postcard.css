@@ -16,6 +16,7 @@
     width: 256px;
     height: 244px;
     margin: 0 0 145px 32px;
+    object-fit: cover;
 }
 .post-card__date{
     font-style: normal;

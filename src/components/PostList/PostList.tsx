@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import './PostList.css'
 import { Header } from "../Header/Header";
-import { PostCard } from '../PostCard/PostCard'
+import { PostCard } from '../PostCard/postcard'
 import { Navigator } from "../Navigator/Navigator";
 
 type Post = {
@@ -13,71 +13,80 @@ const postsFormServer: Post[] = [
     { 
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 small.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 mob.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     { 
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 small.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 mob.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     { 
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 small.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 mob.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     { 
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
     {
         postcardName: 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         postcardText: 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
-        img: '../PostCard/img/Rectangle 39 small.png'
+        img: 'https://s3-alpha-sig.figma.com/img/52f9/5dda/fe2406480a136180247e955f197ca67e?Expires=1653264000&Signature=coSRkIouPpoNilpX6Rz4iNoszQRLigQTtnf5fMKqiJ5tuln7TUhyttadx6uL5HxfejWOb1WW4nyLMr~6Cn-Ss-CeP9ykOvBSVrozwbOWAYJ8IUWiq4gEc0IPgF1mJu4iIEzAOxRblB2JnHcZoFTWs8HsKppnT2Nz-EMNQPe2CehTvBnTtUUmZDHXQY8WeNV22MozHmyWssgiI4sX63WhLwgvV0ox-2hypznpv2ZV8XzFnZGOx5HCVxFPZ7cVu63lPERHGlpUPluCRqXf9hLfAYU0i2j9Fhexamal0uMF0qdqxigqNm9CDwCLXV3fFpcZIJlQnTd7BEqbEHJT9jvJ-g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
     },
 ]
+type PostCardClass = {
+    postcard: string,
+    content: string,
+    img?: string,
+    imgAverage?: string,
+    name: string,
+}
 
 type Card = {
     info: Post,
     size: string,
+    className: PostCardClass
 }
-const Card = ({info, size}: Card) => {
+const Card = ({info, size, className}: Card) => {
     return (
         <PostCard 
             size={size} 
             postcardName={info.postcardName}
             postcardText={info.postcardText}
             img={info.img}
+            className={className}
         /> 
     )
 }
@@ -95,19 +104,31 @@ const Posts = ({posts}: Posts) => {
                 if(id === 0){
                     return (
                         <div key={id} className={`post-list__content-item${id+1}`}>
-                            <Card info={post} size='postcard' />
+                            <Card 
+                            info={post} 
+                            size='postcard' 
+                            className={{postcard: 'post-card', content: 'post-card__content', img: 'post-card__img', name: 'post-card__name'}}
+                            />
                         </div>
                     )
-                }else if(id < 6){
+                }else if(id < 5){
                     return (
                         <div key={id} className={`post-list__content-item${id+1}`}>
-                            <Card info={post} size='postcardAvarage' />
+                            <Card 
+                            info={post} 
+                            size='postcardAvarage'
+                            className={{postcard: 'post-card-av', content: 'post-card-av__content', imgAverage: 'post-card-av__img', name: 'post-card-av__name'}}
+                            />
                         </div>
                     )
                 }else if(id < 11){
                     return (
                         <div key={id} className={`post-list__content-item${id+1}`}>
-                            <Card info={post} size='postcardSmall' />
+                            <Card 
+                            info={post} 
+                            size='postcardSmall'
+                            className={{postcard: 'post-card-sm',content: 'post-card-sm__content', img: 'post-card-sm__img', name: 'post-card-sm__name'}}
+                            />
                         </div>
                     )
                 }else{

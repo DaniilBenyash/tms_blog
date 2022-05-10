@@ -3,7 +3,7 @@ import LikePD from './icon/like.svg'
 import DislikePD from './icon/dislike.svg'
 import { ReactComponent as Bookmark } from './icon/bookmark.svg';
 import MorePD from './icon/more.svg'
-import './LineLike.css'
+import './linelike.css'
 
 export const LineLike = () => {
     

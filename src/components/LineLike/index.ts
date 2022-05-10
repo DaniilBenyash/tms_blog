@@ -1,1 +1,1 @@
-export { LineLike } from './LineLike'
+export { LineLike } from './lineLike'
