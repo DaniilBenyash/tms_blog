@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+
+.textarea{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 20px;
+    color: $color-secondary;
+
+    &__form {
+        width: 544px;
+        border: none;
+        font-family: 'Mulish', sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $font-size-subline-1;
+        line-height: 20px;
+        margin-top: 8px;
+        border-radius: 2px;
+        padding: 18px 0 18px 20px;
+    }
+    &__form:focus{
+        outline: 2px solid $color-background-primary2;
+    }
+    &__form:active{
+        border: none;
+    }
+    &__form:disabled{
+        background-color: $color-light;
+        color: $color-background-primary;
+    }
+}
