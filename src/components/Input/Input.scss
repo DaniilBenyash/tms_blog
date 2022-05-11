@@ -31,7 +31,7 @@
 
     &__form:disabled{
         background-color: $color-light;
-        $color-background-primary: #8D8E97;
+        color: $color-background-primary;
     }
 
     &__form_error{

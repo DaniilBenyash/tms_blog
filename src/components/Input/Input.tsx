@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Input.scss'
 
 type InputProps = {
@@ -14,7 +14,10 @@ export const Input = ({label, placeholder, disabled, onChange, value, error}: In
 
     const inputRef = useRef<HTMLInputElement | null>(null)
 
-    inputRef.current?.focus()
+    useEffect(() => {
+        inputRef.current?.focus()
+    })
+    
     
     return (
         <label className='input'>
