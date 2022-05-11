@@ -1,0 +1,121 @@
+@import "../../styles/variables";
+
+.header{
+    width: 100%;
+    height: 84px;
+    background-color: $color-primary;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__left-content{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    &__burger{
+        height: 84px;
+        background-color: $color-primary;
+        border: none;
+        border-right: 1px solid $color-primary2;
+        cursor: pointer;
+        padding: 30px;
+    }
+
+    &__search{
+        width: 100%;
+        background-color: $color-primary2;
+        color: $color-white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__search-input{
+        border: none;
+        padding-left: 32px;
+        width: 100%;
+        height: 82px;
+        background-color: $color-primary2;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        color: $color-white;
+
+        &::placeholder{
+            color: $color-background-primary;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__search-button-close{
+        height: 100%;
+        background-color: $color-primary2;
+        border: none;
+        cursor: pointer;
+        padding: 0 32px 0 32px;
+    }
+
+    &__right-content{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__search-button-open{
+        width: 84px;
+        height: 84px;
+        background-color: $color-primary;
+        border: none;
+        border-left: 1px solid $color-primary2;
+        border-right: 1px solid $color-primary2;
+        cursor: pointer;
+    }
+
+    &__profile{
+        min-width: 84px;
+        height: 84px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: nowrap ;
+    }
+
+    &__profile-name{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        padding: 24px 30px;
+        
+    }
+
+    &__profile-name-text{
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 34px;
+        color: $color-white;
+    }
+    
+    &__profile-name-initials{
+        margin: 0;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 34px;
+        color: $color-white;
+        background: $color-primary2;
+        border-radius: 2px;
+        padding: 5px 10px;
+        margin-right: 16px;
+    }
+}
