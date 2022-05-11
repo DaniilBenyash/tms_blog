@@ -8,34 +8,33 @@ import './LineLike.scss'
 export const LineLike = () => {
     
     const [likeValue, setLikeValue] = useState(0)
-    const [likeBoolValue, setLikeBoolValue] = useState(false)
 
     const [dislikeValue, setDislikeValue] = useState(0)
-    const [dislikeBollValue, setDislikeBoolValue] = useState(false)
-    
+ 
     const [bookValue, setBookValue] = useState(false)
 
-    function addLikeOrDislike(set1: any, set2: any, value1: number, value2: boolean): void{
-        if(!value2){
-            set1(value1 + 1);
-            set2(true);
-        }else{
-            set1(value1 - 1);
-            set2(false);
+    function addLikeOrDislike(set: any, value: any): void{
+        setLikeValue(0)
+        setDislikeValue(0)
+        if(value !== 0) {
+            set(0)
+        }else {
+            set(1)
         }
+        
     }
     return (
         <div className='line-like'>
 
                 <div className='line-like__left-button'>
 
-                    <button onClick={() => {addLikeOrDislike(setLikeValue, setLikeBoolValue, likeValue, likeBoolValue)}} className='line-like__button_style'>
+                    <button onClick={() => {addLikeOrDislike(setLikeValue, likeValue)}} className='line-like__button_style'>
                         <LikePD />
                     </button>
 
                     <p className="line-like__number">{likeValue > 0 && likeValue}</p>
 
-                    <button onClick={() => {addLikeOrDislike(setDislikeValue, setDislikeBoolValue, dislikeValue, dislikeBollValue)}} className='line-like__button_style'>
+                    <button onClick={() => {addLikeOrDislike(setDislikeValue, dislikeValue)}} className='line-like__button_style'>
                         <DislikePD  />
                     </button>
 

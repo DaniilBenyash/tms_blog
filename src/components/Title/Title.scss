@@ -1,40 +1,45 @@
 @import "../../styles/variables";
 
-.post-card-big__name{
-    font-style: normal;
-    font-weight: 700;
-    font-size: $font-size-headline-2-desktop;
-    line-height: 44px;
-    color: $color-secondary;
-    margin-bottom: 24px;
+.title{
 
-    &:hover{
-        cursor: pointer;
-        color: $color-primary;
+    &-big{
+        font-style: normal;
+        font-weight: 700;
+        font-size: $font-size-headline-2-desktop;
+        line-height: 44px;
+        color: $color-secondary;
+        margin-bottom: 24px;
+    
+        &:hover{
+            cursor: pointer;
+            color: $color-primary;
+        }
     }
-}
-.post-card-medium__name{
-    font-style: normal;
-    font-weight: 600;
-    font-size: $font-size-headline-3-desktop;
-    line-height: 28px;
-    color: $color-secondary;
-    margin-bottom: 29px;
 
-    &:hover{
-        cursor: pointer;
-        color: $color-primary;
+    &-medium{
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-headline-3-desktop;
+        line-height: 28px;
+        color: $color-secondary;
+        margin-bottom: 29px;
+    
+        &:hover{
+            cursor: pointer;
+            color: $color-primary;
+        }
     }
-}
-.post-card-small__name{
-    font-style: normal;
-    font-weight: 600;
-    font-size: $font-size-headline-3-desktop;
-    line-height: 28px;
-    color: $color-secondary;
 
-    &:hover{
-        cursor: pointer;
-        color: $color-primary;
+    &-small{
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-headline-3-desktop;
+        line-height: 28px;
+        color: $color-secondary;
+    
+        &:hover{
+            cursor: pointer;
+            color: $color-primary;
+        }
     }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import './postcard.scss'
+import './PostCard.scss'
 import { LineLike } from '../LineLike/LineLike'
 import { Date } from '../Date/Date'
 import { Title } from '../Title/Title'
@@ -9,7 +9,7 @@ type PostCard = {
     content: string,
     img?: string,
     imgMedium?: string,
-    name: string,
+    title: string,
 }
 type PostCardProps = {
     size: string,
@@ -32,7 +32,7 @@ export const PostCard = ({size, postcardName, postcardText, img, className}: Pos
                     
                     < Date date='April 20, 2020'/>
 
-                    < Title className={className.name} title={postcardName}/>
+                    < Title className={className.title} title={postcardName}/>
 
                     {size === 'postcardBig' && <p className='post-card-big__text'>{postcardText}</p>}
                     
