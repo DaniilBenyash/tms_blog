@@ -3,11 +3,15 @@ import { Button } from './components/Button/Button'
 import { ReactComponent as Bookmark } from './components/Button/icon/like.svg'
 import { ReactComponent as Like } from './components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
+import { Login } from './components/Login';
+import { Registration } from './components/Registration';
 
 function App() {
 
   return (
     <div className="App">
+        <Login></Login>
+        <Registration></Registration>
         <Button text='Primary' onClick={() => console.log('Text')} className='button--primary' disabled={false}/>
         <Button text='Secondary' onClick={() => console.log('Text')} className='button--secondary' disabled={false}/>
         <Button text='Secondary 2' onClick={() => console.log('Text')} className='button--secondary2' disabled={false}/>
