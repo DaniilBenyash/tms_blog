@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './Login.scss';
+import { Button } from '../Button/Button'
 
 export const Login = () => {
     
@@ -49,6 +50,8 @@ export const Login = () => {
                             <a href="" className="sign-in__button-forgot">Forgot password?</a>
                         </div>
 
+                            <Button text='Sign In' onClick={() => console.log('Text')} className='button--primary' disabled={false}/>
+                            
                         <p className="sign-in__text">Don't have an account?
                             <a href="" className="sign-in_button-sign-up"> Sign Up</a>
                         </p>

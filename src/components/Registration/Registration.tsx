@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './Registration.scss';
+import { Button } from '../Button/Button';
 
 export const Registration = () => {
     const [valueName, setValueName] = useState()
@@ -86,6 +87,8 @@ export const Registration = () => {
                         <div className="sign-in--pading_16">
                             <a href="" className="sign-in__button-forgot">Forgot password?</a>
                         </div>
+
+                            <Button text='Sign Up' onClick={() => console.log('Text')} className='button--primary' disabled={false}/>
 
                         <p className="sign-in__text">Already have an account?
                             <a href="" className="sign-in_button-sign-up"> Sign Up</a>
