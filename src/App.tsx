@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Link to="/posts">Post</Link>
+        <Link to="/posts">Posts</Link>
         <Link to="/posts/1">Post 1</Link>
-        <Link to="/posts/add">Post 1</Link>
+        <Link to="/posts/add">Add post</Link>
         <Link to="/search">Search</Link>
       </nav>
     </div>
