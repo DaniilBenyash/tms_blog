@@ -46,7 +46,6 @@
         font-weight: 400;
         font-size: $font-size-subline-1;
         line-height: 24px;
-        color: $color-white;
 
         &::placeholder{
             color: $color-background-primary;
@@ -78,44 +77,5 @@
         border-left: 1px solid $color-primary2;
         border-right: 1px solid $color-primary2;
         cursor: pointer;
-    }
-
-    &__profile{
-        min-width: 84px;
-        height: 84px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        white-space: nowrap ;
-    }
-
-    &__profile-name{
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        align-items: center;
-        padding: 24px 30px;
-        
-    }
-
-    &__profile-name-text{
-        font-style: normal;
-        font-weight: 600;
-        font-size: $font-size-subline-1;
-        line-height: 34px;
-        color: $color-white;
-    }
-    
-    &__profile-name-initials{
-        margin: 0;
-        font-style: normal;
-        font-weight: 600;
-        font-size: $font-size-subline-1;
-        line-height: 34px;
-        color: $color-white;
-        background: $color-primary2;
-        border-radius: 2px;
-        padding: 5px 10px;
-        margin-right: 16px;
     }
 }

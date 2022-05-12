@@ -3,14 +3,11 @@ import './Header.scss'
 import { ReactComponent as Burger } from './icon/Burger.svg'
 import { ReactComponent as CloseBurger } from './icon/closeBurger.svg';
 import { ReactComponent as Search } from './icon/search.svg'
-import { ReactComponent as User } from './icon/user.svg'
+import { HeaderName } from "../HeaderName";
 
-type HeaderProps = {
-    firstName?: string,
-    lastName?: string,
-}
+import { BurgerMain } from '../BurgerMain/BurgerMain'
 
-export const Header = ({firstName, lastName}: HeaderProps) => {
+export const Header = () => {
     
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
@@ -21,8 +18,11 @@ export const Header = ({firstName, lastName}: HeaderProps) => {
             <div className="header__left-content">
 
                 <button className="header__burger" onClick={() => {setBurgerValue(burgerValue ? false : true)}}>
-                    {burgerValue ? < CloseBurger /> : < Burger />}
+                    {burgerValue ? < CloseBurger />  : < Burger />}
                 </button>
+
+                {burgerValue && < BurgerMain firstName='Daniil' lastName='Benyash' />}
+                
 
                 {searchValue &&
                      <div className="header__search">
@@ -35,7 +35,6 @@ export const Header = ({firstName, lastName}: HeaderProps) => {
                         
                     </div>
                 }
-                
             </div>
 
             <div className="header__right-content">
@@ -44,16 +43,7 @@ export const Header = ({firstName, lastName}: HeaderProps) => {
                     < Search />
                 </button>
 
-                <div className="header__profile">
-                    {!firstName ? 
-                        < User />
-                        : 
-                        <div className="header__profile-name">
-                            <div className="header__profile-name-initials">{firstName[0]}{lastName && lastName[0]}</div>
-                            <p className="header__profile-name-text">{firstName} {lastName}</p>
-                        </div>
-                    }
-                </div>
+                < HeaderName firstName='Daniil' lastName='Benyash' />
             </div>
             
         </header>
