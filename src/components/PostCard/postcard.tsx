@@ -27,6 +27,8 @@ export const PostCard = ({size, postcardName, postcardText, img, className}: Pos
             <div className={className.content}>
 
                 {size === 'postcardMedium' && <img src={img} alt=""  className={className.imgMedium}/>}
+                
+                {size !== 'postcardMedium' && <img src={img} alt="" className={`post-card__img_display`}/>} 
 
                 <div>
                     

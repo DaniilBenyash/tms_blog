@@ -67,8 +67,6 @@ const postsFormServer: Post[] = [
     },
 ]
 
-
-
 export const PostList = () => {
 
     const [infoPosts, setInfoPosts] = useState<Post[]>([])
@@ -79,7 +77,7 @@ export const PostList = () => {
 
             setInfoPosts(postsFormServer)
 
-        }, 1000)
+        }, 0)
     }, [])
 
     return (
@@ -87,7 +85,7 @@ export const PostList = () => {
             <div className="post-list__section">
 
                 <h1 className="post-list__h1">Blog</h1>
-
+                
                 < NavigationMenu />
 
                 {infoPosts.length === 0 && <p className="post-list__loading">Loading data...</p>}

@@ -4,9 +4,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    border-bottom: 1px solid $color-background-primary2;
     width: 1120px;
-    
+
     &__nav-item{
         background-color: $color-light;
         border: none;
@@ -17,5 +16,19 @@
         color: $color-secondary;
         padding: 0 50px 24px 50px;
         cursor: pointer;
+        white-space: nowrap ;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .navigation-menu{  
+        width: 100%;
+    }
+}
+@media screen and (max-width: 500px) {
+    .navigation-menu{
+        overflow: scroll;
+        position: absolute;
+        top: 250px;
+        left: 0;
     }
 }

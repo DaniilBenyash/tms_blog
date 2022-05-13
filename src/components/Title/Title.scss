@@ -43,3 +43,25 @@
         }
     }
 }
+@media screen and (max-width: 1250px) {
+    .title{
+
+        &-big{
+            font-style: normal;
+            font-weight: 600;
+            font-size: $font-size-headline-3-desktop;
+            line-height: 28px;
+            color: $color-secondary;
+            margin-bottom: 29px;
+        }
+
+        &-small{
+            font-style: normal;
+            font-weight: 600;
+            font-size: $font-size-headline-3-desktop;
+            line-height: 28px;
+            color: $color-secondary;
+            margin-bottom: 29px;
+        }
+    }
+}
