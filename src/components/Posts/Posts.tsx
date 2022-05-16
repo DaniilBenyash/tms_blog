@@ -16,11 +16,11 @@ export const Posts = ({posts}: Posts) => {
         
         <div className="post-list__content">
 
-            {posts.map((post, id) => {
+            {posts.map((post, index) => {
 
-                if(id === 0){
+                if(index === 0){
                     return (
-                        <div key={id} className={`post-list__content-item${id+1}`}>
+                        <div key={index} className={`post-list__content-item${index+1}`}>
                             <Card 
                             info={post} 
                             size='postcardBig' 
@@ -28,9 +28,9 @@ export const Posts = ({posts}: Posts) => {
                             />
                         </div>
                     )
-                }else if(id < 5){
+                }else if(index < 5){
                     return (
-                        <div key={id} className={`post-list__content-item${id+1}`}>
+                        <div key={index} className={`post-list__content-item${index+1}`}>
                             <Card 
                             info={post} 
                             size='postcardMedium'
@@ -38,9 +38,9 @@ export const Posts = ({posts}: Posts) => {
                             />
                         </div>
                     )
-                }else if(id < 11){
+                }else if(index < 11){
                     return (
-                        <div key={id} className={`post-list__content-item${id+1}`}>
+                        <div key={index} className={`post-list__content-item${index+1}`}>
                             <Card 
                             info={post} 
                             size='postcardSmall'
