@@ -9,7 +9,7 @@ export const Navigator = () => {
         <div className="navigator">
 
             <button className="navigator__pointer">
-                <Left />
+                <Left/>
                 <p className="navigator__pointer-text">Prev</p>
             </button>
 
@@ -24,7 +24,7 @@ export const Navigator = () => {
                     3
                 </button>
                 <button className="navigator__number-item">
-                    <Next />
+                    <Next/>
                 </button>
                 <button className="navigator__number-item">
                     6
@@ -33,7 +33,7 @@ export const Navigator = () => {
 
             <button className="navigator__pointer">
                 <p className="navigator__pointer-text">Next</p>
-                <Right />
+                <Right/>
             </button>
         </div>
     )

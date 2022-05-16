@@ -14,8 +14,14 @@ export const HeaderName = ({firstName, lastName}: HeaderNameProps) => {
                 < User />
                 : 
                 <div className="header-name__profile">
-                    <div className="header-name__initials">{firstName[0]}{lastName && lastName[0]}</div>
-                    <p className="header-name__name">{firstName} {lastName}</p>
+                    <div className="header-name__initials">
+                        {firstName[0]}
+                        {lastName && lastName[0]}
+                    </div>
+                    <p className="header-name__name">
+                        {firstName}
+                        {lastName}
+                    </p>
                 </div>
             }
         </div>
