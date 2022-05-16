@@ -5,6 +5,7 @@
     flex-direction: row;
     justify-content: flex-start;
     width: 1120px;
+    border-bottom: 1px solid $color-background-primary2;
 
     &__nav-item{
         background-color: $color-light;
