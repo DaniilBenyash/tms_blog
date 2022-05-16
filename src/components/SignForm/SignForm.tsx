@@ -40,8 +40,8 @@ export const SignForm = ({inputs, forgot, button, sign}: SignFormProps) => {
 
                 {sign === 'in'
                 &&
-                <p className="sign-in-registration__text">Already have an account?
-                    <a href="" className="sign-in-registration_button-sign-in"> Sign In</a>
+                <p className="sign-form__text">Already have an account?
+                    <a href="" className="sign-form_button-sign-up"> Sign In</a>
                 </p>}  
 
             </div>

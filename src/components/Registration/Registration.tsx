@@ -110,7 +110,7 @@ export const Registration = () => {
                             disabled={false}
                         />
                     }
-                    sign='up'
+                    sign='in'
                 />
             </div>
         </div>
