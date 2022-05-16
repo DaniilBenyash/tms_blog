@@ -38,3 +38,8 @@
         color: $color-white;
     }
 }
+@media screen and (max-width: 600px) {
+    .header-name{
+        display: none;
+    }
+}
