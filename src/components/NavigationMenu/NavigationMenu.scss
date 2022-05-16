@@ -19,6 +19,9 @@
         cursor: pointer;
         white-space: nowrap ;
     }
+    &__nav-item--border{
+        border-bottom: 2px solid $color-secondary;
+    }
 }
 @media screen and (max-width: 1250px) {
     .navigation-menu{  
