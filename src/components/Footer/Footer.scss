@@ -13,3 +13,13 @@
     line-height: 24px;
     padding: 33px 0;
 }
+@media screen and (max-width: 600px) {
+    .footer{
+        flex-direction: column;
+        align-items: center;
+        
+        &--padding-24{
+            padding-bottom: 24px;
+        }
+    }
+}

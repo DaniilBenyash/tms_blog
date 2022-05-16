@@ -4,7 +4,10 @@ import './Footer.scss'
 export const Footer = () => {
     return (
         <footer className="footer">
-            <p>2022 Blogofolio</p>
+            <div className="footer--padding-24">
+                <p>2022 Blogofolio</p>
+            </div>
+            
             <p>All rights reserved</p>
         </footer>
     )
