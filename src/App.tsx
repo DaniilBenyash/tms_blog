@@ -8,14 +8,16 @@ import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
 import { Login } from './components/Login';
 import { Registration } from './components/Registration';
 
+
 function App() {
 
-  return (
-    <div className="App">
-        {/* <Login></Login> */}
-        <Registration></Registration>
-    </div>
-  );
+    return (
+        <div className="App">
+            
+            <Login></Login>
+            <Registration></Registration>
+        </div>
+    );
 }
 
 export default App;

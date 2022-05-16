@@ -11,112 +11,13 @@
     &__section{
         width: 1120px;
     }
-
-    &__button-back{
-        color: $color-secondary;
-        font-style: normal;
-        font-weight: 400;
-        font-size: $font-size-subline-1;
-        line-height: 24px;
-        text-decoration: none;
-        margin-bottom: 32px;
-    }
-
-    &__button-back:visited{
-        color: $color-secondary;
-        text-decoration: none;
-    }
-
-    &__name{
-        font-style: normal;
-        font-weight: 700;
-        font-size: $font-size-headline-1-desktop;
-        line-height: 80px;
-        color: $color-secondary;
-        margin-bottom:72px;
-    }
 }
 
-.sign-in-registration{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 152px;
-
-    &__window{
-        padding: 40px;
-        border: 1px solid $color-background-primary2;
-        width: 600px;
-    }
-
-    &--pading_20{
-        padding-top: 20px;
-    }
-
-    &--pading_16{
-        padding: 16px 0;
-    }
-
-    &--padding_48{
-        padding: 48px 0 24px;
-    }
-
-    &__button-forgot{
-        color: $color-secondary;
-        font-style: normal;
-        font-weight: 400;
-        font-size: $font-size-subline-1;
-        line-height: 20px;
-        text-decoration: none;
-    }
-
-    &__text{
-        text-align: center;
-        color: $color-background-primary;
-        font-style: normal;
-        font-weight: 500;
-        font-size: $font-size-subline-1;
-        line-height: 20px;
-    }
-
-    &_button-sign-in{
-        color: $color-primary;
-        text-decoration: none;
-        font-style: normal;
-        font-weight: 500;
-        font-size: $font-size-subline-1;
-        line-height: 20px;
-    }
-}
 @media screen and (max-width: 1200px) {
     .registration{
 
         &__section{
             width: max-content;
-        }
-
-        &__name{
-            margin-bottom: 56px;
-        }
-    }
-}
-@media screen and (max-width: 700px) {
-    .registration{
-
-        &__button-back{
-            margin-bottom: 28px;
-        }
-
-        &__name{
-            font-size: $font-size-headline-1-mobile;
-            margin-bottom: 48px;
-        }
-    }
-    .sign-in-registration{
-
-        &__window{
-            padding: 24px;
-            width: 100vw - 20vw;
         }
     }
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './Login.scss';
 import { Button } from '../Button/Button'
 import { Input } from "../Input";
+import { SignForm } from '../SignForm/SignForm'
+import { NamePage } from "../NamePage/NamePage";
 
 export const Login = () => {
     
@@ -35,10 +37,9 @@ export const Login = () => {
     return (
         <div className="login">
             <div className="login__section">
-                <a href="" className="login__button-back">Back to home</a>
-                <h1 className="login__name">Sign In</h1>
-                <section className="sign-in-login">
-                    <div className="sign-in-login__window">
+                <NamePage namePage="Sign In"/>
+                <SignForm
+                    inputs={[
                         <Input 
                             label='Email'
                             placeholder='Your email'
@@ -46,31 +47,27 @@ export const Login = () => {
                             onChange={changeInputEmail}
                             value={valueEmail}
                             error={errorEmail}
+                        />,
+                        <Input 
+                            label='Password'
+                            placeholder='Your password'
+                            disabled={false}
+                            onChange={changeInputPassword}
+                            value={valuePassword}
+                            error={errorPassword}
                         />
-                        <div className="sign-in-login--pading_20">
-                            <Input 
-                                label='Password'
-                                placeholder='Your password'
-                                disabled={false}
-                                onChange={changeInputPassword}
-                                value={valuePassword}
-                                error={errorPassword}
-                            />
-                        </div>
-                        <div className="sign-in-login--pading_16">
-                            <a href="" className="sign-in-login__button-forgot">Forgot password?</a>
-                        </div>
-                            <Button 
-                                text='Sign In' 
-                                onClick={() => console.log('Text')} 
-                                className='button--primary' 
-                                disabled={false}
-                            />            
-                        <p className="sign-in-login__text">Don't have an account?
-                            <a href="" className="sign-in-login_button-sign-up"> Sign Up</a>
-                        </p>
-                    </div>
-                </section>
+                    ]}
+                    forgot={true}
+                    button={
+                        <Button 
+                            text='Sign In' 
+                            onClick={() => console.log('Text')} 
+                            className='button--primary' 
+                            disabled={false}
+                        /> 
+                    }
+                    sign='up'
+                />
             </div>
         </div>
     )

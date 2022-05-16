@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import './Registration.scss';
 import { Button } from '../Button/Button';
 import { Input } from "../Input";
+import { SignForm } from '../SignForm/SignForm'
+import { NamePage } from "../NamePage/NamePage";
 
 export const Registration = () => {
     const [valueName, setValueName] = useState()
@@ -63,10 +65,9 @@ export const Registration = () => {
     return (
         <div className="registration">
             <div className="registration__section">
-                <a href="" className="registration__button-back">Back to home</a>
-                <h1 className="registration__name">Sign Up</h1>
-                <section className="sign-in-registration">
-                    <div className="sign-in-registration__window">
+            <NamePage namePage="Sign Up"/>
+                <SignForm
+                    inputs={[
                         <Input 
                             label='Name'
                             placeholder='Your name'
@@ -74,50 +75,43 @@ export const Registration = () => {
                             onChange={changeInputName}
                             value={valueName}
                             error={errorName}
+                        />,
+                        <Input 
+                            label='Email'
+                            placeholder='Your email'
+                            disabled={false}
+                            onChange={changeInputEmail}
+                            value={valueEmail}
+                            error={errorEmail}
+                            />,
+                        <Input 
+                            label='Password'
+                            placeholder='Your password'
+                            disabled={false}
+                            onChange={changeInputPassword}
+                            value={valuePassword}
+                            error={errorPassword}
+                        />,
+                        <Input 
+                            label='Confirm Password'
+                            placeholder='Confirm Password'
+                            disabled={false}
+                            onChange={changeInputConfirmPassword}
+                            value={valueConfirmPassword}
+                            error={errorConfirmPassword}
                         />
-                        <div className="sign-in-registration--pading_20">
-                            <Input 
-                                label='Email'
-                                placeholder='Your email'
-                                disabled={false}
-                                onChange={changeInputEmail}
-                                value={valueEmail}
-                                error={errorEmail}
-                            />
-                        </div>
-                        <div className="sign-in-registration--pading_20">
-                            <Input 
-                                label='Password'
-                                placeholder='Your password'
-                                disabled={false}
-                                onChange={changeInputPassword}
-                                value={valuePassword}
-                                error={errorPassword}
-                            />
-                        </div>
-                        <div className="sign-in-registration--pading_20">
-                            <Input 
-                                label='Confirm Password'
-                                placeholder='Confirm Password'
-                                disabled={false}
-                                onChange={changeInputConfirmPassword}
-                                value={valueConfirmPassword}
-                                error={errorConfirmPassword}
-                            />
-                        </div>
-                        <div className="sign-in-registration--padding_48">
-                            <Button 
-                                text='Sign Up' 
-                                onClick={() => console.log('Text')} 
-                                className='button--primary' 
-                                disabled={false}
-                            />
-                        </div>
-                        <p className="sign-in-registration__text">Already have an account?
-                            <a href="" className="sign-in-registration_button-sign-in"> Sign In</a>
-                        </p>
-                    </div>
-                </section>
+                    ]}
+                    forgot={false}
+                    button={
+                        <Button 
+                            text='Sign Up' 
+                            onClick={() => console.log('Text')} 
+                            className='button--primary' 
+                            disabled={false}
+                        />
+                    }
+                    sign='up'
+                />
             </div>
         </div>
     )
