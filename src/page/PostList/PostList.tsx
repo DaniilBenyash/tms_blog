@@ -1,8 +1,8 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import './PostList.scss'
-import { PostCard } from '../PostCard/PostCard'
-import { NavigationMenu } from '../NavigationMenu/NavigationMenu'
-import { Posts } from '../Posts/Posts'
+import { PostCard } from '../../components/PostCard/PostCard'
+import { NavigationMenu } from '../../components/NavigationMenu/NavigationMenu'
+import { Posts } from '../../components/Posts/Posts'
 
 type Post = {
     postcardName: string,
