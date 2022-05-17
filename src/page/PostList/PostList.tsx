@@ -3,6 +3,11 @@ import './PostList.scss'
 import { PostCard } from '../../components/PostCard/PostCard'
 import { NavigationMenu } from '../../components/NavigationMenu/NavigationMenu'
 import { Posts } from '../../components/Posts/Posts'
+import { setTab } from '../../redux/reducers/tab';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { MyFavorites } from '../MyFavorites/MyFavorities'
+import { Popular } from '../Popular/Popular'
+
 
 type Post = {
     postcardName: string,
@@ -67,6 +72,8 @@ const postsFormServer: Post[] = [
     },
 ]
 
+
+
 export const PostList = () => {
 
     const [infoPosts, setInfoPosts] = useState<Post[]>([])
@@ -80,6 +87,8 @@ export const PostList = () => {
         }, 0)
     }, [])
 
+    const tab = useAppSelector(state => state.tab.value);
+
     return (
         <div className="post-list">
             <div className="post-list__section">
@@ -88,10 +97,21 @@ export const PostList = () => {
                 
                 < NavigationMenu />
 
-                {infoPosts.length === 0 && <p className="post-list__loading">Loading data...</p>}
+                {tab === 'all' 
+                && 
+                    (infoPosts.length === 0 
+                    ? 
+                    <p className="post-list__loading">Loading data...</p> 
+                    : 
+                    < Posts posts={infoPosts}/>)}
 
-                < Posts posts={infoPosts}/>
+                {tab === 'favorites'
+                &&
+                <MyFavorites/>}
 
+                {tab === 'popular'
+                &&
+                <Popular/>}
             </div>
         </div>
     )

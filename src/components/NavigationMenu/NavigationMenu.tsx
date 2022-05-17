@@ -18,8 +18,8 @@ export const NavigationMenu = () => {
                 All
             </button>
             <button 
-                className={`navigation-menu__nav-item ${tab === 'favorite' && 'navigation-menu__nav-item--border' }`} 
-                onClick={() => toggleTab('favorite')}
+                className={`navigation-menu__nav-item ${tab === 'favorites' && 'navigation-menu__nav-item--border' }`} 
+                onClick={() => toggleTab('favorites')}
             >
                 My favorites
             </button>
