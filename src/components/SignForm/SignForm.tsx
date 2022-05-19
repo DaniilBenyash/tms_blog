@@ -1,17 +1,18 @@
 import React, { ReactElement } from "react";
 import './SignForm.scss'
+import { Button } from '../Button/Button'
 
 type SignFormProps = {
     inputs: ReactElement[],
     forgot: boolean,
-    button: ReactElement,
+    buttonName: string,
     sign?: string,
 }
-export const SignForm = ({inputs, forgot, button, sign}: SignFormProps) => {
+export const SignForm = ({inputs, forgot, buttonName, sign}: SignFormProps) => {
 
     return (
         <section className="sign-form">
-            <div className="sign-form__window">
+            <form className="sign-form__window">
 
                 {inputs.map((input, index) => {
                     return (
@@ -28,7 +29,12 @@ export const SignForm = ({inputs, forgot, button, sign}: SignFormProps) => {
                 </div>}
                 
                 <div className="sign-form--padding_48">
-                    {button}
+                    <Button 
+                        text={buttonName}
+                        type='submit'
+                        className='button--primary' 
+                        disabled={false}
+                    />
                 </div>
                 
 
@@ -44,7 +50,7 @@ export const SignForm = ({inputs, forgot, button, sign}: SignFormProps) => {
                     <a href="" className="sign-form_button-sign-up"> Sign In</a>
                 </p>}  
 
-            </div>
+            </form>
         </section>
     )
 }

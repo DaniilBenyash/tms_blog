@@ -3,16 +3,17 @@ import './Button.scss'
 
 type ButtonProps = {
     text?: string,
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+    type?: "button" | "submit" | "reset" | undefined
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
     className: string,
     disabled: boolean,
     icon?: ReactElement
 }
  
-export const Button = ({onClick, text, className, disabled, icon}: ButtonProps) => {
+export const Button = ({onClick, type, text, className, disabled, icon}: ButtonProps) => {
     return (
         <button 
-            type='button' 
+            type={!type ? 'button' : type} 
             onClick={onClick} 
             className={`${className} button`} 
             disabled={disabled}>

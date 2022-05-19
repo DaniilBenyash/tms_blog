@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, forwardRef } from "react";
 import './Login.scss';
 import { Button } from '../Button/Button'
 import { Input } from "../Input";
@@ -14,11 +14,14 @@ export const Login = () => {
 
         setValueEmail(event.target.value)
 
-        if(event.target.value.length > 5){
-            setErrorEmail('error')
-            }else{
-                setErrorEmail('')
-            }
+        // var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+        // if(reg.test(event.target.value)){
+        //     setErrorEmail('error')
+        //     }else{
+        //         setErrorEmail('')
+        //     }
+        
     }
     const [valuePassword, setValuePassword] = useState()
     const [errorPassword, setErrorPassword] = useState('')
@@ -26,14 +29,14 @@ export const Login = () => {
     const changeInputPassword = (event: any): void => {
 
         setValuePassword(event.target.value)
-
+    
         if(event.target.value.length > 5){
             setErrorPassword('error')
             }else{
                 setErrorPassword('')
             }
     }
-
+    
     return (
         <div className="login">
             <div className="login__section">
@@ -58,14 +61,7 @@ export const Login = () => {
                         />
                     ]}
                     forgot={true}
-                    button={
-                        <Button 
-                            text='Sign In' 
-                            onClick={() => console.log('Text')} 
-                            className='button--primary' 
-                            disabled={false}
-                        /> 
-                    }
+                    buttonName='Sign In'
                     sign='up'
                 />
             </div>

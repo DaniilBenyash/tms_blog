@@ -8,16 +8,10 @@ type InputProps = {
     onChange: (event: any) => void,
     value: any,
     error: any,
+    ref?: any,
 }
 
-export const Input = ({label, placeholder, disabled, onChange, value, error}: InputProps) => {
-
-    const inputRef = useRef<HTMLInputElement | null>(null)
-
-    useEffect(() => {
-        inputRef.current?.focus()
-    })
-    
+export const Input = ({label, placeholder, disabled, onChange, value, error, ref}: InputProps) => {
     
     return (
         <label className='input'>
@@ -26,7 +20,7 @@ export const Input = ({label, placeholder, disabled, onChange, value, error}: In
 
             <input 
                 type='input' 
-                ref={inputRef}
+                ref={ref}
                 className={`${error && 'input__form_error'} input__form`}
                 placeholder={placeholder} 
                 disabled={disabled} 

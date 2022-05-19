@@ -102,14 +102,7 @@ export const Registration = () => {
                         />
                     ]}
                     forgot={false}
-                    button={
-                        <Button 
-                            text='Sign Up' 
-                            onClick={() => console.log('Text')} 
-                            className='button--primary' 
-                            disabled={false}
-                        />
-                    }
+                    buttonName='Sign Up'
                     sign='in'
                 />
             </div>
