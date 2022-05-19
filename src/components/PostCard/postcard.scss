@@ -28,6 +28,10 @@
         font-size: $font-size-subline-1;
         line-height: 28px;
         color: $color-background-primary;
+        width: 448px;
+        height: 168px;
+        word-wrap: break-word;
+        overflow: hidden;
     }
 }
 .post-card-medium{

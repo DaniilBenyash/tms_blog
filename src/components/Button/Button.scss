@@ -118,12 +118,14 @@
             fill: $color-background-primary;
         }
     }
-    
+
     &--line-like{
         cursor: pointer;
         background-color: $color-light;
         border: none;
         padding: 0px;
+        margin: 0;
+        height: 26px;
 
         &-margin{
             margin-right: 30px;
