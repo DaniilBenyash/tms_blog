@@ -7,7 +7,6 @@ export const Footer = () => {
             <div className="footer--padding-24">
                 <p>2022 Blogofolio</p>
             </div>
-            
             <p>All rights reserved</p>
         </footer>
     )

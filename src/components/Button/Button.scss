@@ -146,8 +146,15 @@
         border-right: 1px solid $color-light;
     }
 
-    &--black-theme-false svg path{
-        fill: $color-background-primary;
+    &--dark-theme{
+
+        &-true svg path{
+            fill: $color-white;
+        }
+
+        &-false svg path{
+            fill: $color-background-primary;
+        }
     }
 
     &--login-button{

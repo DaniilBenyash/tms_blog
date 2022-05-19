@@ -4,6 +4,8 @@ import { ReactComponent as Sun } from "./icon/sun.svg";
 import { ReactComponent as Moon } from "./icon/moon.svg";
 import { HeaderName } from "../HeaderName/HeaderName";
 import { Button } from '../Button/Button'
+import { setDarkTheme } from '../../redux/reducers/darkTheme'
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 type BurgerMainProps = {
     firstName?: string,
@@ -12,14 +14,14 @@ type BurgerMainProps = {
 
 export const BurgerMain = ({firstName, lastName}: BurgerMainProps) => {
 
-    const [blackThemeValue, setBlackThemeValue] = useState(false);
+    const darkTheme = useAppSelector(state => state.darkTheme.value)
+    const dispatch = useAppDispatch()
 
-    const switchBlackTheme = (boolean: boolean): void => {
-        setBlackThemeValue(boolean)
-    }  
+    const toggleDarkTheme = (newTheme: boolean) => dispatch(setDarkTheme(newTheme))
+    
 
     return (
-        <div className={`burger-main ${blackThemeValue && "burger-main--black-theme"}`}>
+        <div className={`burger-main ${darkTheme && "burger-main--dark-theme"}`}>
             <div>
                 <HeaderName 
                     firstName={firstName} 
@@ -42,14 +44,14 @@ export const BurgerMain = ({firstName, lastName}: BurgerMainProps) => {
                 <div className="burger-main__theme">
                     <Button 
                         icon={<Sun/>} 
-                        onClick={() => switchBlackTheme(false)} 
-                        className={`button--theme button--style-burger-main ${blackThemeValue && 'burger-main--black-theme-true'}`}
+                        onClick={() => toggleDarkTheme(false)} 
+                        className={`button--theme button--style-burger-main ${darkTheme && 'button--dark-theme-false'}`}
                         disabled={false}
                     />
                     <Button 
                         icon={<Moon/>} 
-                        onClick={() => switchBlackTheme(true)} 
-                        className={`button--style-burger-main ${!blackThemeValue && 'button--black-theme-false'}`}
+                        onClick={() => toggleDarkTheme(true)} 
+                        className={`button--style-burger-main ${darkTheme ? 'button--dark-theme-true' : 'button--dark-theme-false'}`}
                         disabled={false}
                     />
                 </div>

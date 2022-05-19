@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import './Header.scss'
-import { ReactComponent as Burger } from './icon/Burger.svg'
+import './Header.scss';
+import { ReactComponent as Burger } from './icon/Burger.svg';
 import { ReactComponent as CloseBurger } from './icon/closeBurger.svg';
-import { ReactComponent as Search } from './icon/search.svg'
+import { ReactComponent as Search } from './icon/search.svg';
 import { HeaderName } from "../HeaderName";
-import { Button } from '../Button/Button'
-import { BurgerMain } from '../BurgerMain/BurgerMain'
+import { Button } from '../Button/Button';
+import { BurgerMain } from '../BurgerMain/BurgerMain';
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 export const Header = () => {
-    
+
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
     
