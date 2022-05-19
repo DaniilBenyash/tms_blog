@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './PostCard.scss'
+import './PostCardd.scss'
 import { LineLike } from '../LineLike/LineLike'
 import { Date } from '../Date/Date'
 import { Title } from '../Title/Title'
