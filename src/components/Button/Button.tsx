@@ -3,7 +3,7 @@ import './Button.scss'
 
 type ButtonProps = {
     text?: string,
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
     className: string,
     disabled: boolean,
     icon?: ReactElement

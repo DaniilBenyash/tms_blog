@@ -3,9 +3,13 @@ import { Card } from '../Card/Card'
 
 
 type Post = {
-    postcardName: string,
-    postcardText: string,
-    img: string,
+    id?: number,
+    image?: string,
+    text?: string,
+    date: string
+    lesson_num?: number,
+    title: string
+    author?: number
 }
 
 type Posts = {
@@ -17,7 +21,7 @@ export const Posts = ({posts}: Posts) => {
         <div className="post-list__content">
 
             {posts.map((post, index) => {
-
+                
                 if(index === 0){
                     return (
                         <div key={index} className={`post-list__content-item${index+1}`}>

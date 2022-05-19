@@ -1,10 +1,14 @@
 import React from "react";
-import { PostCard } from '../PostCard/PostCard'
+import { PostCard } from '../PostCard/PostCardd'
 
 type Post = {
-    postcardName: string,
-    postcardText: string,
-    img: string,
+    id?: number,
+    image?: string,
+    text?: string,
+    date: string
+    lesson_num?: number,
+    title: string
+    author?: number
 }
 
 type PostCardClass = {
@@ -24,10 +28,14 @@ type Card = {
 export const Card = ({info, size, className}: Card) => {
     return (
         <PostCard 
-            size={size} 
-            postcardName={info.postcardName}
-            postcardText={info.postcardText}
-            img={info.img}
+            id={info.id}
+            image={info.image}
+            text={info.text}
+            date={info.date}
+            lesson_num={info.lesson_num}
+            title={info.title}
+            author={info.author}
+            size={size}
             className={className}
         /> 
     )

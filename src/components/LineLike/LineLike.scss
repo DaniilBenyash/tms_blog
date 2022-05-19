@@ -11,12 +11,6 @@
         flex-direction: row;
         align-items: center;
     }
-    
-    &__button_style{
-        cursor: pointer;
-        background-color: $color-light;
-        border: none
-    }
 
     &__number{
         font-style: normal;
@@ -31,10 +25,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-    }
-
-    &__bookmark_margin{
-        margin-right: 30px;
     }
     
     &__bookmark_active path{
