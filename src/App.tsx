@@ -3,7 +3,7 @@ import { Button } from './components/Button/Button'
 import { ReactComponent as Bookmark } from './components/Button/icon/like.svg'
 import { ReactComponent as Like } from './components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
-import { setTheme } from './redux/reducers/theme'
+import { setTheme } from './features/theme/themeSlice'
 import { useAppSelector, useAppDispatch } from './redux/hooks';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     const newTheme = theme === 'dark' ? 'light' : 'dark'
     dispatch(setTheme(newTheme))
   }
+
   return (
     <div className={`App theme--${theme}`}>
         <Button text='Primary' onClick={toggleTheme} className='button--primary' disabled={false}/>
