@@ -1,27 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from './components/Button/Button'
 import { ReactComponent as Bookmark } from './components/Button/icon/like.svg'
 import { ReactComponent as Like } from './components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
-import { setTheme } from './features/theme/themeSlice'
-import { useAppSelector, useAppDispatch } from './redux/hooks';
+import { useTheme } from './features/theme/useTheme'
+import { usePosts } from './features/posts/usePosts'
 
 function App() {
 
-  const theme = useAppSelector(state => state.theme.value)
-  const dispatch = useAppDispatch()
+  const { theme, toggleTheme } = useTheme();
 
-  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event.target)
-  }
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark'
-    dispatch(setTheme(newTheme))
-  }
+  const { posts, onLikePost, onDislikePost } = usePosts()
 
   return (
     <div className={`App theme--${theme}`}>
+        {posts?.map(post => {
+          return (
+            <div key={post.id}>
+                <p>{post.text}</p>
+                <span>{post.like}</span>
+                <button onClick={() => onLikePost(post.id)}>Like</button>
+                <button onClick={() => onDislikePost(post.id)}>Dislike</button>
+            </div>
+          )
+          })}
         <Button text='Primary' onClick={toggleTheme} className='button--primary' disabled={false}/>
         <Button text='Secondary' onClick={() => console.log('Text')} className='button--secondary' disabled={false}/>
         <Button text='Secondary 2' onClick={() => console.log('Text')} className='button--secondary2' disabled={false}/>
