@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import darkThemeReducer from './reducers/darkTheme'
+import themeReducer from '../features/Theme/ThemeSlice'
 
 export const store = configureStore({
     reducer: {
-        darkTheme: darkThemeReducer,
+        theme: themeReducer,
     },
 })
  
