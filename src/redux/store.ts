@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import tabReducer from './reducers/tab'
+import tabReducer from '../features/Tab/tabSlice'
+import { postsReducer } from '../features/posts'
 
 export const store = configureStore({
   reducer: {
     tab: tabReducer,
+    posts: postsReducer,
   },
 })
 

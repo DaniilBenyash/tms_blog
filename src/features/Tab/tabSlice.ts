@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface TabState {
+interface ITabState {
     value: string
 }
 
-
-const initialState: TabState = {
+const initialState: ITabState = {
     value: 'all',
 }
 

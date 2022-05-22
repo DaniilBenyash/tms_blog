@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import './NavigationMenu.scss';
-import { setTab } from '../../redux/reducers/tab';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { useTab } from '../../features/Tab/useTab'
 
 export const NavigationMenu = () => {
-    const tab = useAppSelector(state => state.tab.value);
-    const dispatch = useAppDispatch();
-
-    const toggleTab = (newTab: string) => dispatch(setTab(newTab))
+    
+    const { tab, toggleTab } = useTab();
 
     return (
         <div className="navigation-menu">
