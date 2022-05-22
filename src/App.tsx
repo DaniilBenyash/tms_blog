@@ -18,7 +18,7 @@ function App() {
           return (
             <div key={post.id}>
                 <p>{post.text}</p>
-                <span>{post.like}</span>
+                <span>{String(post.like)}</span>
                 <button onClick={() => onLikePost(post.id)}>Like</button>
                 <button onClick={() => onDislikePost(post.id)}>Dislike</button>
             </div>
