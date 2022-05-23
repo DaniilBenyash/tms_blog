@@ -9,7 +9,9 @@ export const usePosts = () => {
     const dispatch = useAppDispatch()
     
     useEffect(() => {
-        dispatch(fetchPosts(postsData))
+        if(!posts){
+            dispatch(fetchPosts(postsData))
+        }
     }, [])
     
     const onLikePost = (id: number) => {

@@ -12,8 +12,6 @@ export const MyFavorites = () => {
             {posts?.map(post => {
                 return (
                     <div key={post.id}>
-                        <button onClick={() => onFavoritePost(post.id)}>{post.id}</button>
-                        
                         {post.favorite
                         &&
                         <div>
@@ -22,14 +20,11 @@ export const MyFavorites = () => {
                                 size='postcardMedium'
                                 className={{postcard: 'post-card-medium', content: 'post-card-medium__content', imgMedium: 'post-card-medium__img', title: 'title-medium'}}
                             />
-                        </div>
-                        
+                        </div>                       
                         }
                     </div>
                 )
             })}
-
-        </div>
-        
+        </div>    
     )
 }
