@@ -1,2 +1,2 @@
 export { useAuth } from './useAuth';
-export { default as authReducer, singUp, authSlice } from './authSlice';
+export { default as authReducer, signUp, authSlice } from './authSlice';

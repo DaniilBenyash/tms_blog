@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { singUp, singUpFailure, singUpSuccess } from "./authSlice";
+import { signUp, signUpFailure, signUpSuccess } from "./authSlice";
 
 
 export const useAuth = () => {

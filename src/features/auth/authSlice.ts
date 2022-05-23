@@ -26,25 +26,24 @@ export const authSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        singUp: state => {
+        signUp: state => {
             if(state.isLoading === 'idle'){
                 state.isLoading = 'pending'
             }
         }, 
-        singUpSuccess: (state, action: PayloadAction<User>) => {
+        signUpSuccess: (state, action: PayloadAction<User>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.user = action.payload
             }
         },
-        singUpFailure: (state, action: PayloadAction<string>) => {
+        signUpFailure: (state, action: PayloadAction<string>) => {
             state.isLoading = 'idle'
             state.error = action.payload
         },
     },
 })
 
-export const { singUp, singUpFailure, singUpSuccess } = authSlice.actions
+export const { signUp, signUpFailure, signUpSuccess } = authSlice.actions
 
 export default authSlice.reducer
-
