@@ -2,6 +2,14 @@
 
 .title{
 
+    &-post{
+        font-size: $font-size-headline-1-desktop;
+        font-style: bold;
+        color: $color-secondary;
+        line-height: 80px;
+        text-align: left;
+    }
+
     &-big{
         font-style: normal;
         font-weight: 700;
