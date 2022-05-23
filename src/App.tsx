@@ -5,6 +5,7 @@ import { ReactComponent as Like } from './components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
 import { useTheme } from './features/theme/useTheme'
 import { usePosts } from './features/posts/usePosts'
+import { Registration } from './components/Registration/Registration'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
 
   return (
     <div className={`App theme--${theme}`}>
-        {posts?.map(post => {
+      <Registration/>
+        {/* {posts?.map(post => {
           return (
             <div key={post.id}>
                 <p>{post.text}</p>
@@ -23,7 +25,7 @@ function App() {
                 <button onClick={() => onDislikePost(post.id)}>Dislike</button>
             </div>
           )
-          })}
+          })} */}
     </div>
   );
 }
