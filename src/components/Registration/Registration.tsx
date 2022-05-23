@@ -4,6 +4,8 @@ import { Button } from '../Button/Button';
 import { Input } from "../Input";
 import { SignForm } from '../SignForm/SignForm'
 import { NamePage } from "../NamePage/NamePage";
+import { useAppDispatch} from '../../redux/hooks'
+import { signUp} from '../../features/auth'
 
 export const Registration = () => {
     const [valueName, setValueName] = useState()
@@ -33,7 +35,16 @@ export const Registration = () => {
     const changeInputConfirmPassword = (event: any): void => {
         setValueConfirmPassword(event.target.value)
     }
-
+    const dispatch = useAppDispatch()
+    const submitForm = (event: React.MouseEvent<HTMLButtonElement>): void => {
+        event.preventDefault()
+        const formData = {
+            valueName,
+            valueEmail,
+            valuePassword,
+        }
+        dispatch(signUp())
+    }
     return (
         <div className="registration">
             <div className="registration__section">
@@ -76,6 +87,7 @@ export const Registration = () => {
                     forgot={false}
                     buttonName='Sign Up'
                     sign='in'
+                    onClick={submitForm}
                 />
             </div>
         </div>

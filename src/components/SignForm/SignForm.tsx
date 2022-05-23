@@ -7,8 +7,9 @@ type SignFormProps = {
     forgot: boolean,
     buttonName: string,
     sign?: string,
+    onClick: (event: any) => void,
 }
-export const SignForm = ({inputs, forgot, buttonName, sign}: SignFormProps) => {
+export const SignForm = ({inputs, forgot, buttonName, sign, onClick}: SignFormProps) => {
 
     return (
         <section className="sign-form">
@@ -34,6 +35,7 @@ export const SignForm = ({inputs, forgot, buttonName, sign}: SignFormProps) => {
                         type='submit'
                         className='button--primary' 
                         disabled={false}
+                        onClick={onClick}
                     />
                 </div>
                 
