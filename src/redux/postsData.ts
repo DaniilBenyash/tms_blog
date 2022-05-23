@@ -5,7 +5,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-06",
         "lesson_num": 123,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour space',
+        "title": '1Astronauts prep for new solar arrays on nearly seven-hour space',
         "author": 7
     },
     {
@@ -14,7 +14,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 48,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '2Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 7
     },
     {
@@ -23,7 +23,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 23,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '3Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 97
     },
     {
@@ -32,7 +32,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 22,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '4Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 97
     },
     {
@@ -41,7 +41,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 59,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '5Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 97
     },
     {
@@ -50,7 +50,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 44,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '6Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 99
     },
     {
@@ -59,7 +59,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-07",
         "lesson_num": 441,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '7Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 99
     },
     {
@@ -68,7 +68,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-08",
         "lesson_num": 100,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '8Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 122
     },
     {
@@ -77,7 +77,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-08",
         "lesson_num": 49,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '9Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 123
     },
     {
@@ -86,7 +86,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-08",
         "lesson_num": 49,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '10Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 123
     },
     {
@@ -95,7 +95,7 @@ export const postsData = [
         "text": 'Astronauts Kayla Barron and Raja Chari floated out of the International Space Station airlock for a spacewalk Tuesday, installing brackets and struts to support new solar arrays to upgrade the research lab’s power system on the same day that crewmate Mark Vande Hei marked his 341st day in orbit, a U.S. record for a single spaceflight.',
         "date": "2021-10-08",
         "lesson_num": 49,
-        "title": 'Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
+        "title": '11Astronauts prep for new solar arrays on nearly seven-hour spacewalk',
         "author": 123
     }
 ]

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { usePosts } from "../../../../features/posts";
-import { Card } from '../Card/Card';
+import { Card } from '../../components/Card/Card';
 
 export const MyFavorites = () => {
     const { posts, onFavoritePost } = usePosts()
@@ -16,11 +16,14 @@ export const MyFavorites = () => {
                         
                         {post.favorite
                         &&
-                        <Card 
-                            info={post} 
-                            size='postcardMedium'
-                            className={{postcard: 'post-card-medium', content: 'post-card-medium__content', imgMedium: 'post-card-medium__img', title: 'title-medium'}}
-                        />
+                        <div>
+                            <Card 
+                                info={post} 
+                                size='postcardMedium'
+                                className={{postcard: 'post-card-medium', content: 'post-card-medium__content', imgMedium: 'post-card-medium__img', title: 'title-medium'}}
+                            />
+                        </div>
+                        
                         }
                     </div>
                 )

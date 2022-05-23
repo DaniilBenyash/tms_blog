@@ -28,27 +28,20 @@ export const PostCard = ({id, image, text, date, lesson_num, title, author, size
     
     return (
         <div className={className.postcard}>
-
             <div className={className.content}>
-
                 {size === 'postcardMedium' && <img src={image} alt=""  className={className.imgMedium}/>}
-                
                 {size !== 'postcardMedium' && <img src={image} alt="" className={`post-card__img_display`}/>} 
-
-                <div>
-                    
+                <div>  
                     < Date date={date}/>
-
-                    < Title className={className.title} title={title}/>
-
+                    < Title 
+                        id={id} 
+                        className={className.title} 
+                        title={title}
+                    />
                     {size === 'postcardBig' && <p className='post-card-big__text'>{text}</p>}
-                    
                 </div>
-
                {size !== 'postcardMedium' && <img src={image} alt="" className={className.img}/>} 
-
-            </div>
-            
+            </div>            
             <LineLike postId={id}/>
         </div>
     )

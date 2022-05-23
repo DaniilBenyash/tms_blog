@@ -5,26 +5,24 @@ import { Button } from '../../components/Button'
 import { ReactComponent as Bookmark } from '../../components/Button/icon/bookmark.svg'
 import { ReactComponent as Like } from '../../components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from '../../components/Button/icon/dislike.svg'
+import { useParams } from "react-router-dom"
+import { usePosts } from '../../features/posts/usePosts'
+import { Link } from 'react-router-dom';
 
-type PostProps = {
-    id: number,
-    titlePost: string,
-    img: string,
-    text: string,
-}
+export const Post = () => {
 
-export const Post = ({id, titlePost, img, text}: PostProps) => {
+    const { posts } = usePosts();
+
+    const { id } = useParams();
+
     return (
         <div className='post'>
             <section className="post__section">                
-                <p className='post__number-post'><a className='post__button-home'>Home </a>| Post {id}</p>           
-                < Title 
-                    className='title-post'
-                    title={titlePost}
-                />
+                <p className='post__number-post'><Link to='/' className='post__link-home'>Home </Link>| Post {id}</p>
+                <h1 className='post__title'>{posts?.[Number(id)-1].title}</h1>           
                 <div className='post__info'>
-                    <img src={img} alt="" className='post__image'/>
-                    <p className='post__text'>{text}</p>
+                    <img src={posts?.[Number(id)-1].image} alt="" className='post__image'/>
+                    <p className='post__text'>{posts?.[Number(id)-1].text}</p>
                     <div className='post__line-like'>
                         <div className='post__like'>
                             <Button 

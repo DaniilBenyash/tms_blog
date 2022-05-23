@@ -18,13 +18,22 @@
         margin-bottom: $indent-m;
     }
 
-    &__button-home{
+    &__link-home{
         background-color: inherit;
         border: none;
         cursor: pointer;
         color: $color-secondary;
+        text-decoration: none;
     }
 
+    &__title{
+        font-size: $font-size-headline-1-desktop;
+        font-style: bold;
+        color: $color-secondary;
+        line-height: 80px;
+        text-align: left;
+    }
+    
     &__info{
         padding: 48px 64px 72px 64px;
     }

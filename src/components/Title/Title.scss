@@ -1,26 +1,19 @@
 @import "../../styles/variables";
 
 .title{
-
-    &-post{
-        font-size: $font-size-headline-1-desktop;
-        font-style: bold;
-        color: $color-secondary;
-        line-height: 80px;
-        text-align: left;
-    }
-
+    
     &-big{
         font-style: normal;
         font-weight: 700;
         font-size: $font-size-headline-2-desktop;
         line-height: 44px;
         color: $color-secondary;
-        margin-bottom: 24px;
+        padding-bottom: 24px;
         width: 450px;
         height: 132px;
         word-wrap: break-word;
         overflow: hidden;
+        text-decoration: none;
     
         &:hover{
             cursor: pointer;
@@ -39,6 +32,7 @@
         height: 56px;
         word-wrap: break-word;
         overflow: hidden;
+        text-decoration: none;
     
         &:hover{
             cursor: pointer;
@@ -56,7 +50,8 @@
         height: 84px;
         word-wrap: break-word;
         overflow: hidden;
-    
+        text-decoration: none;
+        
         &:hover{
             cursor: pointer;
             color: $color-primary;
