@@ -3,7 +3,9 @@ import createSagaMiddleware from '@redux-saga/core'
 import themeReducer from '../features/theme/themeSlice'
 import { postsReducer } from '../features/posts'
 import { authReducer } from '../features/auth'
+
 import { singUpSaga } from '../sagas/singUpSagas'
+
 const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({

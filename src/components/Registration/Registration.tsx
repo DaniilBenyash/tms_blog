@@ -5,37 +5,38 @@ import { Input } from "../Input";
 import { SignForm } from '../SignForm/SignForm'
 import { NamePage } from "../NamePage/NamePage";
 import { useAppDispatch} from '../../redux/hooks'
-import { signUp} from '../../features/auth'
+import { signUp } from '../../features/auth'
 
 export const Registration = () => {
-    const [valueName, setValueName] = useState()
+    const [valueName, setValueName] = useState('')
     const [errorName, setErrorName] = useState('')
 
     const changeInputName = (event: any): void => {
         setValueName(event.target.value)
     }
 
-    const [valueEmail, setValueEmail] = useState()
+    const [valueEmail, setValueEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState('')
 
     const changeInputEmail = (event: any): void => {
         setValueEmail(event.target.value)
     }
     
-    const [valuePassword, setValuePassword] = useState()
+    const [valuePassword, setValuePassword] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
     const changeInputPassword = (event: any): void => {
         setValuePassword(event.target.value)
     }
     
-    const [valueConfirmPassword, setValueConfirmPassword] = useState()
+    const [valueConfirmPassword, setValueConfirmPassword] = useState('')
     const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
 
     const changeInputConfirmPassword = (event: any): void => {
         setValueConfirmPassword(event.target.value)
     }
     const dispatch = useAppDispatch()
+    
     const submitForm = (event: React.MouseEvent<HTMLButtonElement>): void => {
         event.preventDefault()
         const formData = {
