@@ -2,13 +2,14 @@ import React from "react";
 import { PostCard } from '../PostCard/PostCardd'
 
 type Post = {
-    id?: number,
+    id: number,
     image?: string,
     text?: string,
     date: string
     lesson_num?: number,
-    title: string
-    author?: number
+    title: string,
+    author?: number,
+    like?: boolean,
 }
 
 type PostCardClass = {
@@ -37,6 +38,7 @@ export const Card = ({info, size, className}: Card) => {
             author={info.author}
             size={size}
             className={className}
+            like={info.like}
         /> 
     )
 }

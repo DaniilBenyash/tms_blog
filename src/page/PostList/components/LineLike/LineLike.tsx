@@ -1,53 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as LikePD} from './icon/like.svg'
 import { ReactComponent as DislikePD} from './icon/dislike.svg'
 import { ReactComponent as Bookmark } from './icon/bookmark.svg';
 import { ReactComponent as MorePD} from './icon/more.svg'
-import { Button } from "../Button";
-import './LineLike.scss'
+import { Button } from "../../../../components/Button";
+import { usePosts } from "../../../../features/posts";
+import './LineLike.scss';
+import { postsData } from "../../../../redux/postsData";
 
-export const LineLike = () => {
+type LineLikeProps = {
+    postId: number
+
+}
+export const LineLike = ({postId}: LineLikeProps) => {
     
-    const [likeValue, setLikeValue] = useState(0)
-
-    const [dislikeValue, setDislikeValue] = useState(0)
+    const { posts, onLikePost, onDislikePost, onFavoritePost } = usePosts()
  
     const [bookValue, setBookValue] = useState(false)
 
-    function addLikeOrDislike(set: any, value: any): void{
-        setLikeValue(0)
-        setDislikeValue(0)
-        if(value !== 0) {
-            set(0)
-        }else {
-            set(1)
-        }
-        
-    }
+
     return (
         <div className='line-like'>
                 <div className='line-like__left-button'>
                     <Button 
-                        onClick={() => {addLikeOrDislike(setLikeValue, likeValue)}} 
+                        onClick={() => {onLikePost(postId)}} 
                         className='button--line-like' 
                         disabled={false} 
                         icon={<LikePD/>}
                     />
-                    <p className="line-like__number">{likeValue > 0 && likeValue}</p>
+                    <p className="line-like__number">{posts?.[postId-1].like && String(posts?.[postId-1].like)}</p>
                     <Button 
-                        onClick={() => {addLikeOrDislike(setDislikeValue, dislikeValue)}} 
+                        onClick={() => {onDislikePost(postId)}}
                         className='button--line-like' 
                         disabled={false} 
                         icon={<DislikePD/>}
                     />
-                    <p className="line-like__number">{dislikeValue > 0 && dislikeValue}</p> 
+                    <p className="line-like__number">{posts?.[postId-1].like === false && String(posts?.[postId-1].like)}</p> 
                 </div>
                 <div className='line-like__right-button'>
                     <Button 
-                        onClick={() => {setBookValue(bookValue ? false : true)}} 
+                        onClick={() => {onFavoritePost(postId)}} 
                         className='button--line-like button--line-like-margin' 
                         disabled={false} 
-                        icon={<Bookmark className={`${bookValue && 'line-like__bookmark_active'}`}/>}
+                        icon={<Bookmark className={`${posts?.[postId-1].favorite && 'line-like__bookmark_active'}`}/>}
                     />
                     <Button  
                         className='button--line-like' 

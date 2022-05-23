@@ -9,6 +9,7 @@ type Post = {
     title: string,
     author: number,
     like?: boolean,
+    favorite?: boolean,
 }
 
 interface IPostsState {
@@ -18,12 +19,6 @@ interface IPostsState {
 const initialState: IPostsState = {
     content: null,
 }
-
-// const likeOrDislikePost = (state: any, action: PayloadAction<number>, value: boolean) => {
-//     if(state.content) {
-//         state.content = state.content.map((post: Post) => post.id === action.payload ? {...post, like: true} : post)
-//     }
-// }
 
 export const postsSlice = createSlice({
     name: 'posts',
@@ -42,9 +37,14 @@ export const postsSlice = createSlice({
                 state.content = state.content.map(post => post.id === action.payload ? {...post, like: false} : post)
             }
         },
+        favoritePost: (state, action: PayloadAction<number>) => {
+            if(state.content) {
+                state.content = state.content.map(post => post.id === action.payload ? {...post, favorite: !post.favorite} : post)
+            }
+        },
     },
 })
 
-export const { fetchPosts, likePost, dislikePost } = postsSlice.actions
+export const { fetchPosts, likePost, dislikePost, favoritePost } = postsSlice.actions
 
 export default postsSlice.reducer

@@ -1,15 +1,15 @@
 import React from "react";
 import { Card } from '../Card/Card'
 
-
 type Post = {
-    id?: number,
+    id: number,
     image?: string,
     text?: string,
     date: string
     lesson_num?: number,
     title: string
     author?: number
+    like?: boolean
 }
 
 type Posts = {
@@ -21,7 +21,6 @@ export const Posts = ({posts}: Posts) => {
         <div className="post-list__content">
 
             {posts.map((post, index) => {
-                
                 if(index === 0){
                     return (
                         <div key={index} className={`post-list__content-item${index+1}`}>

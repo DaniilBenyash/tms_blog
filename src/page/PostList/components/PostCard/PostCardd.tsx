@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import './PostCardd.scss'
 import { LineLike } from '../LineLike/LineLike'
 import { Date } from '../Date/Date'
-import { Title } from '../Title/Title'
+import { Title } from '../../../../components/Title/Title'
 
 type PostCard = {
     postcard: string,
@@ -12,7 +12,7 @@ type PostCard = {
     title: string,
 }
 type PostCardProps = {
-    id?: number,
+    id: number,
     image?: string,
     text?: string,
     date: string
@@ -21,9 +21,10 @@ type PostCardProps = {
     author?: number
     size: string,
     className: PostCard,
+    like?: boolean
 }
 
-export const PostCard = ({id, image, text, date, lesson_num, title, author, size, className}: PostCardProps) => {
+export const PostCard = ({id, image, text, date, lesson_num, title, author, size, className, like}: PostCardProps) => {
     
     return (
         <div className={className.postcard}>
@@ -48,7 +49,7 @@ export const PostCard = ({id, image, text, date, lesson_num, title, author, size
 
             </div>
             
-            <LineLike />
+            <LineLike postId={id}/>
         </div>
     )
 }

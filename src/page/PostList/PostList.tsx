@@ -1,10 +1,10 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import './PostList.scss'
-import { NavigationMenu } from '../../components/NavigationMenu/NavigationMenu'
-import { Posts } from '../../components/Posts/Posts'
+import { NavigationMenu } from './components/NavigationMenu/NavigationMenu'
+import { Posts } from './components/Posts/Posts'
 import { useAppSelector } from '../../redux/hooks';
-import { MyFavorites } from '../MyFavorites/MyFavorities'
-import { Popular } from '../Popular/Popular'
+import { MyFavorites } from './components/MyFavorites/MyFavorities'
+import { Popular } from './components/Popular/Popular'
 import { postsData } from "../../redux/postsData";
 
 export const PostList = () => {
