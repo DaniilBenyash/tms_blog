@@ -32,7 +32,6 @@ export const Registration = () => {
 
     const changeInputConfirmPassword = (event: any): void => {
         setValueConfirmPassword(event.target.value)
-
     }
 
     return (
