@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Registration.scss';
 import { Button } from '../Button/Button';
 import { Input } from "../Input";
@@ -6,61 +6,83 @@ import { SignForm } from '../SignForm/SignForm'
 import { NamePage } from "../NamePage/NamePage";
 
 export const Registration = () => {
-    const [valueName, setValueName] = useState()
+    const [valueName, setValueName] = useState('')
     const [errorName, setErrorName] = useState('')
 
     const changeInputName = (event: any): void => {
 
         setValueName(event.target.value)
 
-        if(event.target.value.length > 5){
-            setErrorName('error')
-            }else{
-                setErrorName('')
-            }
+        const checkName = /^[a-zA-Zа-яА-Я- ]+$/;
+
+        if(checkName.test(event.target.value) === false && event.target.value != ''){
+            setErrorName('The name must only contain letters')
+        }else{
+            setErrorName('')
+        }
     }
 
-    const [valueEmail, setValueEmail] = useState()
+    const [valueEmail, setValueEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState('')
 
     const changeInputEmail = (event: any): void => {
 
         setValueEmail(event.target.value)
 
-        if(event.target.value.length > 5){
-            setErrorEmail('error')
-            }else{
-                setErrorEmail('')
-            }
+        event.target.onblur=function(){
+
+            const checkEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+            if(checkEmail.test(event.target.value) === false && event.target.value != ''){
+                setErrorEmail('Invalid email')     
+            }; 
+        }
+
+        event.target.onfocus=function(){
+            setErrorEmail('')
+        }
     }
     
-    const [valuePassword, setValuePassword] = useState()
+    const [valuePassword, setValuePassword] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
     const changeInputPassword = (event: any): void => {
 
         setValuePassword(event.target.value)
 
-        if(event.target.value.length > 5){
-            setErrorPassword('error')
-            }else{
-                setErrorPassword('')
-            }
+        const checkPassword = /^[0-9a-zA-Z]+$/;
+
+        if(checkPassword.test(event.target.value) === false && event.target.value != ''){
+            setErrorPassword('The password must only contain letters and numbers')
+        }else{
+            setErrorPassword('')
+        }
+        if(event.target.value != valueConfirmPassword && valueConfirmPassword != ''){
+            setErrorConfirmPassword("Passwords don't match")
+        }else{
+            setErrorConfirmPassword('')
+        }
     }
     
-    const [valueConfirmPassword, setValueConfirmPassword] = useState()
+    const [valueConfirmPassword, setValueConfirmPassword] = useState('')
     const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
 
     const changeInputConfirmPassword = (event: any): void => {
 
         setValueConfirmPassword(event.target.value)
 
-        if(event.target.value.length > 5){
-            setErrorConfirmPassword('error')
-            }else{
-                setErrorConfirmPassword('')
-            }
+        if(event.target.value != valuePassword && event.target.value != '' && valuePassword != ''){
+            setErrorConfirmPassword("Passwords don't match")
+        }else{
+             setErrorConfirmPassword('')
+        }
     }
+
+    const inputName = React.useRef<HTMLInputElement>(null);
+    
+    useEffect(() => {
+        inputName.current?.focus()
+    }, [valueName])
 
     return (
         <div className="registration">
@@ -75,6 +97,7 @@ export const Registration = () => {
                             onChange={changeInputName}
                             value={valueName}
                             error={errorName}
+                            ref={inputName}
                         />,
                         <Input 
                             label='Email'

@@ -1,41 +1,46 @@
-import React, { useState, useRef, useEffect, forwardRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import './Login.scss';
-import { Button } from '../Button/Button'
 import { Input } from "../Input";
 import { SignForm } from '../SignForm/SignForm'
 import { NamePage } from "../NamePage/NamePage";
 
 export const Login = () => {
     
-    const [valueEmail, setValueEmail] = useState()
+    const [valueEmail, setValueEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState('')
-
+    
     const changeInputEmail = (event: any): void => {
-
-        setValueEmail(event.target.value)
-
-        // var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-
-        // if(reg.test(event.target.value)){
-        //     setErrorEmail('error')
-        //     }else{
-        //         setErrorEmail('')
-        //     }
         
+        setValueEmail(event.target.value)
+        
+        event.target.onblur=function(){
+
+            const checkEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+            if(checkEmail.test(event.target.value) === false && event.target.value != '' ){
+                setErrorEmail('Invalid email')     
+            }; 
+        }
+        event.target.onfocus=function(){
+            setErrorEmail('')
+        }
     }
-    const [valuePassword, setValuePassword] = useState()
+    const [valuePassword, setValuePassword] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
     const changeInputPassword = (event: any): void => {
 
         setValuePassword(event.target.value)
-    
-        if(event.target.value.length > 5){
-            setErrorPassword('error')
-            }else{
-                setErrorPassword('')
-            }
+
+        event.target.onblur=function(){}
+        event.target.onfocus=function(){}
     }
+
+    const inputEmail = React.useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        inputEmail.current?.focus()
+    }, [valueEmail])
     
     return (
         <div className="login">
@@ -50,6 +55,7 @@ export const Login = () => {
                             onChange={changeInputEmail}
                             value={valueEmail}
                             error={errorEmail}
+                            ref={inputEmail}
                         />,
                         <Input 
                             label='Password'
