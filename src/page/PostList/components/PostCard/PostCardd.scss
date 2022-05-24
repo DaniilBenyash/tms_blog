@@ -76,6 +76,26 @@
 .post-card__img_display{
     display: none;
 }
+.post-card-favorites{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 42px;
+    border-bottom: 1px solid $color-background-primary2;
+    margin-top: 39px;
+
+    &__content{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__img{
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 42px;
+        margin-right: 24px;
+    }
+}
 @media screen and (max-width: 1250px) {
     .post-card__img_display{
         display: block;
@@ -118,6 +138,21 @@
     
         &__img{
             display: none;
+        }
+    }
+    .post-card-favorites{
+        width: 352px;
+
+        &__content{
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom: 24px;
         }
     }
 }

@@ -3,10 +3,12 @@ import { ReactComponent as LikePD} from './icon/like.svg'
 import { ReactComponent as DislikePD} from './icon/dislike.svg'
 import { ReactComponent as Bookmark } from './icon/bookmark.svg';
 import { ReactComponent as MorePD} from './icon/more.svg'
+import { ReactComponent as BookmarkTrue } from './icon/Bookmark-True.svg'
+import { ReactComponent as LikeTrue} from './icon/like-true.svg'
+import { ReactComponent as DislikeTrue} from './icon/dislike-true.svg'
 import { Button } from "../../../../components/Button";
 import { usePosts } from "../../../../features/posts";
 import './LineLike.scss';
-import { postsData } from "../../../../redux/postsData";
 
 type LineLikeProps = {
     postId: number
@@ -15,9 +17,6 @@ type LineLikeProps = {
 export const LineLike = ({postId}: LineLikeProps) => {
     
     const { posts, onLikePost, onDislikePost, onFavoritePost } = usePosts()
- 
-    const [bookValue, setBookValue] = useState(false)
-
 
     return (
         <div className='line-like'>
@@ -26,14 +25,14 @@ export const LineLike = ({postId}: LineLikeProps) => {
                         onClick={() => {onLikePost(postId)}} 
                         className='button--line-like' 
                         disabled={false} 
-                        icon={<LikePD/>}
+                        icon={posts?.[postId-1].like ? <LikeTrue/> : <LikePD/>}
                     />
                     <p className="line-like__number">{posts?.[postId-1].like && String(posts?.[postId-1].like)}</p>
                     <Button 
                         onClick={() => {onDislikePost(postId)}}
                         className='button--line-like' 
                         disabled={false} 
-                        icon={<DislikePD/>}
+                        icon={posts?.[postId-1].like === false ? <DislikeTrue/> : <DislikePD/>}
                     />
                     <p className="line-like__number">{posts?.[postId-1].like === false && String(posts?.[postId-1].like)}</p> 
                 </div>
@@ -42,7 +41,7 @@ export const LineLike = ({postId}: LineLikeProps) => {
                         onClick={() => {onFavoritePost(postId)}} 
                         className='button--line-like button--line-like-margin' 
                         disabled={false} 
-                        icon={<Bookmark className={`${posts?.[postId-1].favorite && 'line-like__bookmark_active'}`}/>}
+                        icon={posts?.[postId-1].favorite ? <BookmarkTrue/> : <Bookmark/>}
                     />
                     <Button  
                         className='button--line-like' 
