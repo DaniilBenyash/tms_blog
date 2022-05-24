@@ -10,18 +10,14 @@ export const MyFavorites = () => {
         <div className="my-favorites">
             {posts?.map(post => {
                 return (
-                    <div key={post.id}>
-                        {post.favorite
-                        &&
-                        <div>
-                            <Card 
-                                info={post} 
-                                size='postcardMedium'
-                                className={{postcard: 'post-card-favorites', content: 'post-card-favorites__content', imgMedium: 'post-card-favorites__img', title: 'title-favorites'}}
-                            />
-                        </div>                       
-                        }
-                    </div>
+                    post.favorite
+                    &&
+                    <Card 
+                        key={post.id}
+                        info={post} 
+                        size='postcardMedium'
+                        className={{postcard: 'post-card-medium', content: 'post-card-medium__content', imgMedium: 'post-card-medium__img', title: 'title-medium'}}
+                    />                         
                 )
             })}
         </div>    

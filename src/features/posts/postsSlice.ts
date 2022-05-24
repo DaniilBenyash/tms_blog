@@ -45,12 +45,12 @@ export const postsSlice = createSlice({
         },
         likePost: (state, action: PayloadAction<number>) => {
             if(state.content) {
-                state.content = state.content.map(post => post.id === action.payload ? {...post, like: true} : post)
+                state.content = state.content.map(post => post.id === action.payload ? {...post, like: !post.like ? true : undefined} : post)
             }
         },
         dislikePost: (state, action: PayloadAction<number>) => {
             if(state.content) {
-                state.content = state.content.map(post => post.id === action.payload ? {...post, like: false} : post)
+                state.content = state.content.map(post => post.id === action.payload ? {...post, like: post.like || post.like === undefined ? false : undefined} : post)
             }
         },
         favoritePost: (state, action: PayloadAction<number>) => {
