@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.input{
+    display: flex;
+    flex-direction: column;
+    font-family: InterSemiBold, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 20px;
+    color: $color-secondary;
+
+    &__form{
+        margin-top: 8px;
+        width: 544px;
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: $font-size-subline-1;
+        line-height: 20px;
+        border: none;
+        padding: 18px 0 18px 20px;
+    }
+    
+    &__form:focus{
+        outline: 2px solid $color-background-primary2;
+    }
+
+    &__form:active{
+        border: none;
+    }
+
+    &__form:disabled{
+        background-color: $color-light;
+        color: $color-background-primary;
+    }
+
+    &__form_error{
+        border: 2px solid $color-error;
+    }
+
+    &__error-text{
+        color: $color-error;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}
