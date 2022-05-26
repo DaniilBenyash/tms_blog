@@ -13,6 +13,10 @@ export const usePosts = () => {
         }
     })
 
+    const getPost = (id: number) => {
+        return posts?.[id]
+    }
+
     const onLikePost = (id: number) => {
         dispatch(likePost(id))
     }
@@ -27,6 +31,7 @@ export const usePosts = () => {
     
     return {
         posts,
+        getPost,
         onLikePost,
         onDislikePost,
         onFavoritePost,

@@ -14,36 +14,37 @@ import { Link } from 'react-router-dom';
 
 export const Post = () => {
 
-    const { posts, onLikePost, onDislikePost, onFavoritePost } = usePosts()
-
+    const { getPost, onLikePost, onDislikePost, onFavoritePost } = usePosts()
+    
     const { id } = useParams();
 
+    const post = getPost(Number(id)-1)
     return (
         <div className='post'>
             <section className="post__section">                
                 <p className='post__number-post'><Link to='/' className='post__link-home'>Home </Link>| Post {id}</p>
-                <h1 className='post__title'>{posts?.[Number(id)-1].title}</h1>           
+                <h1 className='post__title'>{post?.title}</h1>           
                 <div className='post__info'>
-                    <img src={posts?.[Number(id)-1].image} alt="" className='post__image'/>
-                    <p className='post__text'>{posts?.[Number(id)-1].text}</p>
+                    <img src={post?.image} alt="" className='post__image'/>
+                    <p className='post__text'>{post?.text}</p>
                     <div className='post__line-like'>
                         <div className='post__like'>
                             <Button 
                                 onClick={() => onLikePost(Number(id))} 
                                 className='button--like' 
                                 disabled={false} 
-                                icon={posts?.[Number(id)-1].like ? <LikeTrue/> : <Like/>}
+                                icon={post?.like ? <LikeTrue/> : <Like/>}
                             />
                             <Button 
                                 onClick={() => onDislikePost(Number(id))} 
                                 className='button--dislike' 
                                 disabled={false} 
-                                icon={posts?.[Number(id)-1].like === false ? <DislikeTrue/> : <Dislike/>}
+                                icon={post?.like === false ? <DislikeTrue/> : <Dislike/>}
                             />
                         </div>
                         <Button 
                             text={
-                                posts?.[Number(id)-1].favorite
+                                post?.favorite
                                 ?
                                 'Remove to favorite'
                                 :
@@ -52,7 +53,7 @@ export const Post = () => {
                             onClick={() => onFavoritePost(Number(id))} 
                             className='button--with_icon' 
                             disabled={false} 
-                            icon={posts?.[Number(id)-1].favorite ? <BookmarkTrue/> : <Bookmark/>}
+                            icon={post?.favorite ? <BookmarkTrue/> : <Bookmark/>}
                         />
                     </div>
                 </div>
