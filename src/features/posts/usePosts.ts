@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPosts, likePost, dislikePost, favoritePost } from "./postsSlice";
 
@@ -6,9 +7,11 @@ export const usePosts = () => {
     
     const dispatch = useAppDispatch()
     
-    if(!posts){
-        dispatch(fetchPosts())
-    }
+    useEffect(() => {
+        if(!posts){
+            dispatch(fetchPosts())
+        }
+    })
 
     const onLikePost = (id: number) => {
         dispatch(likePost(id))
