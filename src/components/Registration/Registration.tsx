@@ -9,81 +9,82 @@ export const Registration = () => {
     const [valueName, setValueName] = useState('')
     const [errorName, setErrorName] = useState('')
 
-    const changeInputName = (event: any): void => {
+    const inputName = React.useRef<HTMLInputElement>(null);
+    const checkName = /^[a-zA-Zа-яА-Я- ]+$/;
 
-        setValueName(event.target.value)
+    useEffect(() => {
+        inputName.current?.focus()
+    }, [valueName])
 
-        const checkName = /^[a-zA-Zа-яА-Я- ]+$/;
+    const changeInputName = (event: any): void => setValueName(event.target.value)
 
-        if(checkName.test(event.target.value) === false && event.target.value != ''){
-            setErrorName('The name must only contain letters')
-        }else{
-            setErrorName('')
-        }
+    const checkInputName = () => {
+        {!checkName.test(valueName) && valueName
+        &&
+        setErrorName('The name must only contain letters')}
     }
-
+    
     const [valueEmail, setValueEmail] = useState('')
     const [errorEmail, setErrorEmail] = useState('')
 
-    const changeInputEmail = (event: any): void => {
+    const inputEmail = React.useRef<HTMLInputElement>(null);
+    const checkEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
 
-        setValueEmail(event.target.value)
+    const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
 
-        event.target.onblur=function(){
-
-            const checkEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
-            if(checkEmail.test(event.target.value) === false && event.target.value != ''){
-                setErrorEmail('Invalid email')     
-            }; 
-        }
-
-        event.target.onfocus=function(){
-            setErrorEmail('')
-        }
+    const checkInputEmail = (): void => {
+        {!checkEmail.test(valueEmail) && valueEmail
+        &&
+        setErrorEmail('Invalid email')}
     }
     
     const [valuePassword, setValuePassword] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
 
-    const changeInputPassword = (event: any): void => {
+    const inputPassword = React.useRef<HTMLInputElement>(null);
+    const checkPassword = /^[0-9a-zA-Z]+$/;
 
-        setValuePassword(event.target.value)
+    const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
 
-        const checkPassword = /^[0-9a-zA-Z]+$/;
-
-        if(checkPassword.test(event.target.value) === false && event.target.value != ''){
-            setErrorPassword('The password must only contain letters and numbers')
-        }else{
-            setErrorPassword('')
-        }
-        if(event.target.value != valueConfirmPassword && valueConfirmPassword != ''){
-            setErrorConfirmPassword("Passwords don't match")
-        }else{
-            setErrorConfirmPassword('')
-        }
+    const checkInputPassword = () => {
+        {!checkPassword.test(valuePassword) && valuePassword
+        &&
+        setErrorPassword('The password must only contain letters and numbers')}
+        
+        {valuePassword != valueConfirmPassword && valueConfirmPassword
+        &&
+        setErrorConfirmPassword("Passwords don't match")}
     }
     
     const [valueConfirmPassword, setValueConfirmPassword] = useState('')
     const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
 
-    const changeInputConfirmPassword = (event: any): void => {
+    const inputConfirmPassword = React.useRef<HTMLInputElement>(null);
 
-        setValueConfirmPassword(event.target.value)
+    const changeInputConfirmPassword = (event: any): void => setValueConfirmPassword(event.target.value)
 
-        if(event.target.value != valuePassword && event.target.value != '' && valuePassword != ''){
-            setErrorConfirmPassword("Passwords don't match")
-        }else{
-             setErrorConfirmPassword('')
-        }
-    }
-
-    const inputName = React.useRef<HTMLInputElement>(null);
-    
     useEffect(() => {
-        inputName.current?.focus()
-    }, [valueName])
-
+        inputName.current?.addEventListener('blur', checkInputName);
+        inputName.current?.addEventListener('focus', () => setErrorName(''));
+        inputEmail.current?.addEventListener('blur', checkInputEmail);
+        inputEmail.current?.addEventListener('focus', () => setErrorEmail(''));
+        inputPassword.current?.addEventListener('blur', checkInputPassword);
+        inputPassword.current?.addEventListener('focus', () => setErrorPassword(''));
+        {valueConfirmPassword != valuePassword && valueConfirmPassword != '' && valuePassword != ''
+        ?
+        setErrorConfirmPassword("Passwords don't match")
+        :
+        setErrorConfirmPassword('')}
+        return () => {
+            inputName.current?.removeEventListener('blur', checkInputName);
+            inputName.current?.removeEventListener('focus', () => setErrorName(''));
+            inputEmail.current?.removeEventListener('blur', checkInputEmail);
+            inputEmail.current?.removeEventListener('focus', () => setErrorEmail(''));
+            inputPassword.current?.removeEventListener('blur', checkInputPassword);
+            inputPassword.current?.removeEventListener('focus', () => setErrorPassword(''));
+        }
+    })
+    
     return (
         <div className="registration">
             <div className="registration__section">
@@ -106,6 +107,7 @@ export const Registration = () => {
                             onChange={changeInputEmail}
                             value={valueEmail}
                             error={errorEmail}
+                            ref={inputEmail}
                             />,
                         <Input 
                             label='Password'
@@ -114,6 +116,7 @@ export const Registration = () => {
                             onChange={changeInputPassword}
                             value={valuePassword}
                             error={errorPassword}
+                            ref={inputPassword}
                         />,
                         <Input 
                             label='Confirm Password'
@@ -122,6 +125,7 @@ export const Registration = () => {
                             onChange={changeInputConfirmPassword}
                             value={valueConfirmPassword}
                             error={errorConfirmPassword}
+                            ref={inputConfirmPassword}
                         />
                     ]}
                     forgot={false}

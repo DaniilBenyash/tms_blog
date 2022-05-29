@@ -3,7 +3,7 @@ import './Button.scss'
 
 type ButtonProps = {
     text?: string,
-    type?: "button" | "submit" | "reset" | undefined
+    type?: "button" | "submit" | "reset"
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void,
     className: string,
     disabled: boolean,
@@ -13,7 +13,7 @@ type ButtonProps = {
 export const Button = ({onClick, type, text, className, disabled, icon}: ButtonProps) => {
     return (
         <button 
-            type={!type ? 'button' : type} 
+            type={type ?? 'button'} 
             onClick={onClick} 
             className={`${className} button`} 
             disabled={disabled}>
