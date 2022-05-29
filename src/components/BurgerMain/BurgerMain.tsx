@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './BurgerMain.scss'
 import { ReactComponent as Sun } from "./icon/sun.svg";
 import { ReactComponent as Moon } from "./icon/moon.svg";

@@ -6,7 +6,6 @@ import { ReactComponent as Search } from './icon/search.svg';
 import { HeaderName } from "../HeaderName";
 import { Button } from '../Button/Button';
 import { BurgerMain } from '../BurgerMain/BurgerMain';
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 export const Header = () => {
 
@@ -22,21 +21,23 @@ export const Header = () => {
                     className='button--burger' 
                     disabled={false}
                 />
-                {burgerValue && 
-                    <BurgerMain 
-                        firstName='Daniil' 
-                        lastName='Benyash' 
+                {burgerValue 
+                && 
+                <BurgerMain 
+                    firstName='Daniil' 
+                    lastName='Benyash' 
                 />}
-                {searchValue &&
-                     <div className="header__search">
-                        <input type="input" placeholder="Search..." className="header__search-input"/>
-                        <Button 
-                            icon={<CloseBurger/>} 
-                            onClick={() => setSearchValue(false)} 
-                            className='button--search-close' 
-                            disabled={false}
-                        />
-                    </div>
+                {searchValue 
+                &&
+                <div className="header__search">
+                <input type="input" placeholder="Search..." className="header__search-input"/>
+                <Button 
+                    icon={<CloseBurger/>} 
+                    onClick={() => setSearchValue(false)} 
+                    className='button--search-close' 
+                    disabled={false}
+                />
+                </div>
                 }
             </div>
             <div className="header__right-content">
