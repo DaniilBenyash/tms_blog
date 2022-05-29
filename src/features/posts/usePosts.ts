@@ -1,22 +1,27 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { fetchPosts, likePost, dislikePost, favoritePost } from "./postsSlice";
+import { fetchOnePost, fetchPosts, likePost, dislikePost, favoritePost } from "./postsSlice";
 
 export const usePosts = () => {
     const posts = useAppSelector( state => state.posts.content)
     
+    const onePost = useAppSelector( state => state.posts.post)
+
     const dispatch = useAppDispatch()
     
     useEffect(() => {
-        if(!posts){
-            dispatch(fetchPosts())
-        }
+        {!posts 
+        && 
+        dispatch(fetchPosts())}
     })
 
-    const getPost = (id: number) => {
+    const getOnePost = (id: number) => {
+        dispatch(fetchOnePost(id))
+    } 
+
+    const getInfoOnePost = (id: number) => {
         return posts?.[id]
     }
-
     const onLikePost = (id: number) => {
         dispatch(likePost(id))
     }
@@ -30,8 +35,10 @@ export const usePosts = () => {
     }
     
     return {
+        getOnePost,
         posts,
-        getPost,
+        getInfoOnePost,
+        onePost,
         onLikePost,
         onDislikePost,
         onFavoritePost,

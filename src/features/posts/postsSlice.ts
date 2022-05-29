@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-export type Post = {
+export interface IPost  {
     id: number,
     image: string,
     text: string,
@@ -13,8 +13,8 @@ export type Post = {
 }
 
 interface IPostsState {
-    content: Array<Post> | null,
-    post: Post | null,
+    content: Array<IPost> | null,
+    post: IPost | null,
     isLoading: 'idle' | 'pending',
     error: string | null,
 }
@@ -35,7 +35,7 @@ export const postsSlice = createSlice({
                 state.isLoading = 'pending'
             }
         },
-        fetchPostsSuccess:(state, action:PayloadAction<Array<Post>>) => {
+        fetchPostsSuccess:(state, action:PayloadAction<Array<IPost>>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.content = action.payload
@@ -45,18 +45,19 @@ export const postsSlice = createSlice({
             state.isLoading = 'idle'
             state.error = action.payload
         },
-        getPost: (state, action:PayloadAction<number>) => {
+        fetchOnePost: (state, action:PayloadAction<number>) => {
+            state.post = null
             if(state.isLoading === 'idle'){
                 state.isLoading = 'pending'
             }
         },
-        getPostSuccess:(state, action:PayloadAction<Post>) => {
+        fetchOnePostSuccess:(state, action:PayloadAction<IPost>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.post = action.payload
             }
         },
-        getPostFailure: (state, action: PayloadAction<string>) => {
+        fetchOnePostFailure: (state, action: PayloadAction<string>) => {
             state.isLoading = 'idle'
             state.error = action.payload
         },
@@ -67,6 +68,8 @@ export const postsSlice = createSlice({
         },
         dislikePost: (state, action: PayloadAction<number>) => {
             if(state.content) {
+                console.log(state.content);
+                
                 state.content = state.content.map(post => post.id === action.payload ? {...post, like: post.like || post.like === undefined ? false : undefined} : post)
             }
         },
@@ -82,9 +85,9 @@ export const {
     fetchPosts, 
     fetchPostsSuccess, 
     fetchPostsFailure, 
-    getPost, 
-    getPostSuccess, 
-    getPostFailure,
+    fetchOnePost, 
+    fetchOnePostSuccess, 
+    fetchOnePostFailure,
     likePost, 
     dislikePost, 
     favoritePost } = postsSlice.actions

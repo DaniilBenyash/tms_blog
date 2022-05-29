@@ -8,7 +8,7 @@
         font-size: $font-size-headline-2-desktop;
         line-height: 44px;
         color: $color-secondary;
-        padding-bottom: 24px;
+        margin-bottom: 24px;
         width: 450px;
         height: 132px;
         word-wrap: break-word;
@@ -16,7 +16,6 @@
         text-decoration: none;
     
         &:hover{
-            cursor: pointer;
             color: $color-primary;
         }
     }
@@ -27,7 +26,7 @@
         font-size: $font-size-headline-3-desktop;
         line-height: 28px;
         color: $color-secondary;
-        margin-bottom: 29px;
+        margin-bottom: 17px;
         width: 351px;
         height: 56px;
         word-wrap: break-word;
@@ -35,7 +34,6 @@
         text-decoration: none;
     
         &:hover{
-            cursor: pointer;
             color: $color-primary;
         }
     }
@@ -53,7 +51,6 @@
         text-decoration: none;
         
         &:hover{
-            cursor: pointer;
             color: $color-primary;
         }
     }

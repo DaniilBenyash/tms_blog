@@ -1,13 +1,15 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React from "react";
 import './PostList.scss'
 import { NavigationMenu } from './components/NavigationMenu/NavigationMenu'
 import { Posts } from './components/Posts/Posts'
 import { useAppSelector } from '../../redux/hooks';
 import { MyFavorites } from './components/MyFavorites/MyFavorites'
 import { Popular } from './components/Popular/Popular'
-import { postsData } from "../../redux/postsData";
+import { usePosts } from "../../features/posts";
 
 export const PostList = () => {
+
+    const { posts } = usePosts()
 
     const tab = useAppSelector(state => state.tab.value);
 
@@ -19,9 +21,9 @@ export const PostList = () => {
                 
                 < NavigationMenu />
 
-                {tab === 'all' 
+                {tab === 'all' && posts
                 &&     
-                < Posts posts={postsData}/>}
+                < Posts posts={posts}/>}
 
                 {tab === 'favorites'
                 &&

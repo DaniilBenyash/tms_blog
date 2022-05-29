@@ -1,16 +1,6 @@
 import React from "react";
 import { PostCard } from '../PostCard/PostCardd'
-
-type Post = {
-    id: number,
-    image: string,
-    text: string,
-    date: string
-    lesson_num?: number,
-    title: string,
-    author?: number,
-    like?: boolean,
-}
+import { IPost } from "../../../../features/posts/postsSlice";
 
 type PostCardClass = {
     postcard: string,
@@ -21,7 +11,7 @@ type PostCardClass = {
 }
 
 type Card = {
-    info: Post,
+    info: IPost,
     size: string,
     className: PostCardClass
 }

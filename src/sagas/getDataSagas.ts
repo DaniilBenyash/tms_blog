@@ -1,15 +1,20 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import { fetchPostsFailure, fetchPostsSuccess } from '../features/posts/postsSlice'
-import { postsData } from "../redux/postsData";
+import { fetchPostsFailure, fetchPostsSuccess, IPost } from '../features/posts/postsSlice'
 
-const delay = (ms: number) => new Promise(res => {
-    setTimeout(res, ms)
-})
+type dataPost = {
+    count: number, 
+    next: null, 
+    previous: null, 
+    results: Array<IPost>
+}
 
 export function* fetchPosts() {
     try {
-        yield call(delay, 100)
-        yield put(fetchPostsSuccess(postsData))
+        const response: Response = yield call(() => new Promise(res => {
+            res(fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=70&offset=0`)) 
+        }))
+        const dataPost: dataPost = yield(response.json())
+        yield put(fetchPostsSuccess(dataPost.results))
     }
     catch(error: any){
         yield put(fetchPostsFailure(error.message))

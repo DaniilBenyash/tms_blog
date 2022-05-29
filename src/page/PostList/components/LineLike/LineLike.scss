@@ -5,11 +5,15 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    
 
     &__left-button{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
+        width: 100px;
+        padding: -20px -10px;
     }
 
     &__number{

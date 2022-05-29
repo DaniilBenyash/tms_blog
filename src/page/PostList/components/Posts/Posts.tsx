@@ -1,23 +1,13 @@
 import React from "react";
 import { Card } from '../Card/Card'
-
-type Post = {
-    id: number,
-    image: string,
-    text: string,
-    date: string
-    lesson_num: number,
-    title: string
-    author: number
-    like?: boolean
-}
+import { IPost } from '../../../../features/posts/postsSlice'
 
 type Posts = {
-    posts : Post[]
+    posts: IPost[]
 }
+
 export const Posts = ({posts}: Posts) => {
     return (
-        
         <div className="post-list__content">
 
             {posts.map((post, index) => {
@@ -54,9 +44,7 @@ export const Posts = ({posts}: Posts) => {
                 }else{
                     return
                 }
-
             })}
-
         </div>
     )
 }

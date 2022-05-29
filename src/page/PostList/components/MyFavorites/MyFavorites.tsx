@@ -4,7 +4,7 @@ import { usePosts } from "../../../../features/posts";
 import { Card } from '../Card/Card';
 
 export const MyFavorites = () => {
-    const { posts, onFavoritePost } = usePosts()
+    const { posts } = usePosts()
 
     return (
         <div className="my-favorites">

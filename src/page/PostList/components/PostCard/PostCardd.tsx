@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './PostCardd.scss'
 import { LineLike } from '../LineLike/LineLike'
 import { Date } from '../Date/Date'
 import { Title } from '../../../../components/Title/Title'
+import { Link } from 'react-router-dom';
+import { usePosts } from '../../../../features/posts/usePosts';
+
 
 type PostCard = {
     postcard: string,
@@ -26,11 +29,22 @@ type PostCardProps = {
 
 export const PostCard = ({id, image, text, date, lesson_num, title, author, size, className, like}: PostCardProps) => {
     
+    const { getOnePost } = usePosts();
+    <Link to={`/post/${id}`} onClick={() => getOnePost(id)}><img src={image} alt="" className={className.img}/></Link>
     return (
         <div className={className.postcard}>
             <div className={className.content}>
-                {size === 'postcardMedium' && <img src={image} alt=""  className={className.imgMedium}/>}
-                {size !== 'postcardMedium' && <img src={image} alt="" className={`post-card__img_display`}/>} 
+
+                {size === 'postcardMedium' 
+                && 
+                <Link to={`/post/${id}`} onClick={() => getOnePost(id)}>
+                    <img src={image} alt=""  className={className.imgMedium}/>
+                </Link>}
+
+                {size !== 'postcardMedium' 
+                && 
+                <img src={image} alt="" className={`post-card__img_display`}/>} 
+
                 <div>  
                     < Date date={date}/>
                     < Title 
@@ -38,9 +52,20 @@ export const PostCard = ({id, image, text, date, lesson_num, title, author, size
                         className={className.title} 
                         title={title}
                     />
-                    {size === 'postcardBig' && <p className='post-card-big__text'>{text}</p>}
+
+                    {size === 'postcardBig' 
+                    && 
+                    <p className='post-card-big__text'>{text}</p>
+                    }
+
                 </div>
-               {size !== 'postcardMedium' && <img src={image} alt="" className={className.img}/>} 
+
+                {size !== 'postcardMedium' 
+                && 
+                <Link to={`/post/${id}`} onClick={() => getOnePost(id)}>
+                   <img src={image} alt="" className={className.img}/>
+                </Link>} 
+
             </div>            
             <LineLike postId={id}/>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ReactComponent as Like} from './icon/like.svg'
 import { ReactComponent as Dislike} from './icon/dislike.svg'
 import { ReactComponent as Bookmark } from './icon/bookmark.svg';
@@ -16,7 +16,9 @@ type LineLikeProps = {
 }
 export const LineLike = ({postId}: LineLikeProps) => {
     
-    const { posts, onLikePost, onDislikePost, onFavoritePost } = usePosts()
+    const { getInfoOnePost, onLikePost, onDislikePost, onFavoritePost } = usePosts()
+
+    const infoPost = getInfoOnePost(postId-1);
 
     return (
         <div className='line-like'>
@@ -25,23 +27,21 @@ export const LineLike = ({postId}: LineLikeProps) => {
                         onClick={() => onLikePost(postId)} 
                         className='button--line-like' 
                         disabled={false} 
-                        icon={posts?.[postId-1].like ? <LikeTrue/> : <Like/>}
+                        icon={infoPost?.like ? <LikeTrue/> : <Like/>}
                     />
-                    <p className="line-like__number">{posts?.[postId-1].like && String(posts?.[postId-1].like)}</p>
                     <Button 
                         onClick={() => onDislikePost(postId)}
                         className='button--line-like' 
                         disabled={false} 
-                        icon={posts?.[postId-1].like === false ? <DislikeTrue/> : <Dislike/>}
+                        icon={infoPost?.like === false ? <DislikeTrue/> : <Dislike/>}
                     />
-                    <p className="line-like__number">{posts?.[postId-1].like === false && String(posts?.[postId-1].like)}</p> 
                 </div>
                 <div className='line-like__right-button'>
                     <Button 
                         onClick={() => onFavoritePost(postId)} 
                         className='button--line-like button--line-like-margin' 
                         disabled={false} 
-                        icon={posts?.[postId-1].favorite ? <BookmarkTrue/> : <Bookmark/>}
+                        icon={infoPost?.favorite ? <BookmarkTrue/> : <Bookmark/>}
                     />
                     <Button  
                         className='button--line-like' 
