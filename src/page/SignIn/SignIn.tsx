@@ -17,8 +17,8 @@ export const SignIn = () => {
     const inputEmail = React.useRef<HTMLInputElement>(null);
     const inputPassword = React.useRef<HTMLInputElement>(null);
     
-    const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
-    const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
+    const changeInputEmail = (event: any): void => setValueEmail('daniilbenyash22@gmail.com')
+    const changeInputPassword = (event: any): void => setValuePassword('test123test123')
 
     const login = useAppSelector(state => state.login);
 
@@ -34,9 +34,9 @@ export const SignIn = () => {
 
         signInUser(formData);
 
-        {login.token 
-        &&
-        navigate('/')}
+        // {login.token 
+        // &&
+        // navigate('/')}
     }
 
     useEffect(() => {   
@@ -70,7 +70,7 @@ export const SignIn = () => {
                             placeholder='Your email'
                             disabled={false}
                             onChange={changeInputEmail}
-                            value={valueEmail}
+                            value='daniilbenyash22@gmail.com'
                             error={errorEmail}
                             ref={inputEmail}
                             type='email'
@@ -80,7 +80,7 @@ export const SignIn = () => {
                             placeholder='Your password'
                             disabled={false}
                             onChange={changeInputPassword}
-                            value={valuePassword}
+                            value='test123test123'
                             error={errorPassword}
                             ref={inputPassword}
                             type='password'

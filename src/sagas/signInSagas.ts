@@ -26,11 +26,11 @@ import {
      } catch(error: any) {
 
          const dataError: loginUserPayload = yield error.json()
-
+        
          yield put(signInFailure(dataError))
      }
  }
  
- export function* signInSagas() {
+ export function* signInSaga() {
      yield takeEvery('login/signIn', signIn)
  }
