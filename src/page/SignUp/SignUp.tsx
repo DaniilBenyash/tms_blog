@@ -1,93 +1,89 @@
 import React, { useState, useEffect } from "react";
-import './Registration.scss';
-import { Button } from '../Button/Button';
-import { Input } from "../Input";
-import { SignForm } from '../SignForm/SignForm'
-import { NamePage } from "../NamePage/NamePage";
+import './SignUp.scss';
+import { Button } from '../../components/Button/Button';
+import { Input } from "../../components/Input";
+import { SignForm } from '../../components/SignForm/SignForm'
+import { NamePage } from "../../components/NamePage/NamePage";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../redux/hooks";
+import { useAuth } from '../../features/auth/useAuth'
 
-export const Registration = () => {
-    const [valueName, setValueName] = useState('')
-    const [errorName, setErrorName] = useState('')
+export const SignUp = () => {
+    const [valueName, setValueName] = useState('');
+    const [errorName, setErrorName] = useState('');
+    const [valueEmail, setValueEmail] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
+    const [valuePassword, setValuePassword] = useState('');
+    const [errorPassword, setErrorPassword] = useState('');
+    const [valueConfirmPassword, setValueConfirmPassword] = useState('');
+    const [errorConfirmPassword, setErrorConfirmPassword] = useState('');
 
     const inputName = React.useRef<HTMLInputElement>(null);
-    const checkName = /^[a-zA-Zа-яА-Я- ]+$/;
-
-    useEffect(() => {
-        inputName.current?.focus()
-    }, [valueName])
-
-    const changeInputName = (event: any): void => setValueName(event.target.value)
-
-    const checkInputName = () => {
-        {!checkName.test(valueName) && valueName
-        &&
-        setErrorName('The name must only contain letters')}
-    }
-    
-    const [valueEmail, setValueEmail] = useState('')
-    const [errorEmail, setErrorEmail] = useState('')
-
     const inputEmail = React.useRef<HTMLInputElement>(null);
-    const checkEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
-
-    const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
-
-    const checkInputEmail = (): void => {
-        {!checkEmail.test(valueEmail) && valueEmail
-        &&
-        setErrorEmail('Invalid email')}
-    }
-    
-    const [valuePassword, setValuePassword] = useState('')
-    const [errorPassword, setErrorPassword] = useState('')
-
     const inputPassword = React.useRef<HTMLInputElement>(null);
-    const checkPassword = /^[0-9a-zA-Z]+$/;
-
-    const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
-
-    const checkInputPassword = () => {
-        {!checkPassword.test(valuePassword) && valuePassword
-        &&
-        setErrorPassword('The password must only contain letters and numbers')}
-        
-        {valuePassword != valueConfirmPassword && valueConfirmPassword
-        &&
-        setErrorConfirmPassword("Passwords don't match")}
-    }
-    
-    const [valueConfirmPassword, setValueConfirmPassword] = useState('')
-    const [errorConfirmPassword, setErrorConfirmPassword] = useState('')
-
     const inputConfirmPassword = React.useRef<HTMLInputElement>(null);
 
+    const changeInputName = (event: any): void => setValueName(event.target.value)
+    const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
+    const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
     const changeInputConfirmPassword = (event: any): void => setValueConfirmPassword(event.target.value)
 
+    const auth = useAppSelector( state => state.auth);
+
+    const { signUpUser } = useAuth();
+
+    const navigate = useNavigate();
+
+    const handleSubmit = () => {
+        const formData = {
+            username: valueName,
+            email: valueEmail,
+            password: valuePassword
+        }
+
+        {valuePassword === valueConfirmPassword
+        &&
+        signUpUser(formData)}
+            
+        {auth.user
+        &&
+        navigate('../verify')}
+    }
+
     useEffect(() => {
-        inputName.current?.addEventListener('blur', checkInputName);
+        if(auth.error){
+            {auth.error.username  && setErrorName(auth.error.username[0])}
+            {auth.error.email && setErrorEmail(auth.error.email[0])}
+            {auth.error.password && setErrorPassword(auth.error.password[0])}
+        }
+    }, [auth.error])
+
+    useEffect(() => {
         inputName.current?.addEventListener('focus', () => setErrorName(''));
-        inputEmail.current?.addEventListener('blur', checkInputEmail);
         inputEmail.current?.addEventListener('focus', () => setErrorEmail(''));
-        inputPassword.current?.addEventListener('blur', checkInputPassword);
         inputPassword.current?.addEventListener('focus', () => setErrorPassword(''));
-        {valueConfirmPassword != valuePassword && valueConfirmPassword != '' && valuePassword != ''
+
+        {valueConfirmPassword != valuePassword
         ?
         setErrorConfirmPassword("Passwords don't match")
         :
         setErrorConfirmPassword('')}
+
         return () => {
-            inputName.current?.removeEventListener('blur', checkInputName);
             inputName.current?.removeEventListener('focus', () => setErrorName(''));
-            inputEmail.current?.removeEventListener('blur', checkInputEmail);
             inputEmail.current?.removeEventListener('focus', () => setErrorEmail(''));
-            inputPassword.current?.removeEventListener('blur', checkInputPassword);
             inputPassword.current?.removeEventListener('focus', () => setErrorPassword(''));
         }
     })
-    
+
+    useEffect(() => {
+        inputName.current?.focus()
+        setErrorName('');
+    }, [valueName])
+
     return (
-        <div className="registration">
-            <div className="registration__section">
+        <div className="sign-up">
+            <div className="sign-up__section">
             <NamePage namePage="Sign Up"/>
                 <SignForm
                     inputs={[
@@ -99,6 +95,7 @@ export const Registration = () => {
                             value={valueName}
                             error={errorName}
                             ref={inputName}
+                            type='name'
                         />,
                         <Input 
                             label='Email'
@@ -108,6 +105,7 @@ export const Registration = () => {
                             value={valueEmail}
                             error={errorEmail}
                             ref={inputEmail}
+                            type='email'
                             />,
                         <Input 
                             label='Password'
@@ -117,6 +115,7 @@ export const Registration = () => {
                             value={valuePassword}
                             error={errorPassword}
                             ref={inputPassword}
+                            type='password'
                         />,
                         <Input 
                             label='Confirm Password'
@@ -126,10 +125,18 @@ export const Registration = () => {
                             value={valueConfirmPassword}
                             error={errorConfirmPassword}
                             ref={inputConfirmPassword}
+                            type='password'
                         />
                     ]}
+                    button={
+                        <Button 
+                            text='Sign Up'
+                            className='button--primary' 
+                            disabled={false}
+                            onClick={handleSubmit}
+                        />
+                    }
                     forgot={false}
-                    buttonName='Sign Up'
                     sign='in'
                 />
             </div>

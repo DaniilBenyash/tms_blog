@@ -2,33 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
-import { Login } from './components/Login';
-import { Registration } from './components/Registration';
+import { SignIn } from './page/SignIn';
+import { SignUp } from './page/SignUp';
+import { Verify } from './page/Verify';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-          <Route 
-            path='/'
-            element={<App/>}  
-          />
-          <Route
-            path='/sign-in'
-            element={<Login/>}
-          />
-          <Route
-            path='/sign-up'
-            element={<Registration/>}
-          />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+            <Route 
+              path='/'
+              element={<App/>}  
+            />
+            <Route
+              path='/sign-up'
+              element={<SignUp/>}
+            />
+            <Route
+              path='/sign-in'
+              element={<SignIn/>}
+            />
+            <Route
+              path='/verify'
+              element={<Verify/>}
+            />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
+
   </React.StrictMode>
 );
 

@@ -1,15 +1,14 @@
 import React, { ReactElement } from "react";
-import './SignForm.scss'
-import { Button } from '../Button/Button'
+import './SignForm.scss';
+import { Link } from 'react-router-dom';
 
 type SignFormProps = {
     inputs: ReactElement[],
     forgot: boolean,
-    buttonName: string,
+    button: ReactElement,
     sign?: string,
 }
-export const SignForm = ({inputs, forgot, buttonName, sign}: SignFormProps) => {
-
+export const SignForm = ({inputs, forgot, button, sign}: SignFormProps) => {
     return (
         <section className="sign-form">
             <form className="sign-form__window">
@@ -25,29 +24,24 @@ export const SignForm = ({inputs, forgot, buttonName, sign}: SignFormProps) => {
                 {forgot
                 &&
                 <div className="sign-form--pading_16">
-                    <a href="" className="sign-form__button-forgot">Forgot password?</a>
+                    <Link to='/' className="sign-form__button-forgot">Forgot password?</Link>
                 </div>}
                 
                 <div className="sign-form--padding_48">
-                    <Button 
-                        text={buttonName}
-                        type='submit'
-                        className='button--primary' 
-                        disabled={false}
-                    />
+                    {button}
                 </div>
                 
 
                 {sign === 'up' 
                 && 
                 <p className="sign-form__text">Don't have an account?
-                    <a href="" className="sign-form_button-sign-up"> Sign Up</a>
+                    <Link to='/sign-up' className="sign-form_button-sign-up"> Sign Up</Link>
                 </p>}
 
                 {sign === 'in'
                 &&
                 <p className="sign-form__text">Already have an account?
-                    <a href="" className="sign-form_button-sign-up"> Sign In</a>
+                    <Link to='/sign-in' className="sign-form_button-sign-up"> Sign In</Link>
                 </p>}  
 
             </form>

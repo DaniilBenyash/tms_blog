@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.registration{
+.sign-in{
     padding-top: 156px;
     width: 100%;
     background-color: $color-light;
@@ -10,12 +10,13 @@
 
     &__section{
         width: 1120px;
+
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .registration{
-
+    .sign-in{
+        
         &__section{
             width: max-content;
         }

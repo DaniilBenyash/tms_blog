@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.login{
+.verify{
     padding-top: 156px;
     width: 100%;
     background-color: $color-light;
@@ -10,13 +10,12 @@
 
     &__section{
         width: 1120px;
-
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .login{
-        
+    .verify{
+
         &__section{
             width: max-content;
         }
