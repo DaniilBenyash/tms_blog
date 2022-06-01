@@ -6,6 +6,7 @@ import { SignIn } from './page/SignIn';
 import { SignUp } from './page/SignUp';
 import { Verify } from './page/Verify';
 import { ResetPassword } from './page/ResetPassword';
+import { NewPassword } from './page/NewPassword';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -40,6 +41,10 @@ root.render(
             <Route 
               path='/reset-password'
               element={<ResetPassword/>}
+            />
+            <Route 
+              path='/new-password'
+              element={<NewPassword/>}
             />
         </Routes>
       </BrowserRouter>

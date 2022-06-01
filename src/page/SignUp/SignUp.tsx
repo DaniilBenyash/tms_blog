@@ -28,7 +28,7 @@ export const SignUp = () => {
     const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
     const changeInputConfirmPassword = (event: any): void => setValueConfirmPassword(event.target.value)
 
-    const auth = useAppSelector( state => state.auth);
+    const auth = useAppSelector(state => state.auth);
 
     const { signUpUser } = useAuth();
 

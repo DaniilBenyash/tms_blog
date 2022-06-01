@@ -9,6 +9,7 @@ function App() {
             <Link to='/sign-in'>SegnIn</Link>
             <Link to='/verify'>Verify</Link>
             <Link to='/reset-password'>Reset Password</Link>
+            <Link to='/new-password'>New Password</Link>
         </div>
     );
 }
