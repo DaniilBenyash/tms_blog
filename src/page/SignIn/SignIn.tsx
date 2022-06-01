@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import './SignIn.scss';
 import { Input } from "../../components/Input";
-import { SignForm } from '../../components/SignForm/SignForm'
+import { SignForm } from '../../components/SignForm/SignForm';
 import { NamePage } from "../../components/NamePage/NamePage";
 import { Button } from "../../components/Button";
 import { useLogin } from "../../features/login";

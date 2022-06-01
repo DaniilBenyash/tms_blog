@@ -5,6 +5,7 @@ import App from './App';
 import { SignIn } from './page/SignIn';
 import { SignUp } from './page/SignUp';
 import { Verify } from './page/Verify';
+import { ResetPassword } from './page/ResetPassword';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -35,6 +36,10 @@ root.render(
             <Route
               path='/verify'
               element={<Verify/>}
+            />
+            <Route 
+              path='/reset-password'
+              element={<ResetPassword/>}
             />
         </Routes>
       </BrowserRouter>
