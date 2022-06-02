@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.number-page{
+    background-color: $color-light;
+    border:none;
+    cursor: pointer;
+    color: $color-secondary;
+    font-style: normal;
+    font-weight: 600;
+    font-size: $font-size-subline-1;
+    line-height: 24px;
+    margin: 0 16px;
+}

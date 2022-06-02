@@ -4,6 +4,7 @@ import tabReducer from '../features/Tab/tabSlice';
 import { postsReducer } from '../features/posts';
 import { fetchPostsSaga } from '../sagas/getDataSagas';
 import { getPostSaga } from '../sagas/getPostSagas'
+import themeReducer from '../features/Theme/ThemeSlice'
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -11,6 +12,7 @@ export const store = configureStore({
   reducer: {
     tab: tabReducer,
     posts: postsReducer,
+    theme: themeReducer,
   },
   middleware: getDefaultMiddleware => {
     return getDefaultMiddleware().concat(sagaMiddleware)
