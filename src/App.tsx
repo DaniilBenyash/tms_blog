@@ -5,17 +5,17 @@ import { Textarea } from './components/Textarea';
 import { ReactComponent as Bookmark } from './components/Button/icon/like.svg'
 import { ReactComponent as Like } from './components/Button/icon/like.svg'
 import { ReactComponent as Dislike } from './components/Button/icon/dislike.svg'
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
+import { Navigator } from './components/Navigator/Navigator';
 
 function App() {
 
   return (
     <div className="App">
-        <Button text='Primary' onClick={() => console.log('Text')} className='button--primary' disabled={false}/>
-        <Button text='Secondary' onClick={() => console.log('Text')} className='button--secondary' disabled={false}/>
-        <Button text='Secondary 2' onClick={() => console.log('Text')} className='button--secondary2' disabled={false}/>
-        <Button text='Button with icon' onClick={() => console.log('Text')} className='button--with_icon' disabled={false} icon={<Bookmark />}/>
-        <Button onClick={() => console.log('Text')} className='button--like' disabled={false} icon={<Like />}/>
-        <Button onClick={() => console.log('Text')} className='button--dislike' disabled={false} icon={<Dislike />}/>
+        <Header/>
+        <Navigator></Navigator>
+        <Footer></Footer>
     </div>
   );
 }
