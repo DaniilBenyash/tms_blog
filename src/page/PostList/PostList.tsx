@@ -6,7 +6,7 @@ import { useAppSelector } from '../../redux/hooks';
 import { MyFavorites } from './components/MyFavorites/MyFavorites'
 import { Popular } from './components/Popular/Popular'
 import { usePosts } from "../../features/posts";
-import { Navigator } from "./components/Navigator/Navigator";
+import { Navigator } from "./components/Navigator/";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 

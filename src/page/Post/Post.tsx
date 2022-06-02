@@ -13,11 +13,17 @@ import { Link } from 'react-router-dom';
 
 export const Post = () => {
     
-    const { getInfoOnePost, onePost, onLikePost, onDislikePost, onFavoritePost } = usePosts()
+    const { getInfoOnePost, onePost, onLikePost, onDislikePost, onFavoritePost, getOnePost } = usePosts()
     
     const { id } = useParams();
+    const idForOnePost = Number(id)
+    const idForInfoPost = Number(id) - 1;
+    
+    useEffect(() => {
+        getOnePost(idForOnePost)
+    }, [])
 
-    const infoPost = getInfoOnePost(Number(id)-1);
+    const infoPost = getInfoOnePost(idForInfoPost);
 
     return (
         <main className='post'>

@@ -10,10 +10,10 @@ export const usePosts = () => {
     const dispatch = useAppDispatch()
     
     useEffect(() => {
-        {!posts 
-        && 
-        dispatch(fetchPosts())}
-    })
+        if(!posts) {
+            dispatch(fetchPosts())
+        }
+    }, [])
 
     const getOnePost = (id: number) => {
         dispatch(fetchOnePost(id))

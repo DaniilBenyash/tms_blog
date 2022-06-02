@@ -45,6 +45,7 @@ export const Posts = ({posts}: Posts) => {
                     return
                 }
             })}
+
         </div>
     )
 }

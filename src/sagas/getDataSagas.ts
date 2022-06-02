@@ -1,7 +1,7 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
 import { fetchPostsFailure, fetchPostsSuccess, IPost } from '../features/posts/postsSlice'
 
-type dataPost = {
+type data = {
     count: number, 
     next: null, 
     previous: null, 
@@ -10,11 +10,12 @@ type dataPost = {
 
 export function* fetchPosts() {
     try {
-        const response: Response = yield call(() => new Promise(res => {
-            res(fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=70&offset=0`)) 
-        }))
-        const dataPost: dataPost = yield(response.json())
-        yield put(fetchPostsSuccess(dataPost.results))
+        const response: Response = yield fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=70&offset=0`)
+
+        const data: data = yield(response.json())
+
+        yield put(fetchPostsSuccess(data.results))
+
     }
     catch(error: any){
         yield put(fetchPostsFailure(error.message))

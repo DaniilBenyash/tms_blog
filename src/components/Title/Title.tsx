@@ -15,7 +15,7 @@ export const Title = ({id, className, title}: TitleProps) => {
 
     return (
         <h1 className={className}>
-            <Link to={`/post/${id}`} className={className} onClick={() => getOnePost(id)}>{title}</Link>
+            <Link to={`/post/${id}`} className={className}>{title}</Link>
         </h1>
         
     )

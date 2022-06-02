@@ -30,14 +30,14 @@ type PostCardProps = {
 export const PostCard = ({id, image, text, date, lesson_num, title, author, size, className, like}: PostCardProps) => {
     
     const { getOnePost } = usePosts();
-    <Link to={`/post/${id}`} onClick={() => getOnePost(id)}><img src={image} alt="" className={className.img}/></Link>
+
     return (
         <div className={className.postcard}>
             <div className={className.content}>
 
                 {size === 'postcardMedium' 
                 && 
-                <Link to={`/post/${id}`} onClick={() => getOnePost(id)}>
+                <Link to={`/post/${id}`}>
                     <img src={image} alt=""  className={className.imgMedium}/>
                 </Link>}
 
@@ -62,7 +62,7 @@ export const PostCard = ({id, image, text, date, lesson_num, title, author, size
 
                 {size !== 'postcardMedium' 
                 && 
-                <Link to={`/post/${id}`} onClick={() => getOnePost(id)}>
+                <Link to={`/post/${id}`}>
                    <img src={image} alt="" className={className.img}/>
                 </Link>} 
 

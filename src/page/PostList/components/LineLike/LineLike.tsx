@@ -17,8 +17,8 @@ type LineLikeProps = {
 export const LineLike = ({postId}: LineLikeProps) => {
     
     const { getInfoOnePost, onLikePost, onDislikePost, onFavoritePost } = usePosts()
-
-    const infoPost = getInfoOnePost(postId-1);
+    const idForInfoPost = postId - 1;
+    const infoPost = getInfoOnePost(idForInfoPost);
 
     return (
         <div className='line-like'>

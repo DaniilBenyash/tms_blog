@@ -4,11 +4,12 @@ import { fetchOnePostSuccess, fetchOnePostFailure, IPost } from '../features/pos
 
 export function* fetchOnePost(action: PayloadAction<number>){
     try {
-        const response: Response = yield call(() => new Promise(res => {
-                res(fetch(`https://studapi.teachmeskills.by/blog/posts/${action.payload}`)) 
-        }))
+        const response: Response = yield fetch(`https://studapi.teachmeskills.by/blog/posts/${action.payload}`)
+
         const data: IPost = yield(response.json())
+
         yield put(fetchOnePostSuccess(data))
+        
     } catch (error: any) {
         yield fetchOnePostFailure(error.message)
     }
