@@ -1,6 +1,6 @@
 import React from "react";
 import './NavigationMenu.scss';
-import { useTab } from '../../../../features/Tab/useTab'
+import { useTab } from '../../../../features/tab/useTab'
 
 export const NavigationMenu = () => {
     

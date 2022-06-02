@@ -6,6 +6,9 @@ import { useAppSelector } from '../../redux/hooks';
 import { MyFavorites } from './components/MyFavorites/MyFavorites'
 import { Popular } from './components/Popular/Popular'
 import { usePosts } from "../../features/posts";
+import { Navigator } from "./components/Navigator/Navigator";
+import { Header } from "../../components/Header";
+import { Footer } from "../../components/Footer";
 
 export const PostList = () => {
 
@@ -15,6 +18,7 @@ export const PostList = () => {
 
     return (
         <div className="post-list">
+            <Header/>
             <div className="post-list__section">
 
                 <h1 className="post-list__h1">Blog</h1>
@@ -32,6 +36,9 @@ export const PostList = () => {
                 {tab === 'popular'
                 &&
                 <Popular/>}
+
+                <Navigator/>
+                <Footer/>
             </div>
         </div>
     )

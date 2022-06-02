@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-import { Post } from './page/Post';
-import { PostList } from './page/PostList';
+import { Post } from './page/Post/Post';
+import { PostList } from './page/PostList/PostList';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,7 +20,7 @@ root.render(
                 <Routes>
                     <Route 
                         path='/' 
-                        element={<App/>}
+                        element={<PostList/>}
                     />
                     <Route 
                         path='/post/:id' 

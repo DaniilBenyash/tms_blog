@@ -3,9 +3,9 @@ import './Header.scss';
 import { ReactComponent as Burger } from './icon/Burger.svg';
 import { ReactComponent as CloseBurger } from './icon/closeBurger.svg';
 import { ReactComponent as Search } from './icon/search.svg';
-import { HeaderName } from "../HeaderName";
+import { HeaderName } from "./components/HeaderName/HeaderName";
 import { Button } from '../Button/Button';
-import { BurgerMain } from '../BurgerMain/BurgerMain';
+import { BurgerMain } from './components/BurgerMain/BurgerMain';
 
 export const Header = () => {
 

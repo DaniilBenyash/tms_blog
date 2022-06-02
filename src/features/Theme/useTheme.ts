@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { setTheme } from "./ThemeSlice";
+import { setTheme } from "./themeSlice";
 
 export const useTheme = () => {
     const theme = useAppSelector(state => state.theme.value)
