@@ -9,6 +9,7 @@ import { verifySaga } from '../sagas/verifySagas' ;
 import { signInSaga } from '../sagas/signInSagas';
 import { UserInfoSaga } from '../sagas/userInfoSagas';
 import { MyPostsSaga } from '../sagas/myPostsSagas';
+import themeReducer from '../features/Theme/ThemeSlice'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -18,6 +19,7 @@ export const store = configureStore({
         verify: verifyReducer,
         login: loginReducer,
         userInfo: userInfoReducer,
+        theme: themeReducer,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware().concat(sagaMiddleware)
