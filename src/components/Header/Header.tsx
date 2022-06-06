@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Header.scss';
 import { ReactComponent as Burger } from './icon/Burger.svg';
 import { ReactComponent as CloseBurger } from './icon/closeBurger.svg';
@@ -6,12 +6,23 @@ import { ReactComponent as Search } from './icon/search.svg';
 import { HeaderName } from "../HeaderName";
 import { Button } from '../Button/Button';
 import { BurgerMain } from '../BurgerMain/BurgerMain';
+import { useUserInfo } from "../../features/userInfo";
 
 export const Header = () => {
 
+    const { userInfo } = useUserInfo();
+
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
-    
+
+    const [username, setUsername] = useState('')
+
+    useEffect(() => {
+        if(userInfo) {
+            setUsername(userInfo?.username)
+        }
+    }, [userInfo])
+
     return(
         <header className="header">
             <div className="header__left-content">
@@ -24,8 +35,7 @@ export const Header = () => {
                 {burgerValue 
                 && 
                 <BurgerMain 
-                    firstName='Daniil' 
-                    lastName='Benyash' 
+                    username={username}  
                 />}
                 {searchValue 
                 &&
@@ -48,8 +58,7 @@ export const Header = () => {
                     disabled={false}
                 />
                 <HeaderName 
-                    firstName='Daniil' 
-                    lastName='Benyash' 
+                    username={username} 
                 />
             </div>
         </header>

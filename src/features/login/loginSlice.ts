@@ -36,7 +36,8 @@ export const loginSlice = createSlice({
         signInSuccess: (state, action: PayloadAction<loginToken>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
-                state.token = action.payload
+                localStorage.setItem('access', action.payload.access)
+                localStorage.setItem('refresh', action.payload.refresh)
                 state.error = null
             }
         },

@@ -4,25 +4,22 @@ import { ReactComponent as User } from './icons/user.svg'
 
 
 type HeaderNameProps = {
-    firstName?: string,
-    lastName?: string,
+    username?: string,
 }
 
-export const HeaderName = ({firstName, lastName}: HeaderNameProps) => {
+export const HeaderName = ({username}: HeaderNameProps) => {
     return (
         <div className="header-name">
-            {!firstName && !lastName 
+            {!username
             ? 
             < User />
             : 
             <div className="header-name__profile">
                 <div className="header-name__initials">
-                    {firstName?.[0]}
-                    {lastName && lastName[0]}
+                    {username?.[0]}
                 </div>
                 <p className="header-name__name">
-                    {firstName}
-                    {lastName}
+                    {username}
                 </p>
             </div>
             }

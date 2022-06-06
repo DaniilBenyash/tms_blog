@@ -19,13 +19,15 @@ export type UserInfo = {
 type UserInfoPayload = {
     user: UserInfo | null,
     myPosts: Array<Post> | null,
-    error: any,
+    errorUser: string | null,
+    errorPost: string | null,
 }
 
 const initialState: UserInfoPayload = {
     user: null,
     myPosts: null,
-    error: null,
+    errorUser: null,
+    errorPost: null,
 }
 
 export const userInfoSlice = createSlice({
@@ -33,16 +35,20 @@ export const userInfoSlice = createSlice({
     initialState,
     reducers: {
         getUserInfo: (state, action: PayloadAction<UserInfo>) => {
+            state.errorUser = null
             state.user = action.payload
         },
         getMyPosts: (state, action: PayloadAction<Array<Post>>) => {
+            state.errorPost = null
             state.myPosts = action.payload
         },
         userInfoFailure: (state, action: PayloadAction<any>) => {
-            state.error = action.payload
+            state.user = null
+            state.errorUser = action.payload
         },
         myPostsFailure:(state, action: PayloadAction<string>) => {
-            state.error = action.payload
+            state.myPosts = null
+            state.errorPost = action.payload  
         },
     }
 })

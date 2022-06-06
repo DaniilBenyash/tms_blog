@@ -5,35 +5,26 @@ import { ReactComponent as Moon } from "./icon/moon.svg";
 import { HeaderName } from "../HeaderName/HeaderName";
 import { Button } from '../Button/Button'
 import { useTheme } from '../../features/Theme/useTheme'
+import { useUserInfo } from '../../features/userInfo/useUserInfo'
+import { Link } from 'react-router-dom'
 
 type BurgerMainProps = {
-    firstName?: string,
-    lastName?: string,
+    username?: string,
 }
 
-export const BurgerMain = ({firstName, lastName}: BurgerMainProps) => {
+export const BurgerMain = ({username}: BurgerMainProps) => {
 
     const { theme, toggleTheme } = useTheme();
+    const { userInfo } = useUserInfo();
 
     return (
         <div className={`burger-main ${theme && "burger-main--dark-theme"}`}>
             <div>
                 <HeaderName 
-                    firstName={firstName} 
-                    lastName={lastName} 
+                    username={username} 
                 />
-                <Button 
-                    text='Home' 
-                    onClick={() => console.log('Text')} 
-                    className='button--style-burger-main' 
-                    disabled={false}
-                />
-                <Button 
-                    text='Add post' 
-                    onClick={() => console.log('Text')} 
-                    className='button--add-post button--style-burger-main' 
-                    disabled={false}
-                />
+                <Link to='/' className='burger-main__link burger-main__link_home'>Home</Link>
+                <Link to='/' className='burger-main__link'>Add post</Link>
             </div>
             <div>
                 <div className="burger-main__theme">
@@ -50,12 +41,17 @@ export const BurgerMain = ({firstName, lastName}: BurgerMainProps) => {
                         disabled={false}
                     />
                 </div>
+                {userInfo
+                ?
                 <Button 
                     text='Log Out' 
                     onClick={() => console.log('Text')} 
                     className='button--login-button button--style-burger-main' 
                     disabled={false}
                 />
+                :
+                <Link to='/sign-in' className='burger-main__link burger-main__link_sign-in' >Sign In</Link>}
+                
             </div>
         </div>
     )

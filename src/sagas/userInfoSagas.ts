@@ -6,20 +6,22 @@ import {
     type UserInfo,
 } from '../features/userInfo/userInfoSlice';
 import { type loginToken } from "../features/login/loginSlice";
+import { customFetch } from "../utils/customFetch";
 
-export function* UserInformation(action: PayloadAction<loginToken>) {
+export function* UserInformation() {
     try {
-        const responseInfoUser: Response = yield fetch('https://studapi.teachmeskills.by/auth/users/me/',{
-            method: 'GET',
-            headers: {"Authorization": `Bearer ${action.payload.access}`},
-        })
+        const url = 'https://studapi.teachmeskills.by/auth/users/me/'
 
-        const userInfo: UserInfo = yield responseInfoUser.json()
+        const responseUserInso = customFetch(url)
+
+        yield responseUserInso.then(res => res?.ok ? res : Promise.reject(res))
+        
+        const userInfo: UserInfo = yield (responseUserInso.then(data => data?.json()) as unknown as UserInfo)
         
         yield put(getUserInfo(userInfo))
 
     } catch(error:any) {        
-        yield put(userInfoFailure(error))
+        yield put(userInfoFailure(error.statusText))
     }
 }
 export function* UserInfoSaga() {

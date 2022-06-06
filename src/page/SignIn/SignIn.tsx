@@ -34,7 +34,7 @@ export const SignIn = () => {
 
         signInUser(formData);
 
-        // {login.token 
+        // {!login.error
         // &&
         // navigate('/')}
     }

@@ -22,8 +22,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Header/>
       <BrowserRouter>
+      <Header/>
         <Routes>
             <Route 
               path='/'
@@ -50,8 +50,8 @@ root.render(
               element={<NewPassword/>}
             />
         </Routes>
+        <Footer/>
       </BrowserRouter>
-      <Footer/>
     </Provider>
   </React.StrictMode>
 );
