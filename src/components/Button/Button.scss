@@ -167,6 +167,7 @@
 
     &--burger{
         height: 84px;
+        width: 84px;
         background-color: $color-primary;
         border: none;
         border-right: 1px solid $color-primary2;
@@ -176,6 +177,7 @@
 
     &--search-close{
         height: 100%;
+        width: min-content;
         background-color: $color-primary2;
         border: none;
         cursor: pointer;

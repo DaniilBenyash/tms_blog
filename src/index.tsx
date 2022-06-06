@@ -7,6 +7,8 @@ import { SignUp } from './page/SignUp';
 import { Verify } from './page/Verify';
 import { ResetPassword } from './page/ResetPassword';
 import { NewPassword } from './page/NewPassword';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -20,6 +22,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Header/>
       <BrowserRouter>
         <Routes>
             <Route 
@@ -48,8 +51,8 @@ root.render(
             />
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </Provider>
-
   </React.StrictMode>
 );
 
