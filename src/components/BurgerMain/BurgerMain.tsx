@@ -4,7 +4,7 @@ import { ReactComponent as Sun } from "./icon/sun.svg";
 import { ReactComponent as Moon } from "./icon/moon.svg";
 import { HeaderName } from "../HeaderName/HeaderName";
 import { Button } from '../Button/Button'
-import { useTheme } from '../../features/Theme/useTheme'
+import { useTheme } from '../../features/theme/useTheme'
 import { useUserInfo } from '../../features/userInfo/useUserInfo'
 import { Link } from 'react-router-dom'
 

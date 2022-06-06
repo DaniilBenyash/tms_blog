@@ -4,6 +4,9 @@ import { NamePage } from "../../components/NamePage/NamePage";
 import { SignForm } from '../../components/SignForm/SignForm';
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
+import { useResetPassword } from "../../features/resetPassword/useResetPassword";
+import { useAppSelector } from "../../redux/hooks";
 
 export const ResetPassword = () => {
     const [valueEmail, setValueEmail] = useState('');
@@ -12,11 +15,21 @@ export const ResetPassword = () => {
     const inputEmail = React.useRef<HTMLInputElement>(null);
 
     const changeInputEmail = (event: any): void => setValueEmail(event.target.value)
+    
+    const email = useAppSelector(state => state.resetPassword.email)
+
+    const { resetPass } = useResetPassword();
+
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
         const formData = {
             email: valueEmail
         }
+
+        resetPass(formData);
+        
+        navigate('/new-password')
     }
 
     return (

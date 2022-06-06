@@ -9,7 +9,9 @@ import { verifySaga } from '../sagas/verifySagas' ;
 import { signInSaga } from '../sagas/signInSagas';
 import { UserInfoSaga } from '../sagas/userInfoSagas';
 import { MyPostsSaga } from '../sagas/myPostsSagas';
-import themeReducer from '../features/Theme/ThemeSlice'
+import themeReducer from '../features/theme/themeSlice'
+import { resetPasswordReducer } from '../features/resetPassword';
+import { resetPasswordSaga } from '../sagas/resetPasswordSaga';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -20,6 +22,7 @@ export const store = configureStore({
         login: loginReducer,
         userInfo: userInfoReducer,
         theme: themeReducer,
+        resetPassword: resetPasswordReducer,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware().concat(sagaMiddleware)
@@ -31,6 +34,7 @@ sagaMiddleware.run(verifySaga)
 sagaMiddleware.run(signInSaga)
 sagaMiddleware.run(UserInfoSaga)
 sagaMiddleware.run(MyPostsSaga)
+sagaMiddleware.run(resetPasswordSaga)
 
 export type RootState = ReturnType<typeof store.getState>
 

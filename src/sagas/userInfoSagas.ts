@@ -10,7 +10,7 @@ import { customFetch } from "../utils/customFetch";
 
 export function* UserInformation() {
     try {
-        const url = 'https://studapi.teachmeskills.by/auth/users/me/'
+        const url = 'https://studapi.teachmeskills.by/auth/users/me/' 
 
         const responseUserInso = customFetch(url)
 
