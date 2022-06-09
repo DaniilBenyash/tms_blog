@@ -1,12 +1,12 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { call, takeEvery, put } from "redux-saga/effects";
 import {
-    verifingSuccess,
-    verifingFailure,
+    verifyUserSuccess,
+    verifyUserFailure,
     type TokenPayload
 } from '../features/verify/verifySlice';
 
-export function* verifing(action: PayloadAction<TokenPayload>) {
+export function* verifyUser(action: PayloadAction<TokenPayload>) {
     try {
         const response: Response = yield fetch('https://studapi.teachmeskills.by/auth/users/activation/',{
             method: 'POST',
@@ -20,16 +20,16 @@ export function* verifing(action: PayloadAction<TokenPayload>) {
 
         const data: TokenPayload = yield response.json()
 
-        yield put(verifingSuccess(data))
+        yield put(verifyUserSuccess(data))
 
     } catch(error: any) {
 
         const dataError: TokenPayload = yield error.json()
         
-        yield put(verifingFailure(dataError))
+        yield put(verifyUserFailure(dataError))
     }
 }
 
 export function* verifySaga(){
-    yield takeEvery('verify/verifing', verifing)
+    yield takeEvery('verify/verifyUser', verifyUser)
 }

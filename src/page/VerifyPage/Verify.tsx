@@ -47,11 +47,14 @@ export const Verify = () => {
     }, [verify.error])
     
     useEffect(() => {
-        inputUid.current?.addEventListener('focus', () => setErrorUid(''))
-        inputToken.current?.addEventListener('focus', () => setErrorToken(''))
+        const focusUid = () => setErrorUid('')
+        const focusToken = () => setErrorToken('')
+
+        inputUid.current?.addEventListener('focus', focusUid)
+        inputToken.current?.addEventListener('focus', focusToken)
         return () => {
-            inputUid.current?.removeEventListener('focus', () => setErrorUid(''))
-            inputToken.current?.removeEventListener('focus', () => setErrorToken(''))
+            inputUid.current?.removeEventListener('focus', focusUid)
+            inputToken.current?.removeEventListener('focus', focusToken)
         }
     })
 

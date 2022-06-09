@@ -4,11 +4,12 @@ import { type actionNewPassword, newPassword } from "./newPasswordSlice";
 export const useNewPassword = () => {
     const dispatch = useAppDispatch();
 
-    const newPass = (confirmData: actionNewPassword) => {
+    const setNewPassword = (confirmData: actionNewPassword) => {
+        
         dispatch(newPassword(confirmData))
     }
 
     return {
-        newPass
+        setNewPassword
     }
 }

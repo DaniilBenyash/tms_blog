@@ -3,15 +3,15 @@
 .textarea{
     display: flex;
     flex-direction: column;
-    font-family: 'Mulish', sans-serif;
+    font-family: InterSemiBold, sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: $font-size-subline-1;
     line-height: 20px;
     color: $color-secondary;
+    width: 100%;
 
     &__form {
-        width: 544px;
         border: none;
         font-family: 'Mulish', sans-serif;
         font-style: normal;

@@ -21,25 +21,25 @@ export const verifySlice = createSlice({
     name: 'verify',
     initialState,
     reducers: {
-        verifing: ( state, action: PayloadAction<TokenPayload>) => {
+        verifyUser: ( state, action: PayloadAction<TokenPayload>) => {
             if(state.isLoading === 'idle'){
                 state.isLoading = 'pending'
             }
         },
-        verifingSuccess: (state, action: PayloadAction<TokenPayload>) => {  
+        verifyUserSuccess: (state, action: PayloadAction<TokenPayload>) => {  
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.token = action.payload
                 state.error = null
             }
         },
-        verifingFailure: (state, action: PayloadAction<TokenPayload>) => {
+        verifyUserFailure: (state, action: PayloadAction<TokenPayload>) => {
             state.isLoading = 'idle'
             state.error = action.payload
         },
     }
 })
 
-export const {verifing, verifingSuccess, verifingFailure} = verifySlice.actions
+export const {verifyUser, verifyUserSuccess, verifyUserFailure} = verifySlice.actions
 
 export default verifySlice.reducer

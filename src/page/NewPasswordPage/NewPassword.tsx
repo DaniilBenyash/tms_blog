@@ -4,6 +4,8 @@ import { NamePage } from "../../components/NamePage/NamePage";
 import { SignForm } from '../../components/SignForm/SignForm';
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
+import { useNewPassword } from '../../features/newPassword/useNewPassword';
+import { useNavigate } from "react-router-dom";
 
 export const NewPassword = () => {
     const [valueUid, setValueUid] = useState('');
@@ -12,38 +14,44 @@ export const NewPassword = () => {
     const [errorToken, setErrorToken] = useState('');
     const [valuePassword, setValuePassword] = useState('');
     const [errorPassword, setErrorPassword] = useState('');
-    const [valueConfirmPassword, setValueConfirmPassword] = useState('');
-    const [errorConfirmPassword, setErrorConfirmPassword] = useState('');
 
     const inputUid = React.useRef<HTMLInputElement>(null);
     const inputToken = React.useRef<HTMLInputElement>(null);
     const inputPassword = React.useRef<HTMLInputElement>(null);
-    const inputConfirmPassword = React.useRef<HTMLInputElement>(null);
+ 
     
     const changeInputUid = (event: any): void => setValueUid(event.target.value)
     const changeInputToken = (event: any): void => setValueToken(event.target.value)
     const changeInputPassword = (event: any): void => setValuePassword(event.target.value)
-    const changeInputConfirmPassword = (event: any): void => setValueConfirmPassword(event.target.value)
+
+    const { setNewPassword } = useNewPassword();
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
+        const formData = {
+            uid: valueUid,
+            token: valueToken,
+            new_password: valuePassword,
+        }
+        
+        setNewPassword(formData)
 
+        navigate('/')
     }
 
     useEffect(() => {
-        inputUid.current?.addEventListener('focus', () => setErrorUid(''))
-        inputToken.current?.addEventListener('focus', () => setErrorToken(''))
-        inputPassword.current?.addEventListener('focus', () => setErrorPassword(''));
-
-        {valueConfirmPassword != valuePassword
-        ?
-        setErrorConfirmPassword("Passwords don't match")
-        :
-        setErrorConfirmPassword('')}
+        const focusUid = () => setErrorUid('')
+        const focusToken = () => setErrorToken('')
+        const focusPassword = () => setErrorPassword('')
+        
+        inputUid.current?.addEventListener('focus', focusUid)
+        inputToken.current?.addEventListener('focus', focusToken)
+        inputPassword.current?.addEventListener('focus', focusPassword);
 
         return () => {
-            inputUid.current?.removeEventListener('focus', () => setErrorUid(''))
-            inputToken.current?.removeEventListener('focus', () => setErrorToken(''))
-            inputPassword.current?.removeEventListener('focus', () => setErrorPassword(''));
+            inputUid.current?.removeEventListener('focus', focusUid)
+            inputToken.current?.removeEventListener('focus', focusToken)
+            inputPassword.current?.removeEventListener('focus', focusPassword);
         }
     })
 
@@ -76,26 +84,16 @@ export const NewPassword = () => {
                         error={errorToken}
                         ref={inputToken}
                     />,
-                        <Input 
-                            label='Password'
-                            placeholder='Your password'
-                            disabled={false}
-                            onChange={changeInputPassword}
-                            value={valuePassword}
-                            error={errorPassword}
-                            ref={inputPassword}
-                            type='password'
-                        />,
-                        <Input 
-                            label='Confirm Password'
-                            placeholder='Confirm Password'
-                            disabled={false}
-                            onChange={changeInputConfirmPassword}
-                            value={valueConfirmPassword}
-                            error={errorConfirmPassword}
-                            ref={inputConfirmPassword}
-                            type='password'
-                        />
+                    <Input 
+                        label='New password'
+                        placeholder='Your password'
+                        disabled={false}
+                        onChange={changeInputPassword}
+                        value={valuePassword}
+                        error={errorPassword}
+                        ref={inputPassword}
+                        type='password'
+                    />,
                     ]}
                     button={
                         <Button 

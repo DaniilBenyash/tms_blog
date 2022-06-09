@@ -59,9 +59,13 @@ export const SignUp = () => {
     }, [auth.error])
 
     useEffect(() => {
-        inputName.current?.addEventListener('focus', () => setErrorName(''));
-        inputEmail.current?.addEventListener('focus', () => setErrorEmail(''));
-        inputPassword.current?.addEventListener('focus', () => setErrorPassword(''));
+        const focusName = () => setErrorName('')
+        const focusEmail = () => setErrorEmail('')
+        const focusPassword = () => setErrorPassword('')
+
+        inputName.current?.addEventListener('focus', focusName);
+        inputEmail.current?.addEventListener('focus', focusEmail);
+        inputPassword.current?.addEventListener('focus', focusPassword);
 
         {valueConfirmPassword != valuePassword
         ?
@@ -70,9 +74,9 @@ export const SignUp = () => {
         setErrorConfirmPassword('')}
 
         return () => {
-            inputName.current?.removeEventListener('focus', () => setErrorName(''));
-            inputEmail.current?.removeEventListener('focus', () => setErrorEmail(''));
-            inputPassword.current?.removeEventListener('focus', () => setErrorPassword(''));
+            inputName.current?.removeEventListener('focus', focusName);
+            inputEmail.current?.removeEventListener('focus', focusEmail);
+            inputPassword.current?.removeEventListener('focus', focusPassword);
         }
     })
 

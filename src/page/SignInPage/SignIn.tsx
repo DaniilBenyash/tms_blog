@@ -47,11 +47,15 @@ export const SignIn = () => {
     }, [login.error])
 
     useEffect(() => {
-        inputEmail.current?.addEventListener('focus', () => setErrorEmail(''));    
-        inputPassword.current?.addEventListener('focus', () => setErrorPassword(''));
+        const focusEmail = () => setErrorEmail('')
+        const focusPassword = () => setErrorPassword('')
+
+        inputEmail.current?.addEventListener('focus', focusEmail);    
+        inputPassword.current?.addEventListener('focus', focusPassword);
+        
         return () => {
-            inputEmail.current?.removeEventListener('focus', () => setErrorEmail(''));    
-            inputPassword.current?.removeEventListener('focus', () => setErrorPassword(''));
+            inputEmail.current?.removeEventListener('focus', focusEmail);    
+            inputPassword.current?.removeEventListener('focus', focusPassword);
         }
     })  
 
