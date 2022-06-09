@@ -6,14 +6,12 @@ import { ReactComponent as Search } from './icon/search.svg';
 import { HeaderName } from "./components/HeaderName";
 import { Button } from '../Button/Button';
 import { BurgerMain } from './components/BurgerMain/BurgerMain';
-import { usePosts } from "../../features/posts";
-import { useFilterPosts } from "../../features/filterPosts";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useSearchPosts } from "../../features/searchPosts";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
-    const { setValueFilter} = useFilterPosts();
-
+    const { setValueSearch } = useSearchPosts();
 
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
@@ -21,10 +19,15 @@ export const Header = () => {
     const navigate = useNavigate();
 
     const searchInput = (event: any) => {
-        if(event.keyCode === 13){
-            setValueFilter(event.target.value)
+            console.log();
+            if(!event.target.value){
+                setValueSearch(null)
+            } else {
+                setValueSearch(event.target.value)
+            }
+            
             navigate('/search')
-        }
+        
     }
 
     return(
@@ -45,7 +48,7 @@ export const Header = () => {
                 {searchValue 
                 &&
                 <div className="header__search">
-                <input type="input" placeholder="Search..." className="header__search-input" onKeyUp={searchInput}/>
+                <input type="input" placeholder="Search..." className="header__search-input" onChange={searchInput}/>
                 <Button 
                     icon={<CloseBurger/>} 
                     onClick={() => setSearchValue(false)} 

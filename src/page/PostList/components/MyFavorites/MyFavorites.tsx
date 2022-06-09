@@ -1,6 +1,6 @@
 import React from "react";
 import './MyFavorites.scss'
-import { usePosts } from "../../../../features/posts";
+import { usePosts } from "../../../../features/getPosts";
 import { Card } from '../Card/Card';
 
 export const MyFavorites = () => {

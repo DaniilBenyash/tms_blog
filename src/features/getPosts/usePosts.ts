@@ -20,7 +20,7 @@ export const usePosts = () => {
     } 
 
     const getInfoOnePost = (id: number) => {
-        return posts?.[id]
+        return posts?.find(post => post.id === id)
     }
     const onLikePost = (id: number) => {
         dispatch(likePost(id))

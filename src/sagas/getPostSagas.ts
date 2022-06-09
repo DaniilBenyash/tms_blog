@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { fetchOnePostSuccess, fetchOnePostFailure, IPost } from '../features/posts/postsSlice'
+import { fetchOnePostSuccess, fetchOnePostFailure, IPost } from '../features/getPosts/postsSlice'
 
 export function* fetchOnePost(action: PayloadAction<number>){
     try {

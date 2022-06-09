@@ -6,8 +6,8 @@ import { ReactComponent as More} from './icon/more.svg'
 import { ReactComponent as BookmarkTrue } from './icon/Bookmark-True.svg'
 import { ReactComponent as LikeTrue} from './icon/like-true.svg'
 import { ReactComponent as DislikeTrue} from './icon/dislike-true.svg'
-import { Button } from "../../../../components/Button";
-import { usePosts } from "../../../../features/posts";
+import { Button } from "../Button";
+import { usePosts } from "../../features/getPosts";
 import './LineLike.scss';
 
 type LineLikeProps = {
@@ -17,7 +17,7 @@ type LineLikeProps = {
 export const LineLike = ({postId}: LineLikeProps) => {
     
     const { getInfoOnePost, onLikePost, onDislikePost, onFavoritePost } = usePosts()
-    const idForInfoPost = postId - 1;
+    const idForInfoPost = postId;
     const infoPost = getInfoOnePost(idForInfoPost); 
 
     return (

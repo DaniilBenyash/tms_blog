@@ -1,49 +1,51 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { stat } from "fs";
-import { IPost } from "../posts/postsSlice";
+import { IPost } from "../getPosts/postsSlice";
 
-export type filt = {
+export type typePostsServer = {
     count: number,
     next: string,
     previous: boolean
     results: IPost[]
 }
 
-type filterPostsState = {
-    posts: filt | null,
+type searchPostsState = {
+    posts: typePostsServer | null,
+    valueSearch: string | null,
     isLoading: 'idle' | 'pending',
     error: null | any
 }
 
-const initialState: filterPostsState = {
+const initialState: searchPostsState = {
     posts: null,
+    valueSearch: null,
     isLoading: 'idle',
     error: null,
 }
 
-export const filterPostsSlice = createSlice({
-    name: 'filter',
+export const searchPostsSlice = createSlice({
+    name: 'search',
     initialState,
     reducers: {
-        filterPosts: (state, action: PayloadAction<string>) => {
+        searchPosts: (state, action: PayloadAction<string | null>) => {
             if(state.isLoading === 'idle'){
                 state.isLoading = 'pending'
+                state.valueSearch = action.payload
             }
         },
-        filterPostsSuccess: (state, action: PayloadAction<filt>) => {
+        searchPostsSuccess: (state, action: PayloadAction<typePostsServer>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.posts = action.payload
                 state.error = null
             }
         },
-        filterPostsFailure: (state, action: PayloadAction<any>) => {
+        searchPostsFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
             state.error = action.payload
         }
     }
 })
 
-export const {filterPosts, filterPostsSuccess, filterPostsFailure} = filterPostsSlice.actions
+export const {searchPosts, searchPostsSuccess, searchPostsFailure} = searchPostsSlice.actions
 
-export default filterPostsSlice.reducer
+export default searchPostsSlice.reducer

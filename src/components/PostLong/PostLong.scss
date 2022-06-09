@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.post-long{
+    border-bottom: 1px solid $color-background-primary2;
+    padding-bottom: 41px;
+    margin-bottom: 40px;
+
+    &__section{
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__image{
+        width: 96px;
+        height: 96px;
+        object-fit: cover;
+        margin: 0 32px 46px 0;
+    }
+}
+@media screen and (max-width: 550px){
+    .post-long{
+
+        &__section{
+            flex-direction: column;
+            
+        }
+
+        &__image{
+            margin-bottom: 24px;
+        }
+    }
+}

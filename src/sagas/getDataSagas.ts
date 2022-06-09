@@ -1,5 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import { fetchPostsFailure, fetchPostsSuccess, IPost } from '../features/posts/postsSlice'
+import { fetchPostsFailure, fetchPostsSuccess, IPost } from '../features/getPosts/postsSlice'
 
 type data = {
     count: number, 
@@ -10,7 +10,7 @@ type data = {
 
 export function* fetchPosts() {
     try {
-        const response: Response = yield fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=70&offset=0`)
+        const response: Response = yield fetch(`https://studapi.teachmeskills.by/blog/posts/?limit=1000&offset=0`)
 
         const data: data = yield(response.json())
 

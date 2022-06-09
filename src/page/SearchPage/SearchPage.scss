@@ -1,3 +1,68 @@
+@import "../../styles/variables";
+
 .search-page{
-    padding-top: 100px;
+    padding-top: 156px;
+    width: 100%;
+    background-color: $color-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section{
+        width: 1120px;
+    }
+
+    &__title{
+        color: $color-secondary;
+        font-style: Bold;
+        font-size: $font-size-headline-1-desktop;
+        line-height: 80px;
+        line-height: 118%;
+        padding-bottom: 64px;
+    }
+
+    &__no-found{
+        color: $color-secondary;
+        font-style: Bold;
+        font-size: $font-size-headline-2-desktop;
+        line-height: 80px;
+        line-height: 118%;
+        padding-bottom: 64px;
+    }
+} 
+
+@media screen and (max-width: 1250px){
+    .search-page{
+
+        &__section{
+            max-width: 736px;
+            min-height: min-content;
+        }
+        
+        &__title{
+            font-size: $font-size-headline-2-desktop;
+            line-height: 50px;
+        }
+    }
+}
+@media screen and (max-width: 800px){
+    .search-page{
+
+        &__section{
+            max-width: 500px;
+        }
+    }
+}
+@media screen and (max-width: 550px){
+    .search-page{
+
+        &__section{
+            max-width: 320px;
+        }
+        
+        &__title{
+            font-size: $font-size-headline-2-desktop;
+            line-height: 48px;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import './Title.scss';
 import { Link } from 'react-router-dom';
-import { usePosts } from '../../features/posts/usePosts'
+import { usePosts } from '../../features/getPosts/usePosts'
 
 type TitleProps = {
     id: number,

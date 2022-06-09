@@ -68,8 +68,6 @@ export const postsSlice = createSlice({
         },
         dislikePost: (state, action: PayloadAction<number>) => {
             if(state.content) {
-                console.log(state.content);
-                
                 state.content = state.content.map(post => post.id === action.payload ? {...post, like: post.like || post.like === undefined ? false : undefined} : post)
             }
         },

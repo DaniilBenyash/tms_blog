@@ -1,13 +1,12 @@
 import React from "react";
 import './PostList.scss'
-import { NavigationMenu } from './components/NavigationMenu/NavigationMenu'
+import { NavigationMenu } from "./components/NavigationMenu";
 import { Posts } from './components/Posts/Posts'
 import { useAppSelector } from '../../redux/hooks';
 import { MyFavorites } from './components/MyFavorites/MyFavorites'
 import { Popular } from './components/Popular/Popular'
-import { usePosts } from "../../features/posts";
-import { Navigator } from "./components/Navigator/";
-import { Header } from "../../components/Header";
+import { usePosts } from "../../features/getPosts";
+
 import { Footer } from "../../components/Footer";
 
 export const PostList = () => {
@@ -18,7 +17,7 @@ export const PostList = () => {
 
     return (
         <div className="post-list">
-            <Header/>
+
             <div className="post-list__section">
 
                 <h1 className="post-list__h1">Blog</h1>
@@ -27,7 +26,7 @@ export const PostList = () => {
 
                 {tab === 'all' && posts
                 &&     
-                < Posts posts={posts}/>}
+                < Posts/>}
 
                 {tab === 'favorites'
                 &&
@@ -37,7 +36,6 @@ export const PostList = () => {
                 &&
                 <Popular/>}
 
-                <Navigator/>
                 <Footer/>
             </div>
         </div>

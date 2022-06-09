@@ -1,11 +1,9 @@
 import React from "react";
 import './PostCardd.scss'
-import { LineLike } from '../LineLike/LineLike'
-import { Date } from '../Date/Date'
+import { LineLike } from "../../../../components/LineLike";
+import { Date } from '../../../../components/Date/Date'
 import { Title } from '../../../../components/Title/Title'
 import { Link } from 'react-router-dom';
-import { usePosts } from '../../../../features/posts/usePosts';
-
 
 type PostCard = {
     postcard: string,
@@ -28,8 +26,6 @@ type PostCardProps = {
 }
 
 export const PostCard = ({id, image, text, date, lesson_num, title, author, size, className, like}: PostCardProps) => {
-    
-    const { getOnePost } = usePosts();
 
     return (
         <div className={className.postcard}>
