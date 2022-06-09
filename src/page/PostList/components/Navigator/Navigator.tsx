@@ -11,27 +11,9 @@ export const Navigator = () => {
 
     const { posts, valuePage, chengePage } = useNumberPage()
 
-    
-    const [page, setPage] = useState<number[]>([1,2,3,4,5,6,7]);
+    const numberOfPages = posts?.count ? Math.ceil((Number(posts.count) - 11) / 12) + 1 : 1
 
-    const numberOfPages = Math.ceil((Number(posts?.count) - 11) / 12)
-
-    // useEffect(() => {
-
-        
-    //     for(let i = 2; i < numberOfPages; i++){
-            
-    //         page?.push(i)
-            
-    //     }
-        
-        
-        
-    //     console.log(page);
-        
-        
-    // }, [numberOfPages])
-    
+    const page = Array(numberOfPages).fill('').map((_, index) => index + 1)
     
     return (
         <div className="navigator">
