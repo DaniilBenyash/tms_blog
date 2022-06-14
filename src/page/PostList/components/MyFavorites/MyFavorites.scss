@@ -1,0 +1,19 @@
+.my-favorites{
+    padding-top: 64px;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: max-content;
+    grid-column-gap: 32px;
+    grid-row-gap: 34px;
+}
+@media screen and (max-width: 1250px) {
+    .my-favorites{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 850px) {
+    .my-favorites{
+        grid-template-columns: 1fr;
+    }
+}

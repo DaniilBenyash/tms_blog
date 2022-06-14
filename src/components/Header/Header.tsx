@@ -7,10 +7,13 @@ import { HeaderName } from "../HeaderName";
 import { Button } from '../Button/Button';
 import { BurgerMain } from '../BurgerMain/BurgerMain';
 import { useUserInfo } from "../../features/userInfo";
+import { useSearchPosts } from "../../features/searchPosts";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
     const { userInfo } = useUserInfo();
+    const { setValueSearch } = useSearchPosts();
 
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
@@ -22,6 +25,19 @@ export const Header = () => {
             setUsername(userInfo?.username)
         }
     }, [userInfo])
+    const navigate = useNavigate();
+
+    const searchInput = (event: any) => {
+            console.log();
+            if(!event.target.value){
+                setValueSearch(null)
+            } else {
+                setValueSearch(event.target.value)
+            }
+            
+            navigate('/search')
+        
+    }
 
     return(
         <header className="header">
@@ -40,7 +56,7 @@ export const Header = () => {
                 {searchValue 
                 &&
                 <div className="header__search">
-                <input type="input" placeholder="Search..." className="header__search-input"/>
+                <input type="input" placeholder="Search..." className="header__search-input" onChange={searchInput}/>
                 <Button 
                     icon={<CloseBurger/>} 
                     onClick={() => setSearchValue(false)} 

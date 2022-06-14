@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.line-like{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+
+    &__left-button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100px;
+        padding: -20px -10px;
+    }
+
+    &__number{
+        font-style: normal;
+        font-weight: 700;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        color: $color-secondary;
+        margin: 0 25px 0 8px;
+    }
+
+    &__right-button{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}

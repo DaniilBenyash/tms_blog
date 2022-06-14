@@ -1,0 +1,60 @@
+@import "../../styles/variables";
+
+.post-list{
+    padding-top: 156px;
+    width: 100%;
+    background-color: $color-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__section{
+        width: 1120px;
+    }
+
+    &__h1{
+        font-style: normal;
+        font-weight: 700;
+        font-size: $font-size-headline-1-desktop;
+        line-height: 80px;
+        color: $color-secondary;
+        margin-bottom: 40px;
+    }
+
+    &__loading{
+        padding-top: 72px;
+        text-align: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 24px;
+        color: $color-secondary;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .post-list{
+        
+        &__section{
+            width: min-content;
+        } 
+    }
+}
+@media screen and (max-width: 850px) {
+    .post-list{
+       
+        &__h1{
+            font-size: $font-size-headline-1-mobile;
+        }
+       
+    }
+}
+@media screen and (max-width: 500px) {
+    .post-list{
+       
+        &__section{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}

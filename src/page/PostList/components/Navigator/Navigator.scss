@@ -1,0 +1,40 @@
+@import "../../../../styles/variables";
+
+.navigator{
+    width: 100%;
+    padding: 72px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $color-light;
+
+    &__pointer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: $color-light;
+        border:none;
+        cursor: pointer;
+    }
+
+    &__pointer-text{
+        font-style: normal;
+        color: $color-secondary;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        margin: 0 11px;
+    }
+    
+    &__number-item{
+        background-color: $color-light;
+        border:none;
+        cursor: pointer;
+        color: $color-secondary;
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 24px;
+        margin: 0 16px;
+    }
+}
