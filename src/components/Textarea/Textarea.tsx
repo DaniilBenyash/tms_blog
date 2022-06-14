@@ -9,12 +9,10 @@ type TextareaProps = {
     value: any,
 }
 
-export const Textarea = React.forwardRef(({placeholder, rows, label, onChange, value}: TextareaProps) => {
+export const Textarea = ({placeholder, rows, label, onChange, value}: TextareaProps) => {
     return (
         <label className="textarea">
-
             {label}
-
             <textarea 
                 className='textarea__form' 
                 name='textarea' 
@@ -26,4 +24,4 @@ export const Textarea = React.forwardRef(({placeholder, rows, label, onChange, v
             </textarea>
         </label>   
     )
-})
+}

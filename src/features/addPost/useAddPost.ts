@@ -1,8 +1,14 @@
 import { useAppDispatch } from "../../redux/hooks";
-import { type valueAddPost, type valueMyPost, addPost } from "./addPostSlice";
+import { type valueAddPost, addPost } from "./addPostSlice";
 
 export const useAddPost = () => {
     const dispatch = useAppDispatch();
 
-    const 
+    const setNewPost = (post: valueAddPost) => {
+        dispatch(addPost(post))
+    }
+
+    return {
+        setNewPost
+    }
 }

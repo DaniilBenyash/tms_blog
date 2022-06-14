@@ -14,6 +14,8 @@ import { resetPasswordReducer } from '../features/resetPassword';
 import { resetPasswordSaga } from '../sagas/resetPasswordSaga';
 import { newPasswordReducer } from '../features/newPassword';
 import { newPasswordSaga } from '../sagas/newPasswordSaga';
+import { addPostReducer } from '../features/addPost';
+import { addPostSaga } from '../sagas/addPostSaga';
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -26,6 +28,7 @@ export const store = configureStore({
         theme: themeReducer,
         resetPassword: resetPasswordReducer,
         newPassword: newPasswordReducer,
+        addPost: addPostReducer,
     },
     middleware: getDefaultMiddleware => {
         return getDefaultMiddleware().concat(sagaMiddleware)
@@ -39,6 +42,7 @@ sagaMiddleware.run(UserInfoSaga)
 sagaMiddleware.run(MyPostsSaga)
 sagaMiddleware.run(resetPasswordSaga)
 sagaMiddleware.run(newPasswordSaga)
+sagaMiddleware.run(addPostSaga)
 
 export type RootState = ReturnType<typeof store.getState>
 

@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import newPasswordSlice from "../newPassword/newPasswordSlice";
+import { type Post } from "../userInfo/userInfoSlice";
 
 export type valueAddPost = {
     image?: string,
@@ -8,18 +9,9 @@ export type valueAddPost = {
     title: string,
 }
 
-export type valueMyPost = {
-    id: number,
-    image: string,
-    text: string,
-    date: string,
-    lesson_num: number,
-    title: string,
-    author: number,
-}
 type actionAddPost = {
     valueAddPost: valueAddPost | null,
-    valueMyPost: valueMyPost | null,
+    valueMyPost: Post | null,
     isLoading: 'idle' | 'pending',
     error: any,
 }
@@ -41,20 +33,20 @@ export const addPostSlice = createSlice({
                 state.valueAddPost = action.payload
             }
         },
-        getMyPostSuccess: (state, action: PayloadAction<valueMyPost>) => {
+        getMyPostSuccess: (state, action: PayloadAction<Post>) => {
             if(state.isLoading === 'pending'){
                 state.isLoading = 'idle'
                 state.valueMyPost = action.payload
                 state.error = null
             }
         },
-        getMyPostFailue: (state, action: PayloadAction<any>) => {
+        getMyPostFailure: (state, action: PayloadAction<any>) => {
             state.isLoading = 'idle'
             state.error = action.payload
         }
     }
 })
 
-export const { addPost, getMyPostSuccess, getMyPostFailue } = addPostSlice.actions
+export const { addPost, getMyPostSuccess, getMyPostFailure } = addPostSlice.actions
 
 export default addPostSlice.reducer

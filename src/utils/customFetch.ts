@@ -59,7 +59,7 @@ export const customFetch = async (url: string, config: any = {}) => {
             config.headers = {
                 Authorization: `Bearer ${access}`,
             }
-            
+    
             const response: Response = await fetch(url, config)
             
             return response

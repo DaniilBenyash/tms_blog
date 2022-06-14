@@ -4,6 +4,7 @@ import { NamePage } from "../../components/NamePage/NamePage";
 import { Input } from "../../components/Input";
 import { Textarea } from "../../components/Textarea";
 import { Button } from "../../components/Button";
+import { useAddPost } from "../../features/addPost";
 
 export const AddPost = () => {
     const [valueTitle, setValueTitle] = useState('');
@@ -15,16 +16,22 @@ export const AddPost = () => {
      
     const inputTitle = React.useRef<HTMLInputElement>(null);
     const inputLessonNumber = React.useRef<HTMLInputElement>(null);
-    const inputImage = React.useRef<HTMLInputElement>(null);
-    const textarea = React.useRef<HTMLInputElement>(null);
 
     const changeInputTitle = (event: any): void => setValueTitle(event.target.value)
     const changeInputLessonNumber = (event: any): void => setValueLessonNumber(event.target.value)
     const changeInputImage = (event: any): void => setValueImage(event.target.value)
-    const changeTextarea = (event: any): void => setValueImage(event.target.value)
+    const changeTextarea = (event: any): void => setValueText(event.target.value)
     
-    const handleSubmit = () => {
+    const { setNewPost } = useAddPost();
 
+    const handleSubmit = () => {
+        const formData = {
+            image: valueImage,
+            text: valueTextarea,
+            lesson_num: valueLessonNumber,
+            title: valueTitle,
+        }
+        setNewPost(formData)
     }
     return (
         <div className="add-post">
@@ -52,7 +59,7 @@ export const AddPost = () => {
                 </div>
                 <label className="add-post__input-image">
                     Image
-                    <input type="file" value={valueImage} onChange={changeInputImage} ref={inputImage} className='add-post__input-form'accept="image/*,image/jpeg"/>
+                    <input type="file" value={valueImage} onChange={changeInputImage} className='add-post__input-form'accept="image/*,image/jpeg"/>
                 </label>
                 <Textarea
                     label='Text'
@@ -60,7 +67,6 @@ export const AddPost = () => {
                     rows={10}
                     onChange={changeTextarea}
                     value={valueTextarea}
-                    ref={textarea}
                 />
                 <div className="add-post__line-button">
                     <div className="add-post__size-button">
