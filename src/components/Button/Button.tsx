@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react'
-import './Button.scss'
+import React, { ReactElement } from 'react';
+import './Button.scss';
 
 type ButtonProps = {
     text?: string,
@@ -12,7 +12,7 @@ type ButtonProps = {
 export const Button = ({onClick, text, className, disabled, icon}: ButtonProps) => {
     return (
         <button 
-            type='button' 
+            type='button'
             onClick={onClick} 
             className={`${className} button`} 
             disabled={disabled}>

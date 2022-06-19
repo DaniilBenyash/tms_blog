@@ -1,24 +1,25 @@
 import React from "react";
-import './Textarea.css'
+import './Textarea.scss'
 
 type TextareaProps = {
     placeholder: string,
-    cols: number,
     rows: number,
     label: string,
+    onChange: (event: any) => void,
+    value: any,
 }
 
-export const Textarea = ({placeholder, cols, rows, label}: TextareaProps) => {
+export const Textarea = ({placeholder, rows, label, onChange, value}: TextareaProps) => {
     return (
         <label className="textarea">
-
             {label}
-
             <textarea 
                 className='textarea__form' 
-                name='textarea' cols={cols} 
+                name='textarea' 
                 rows={rows} 
                 placeholder={placeholder}
+                value={value} 
+                onChange={onChange}
             >
             </textarea>
         </label>   

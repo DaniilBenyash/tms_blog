@@ -1,0 +1,47 @@
+@import "../../styles/variables";
+
+.header-name{
+    min-width: 84px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap ;
+    background-color: $color-primary;
+
+    &__profile{
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        padding: 24px 30px;
+    }
+
+    &__initials{
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        color: $color-white;
+        background: $color-primary2;
+        border-radius: 2px;
+        margin-right: 16px;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__name{
+        font-style: normal;
+        font-weight: 600;
+        font-size: $font-size-subline-1;
+        line-height: 34px;
+        color: $color-white;
+    }
+}
+@media screen and (max-width: 600px) {
+    .header-name{
+        display: none;
+    }
+}

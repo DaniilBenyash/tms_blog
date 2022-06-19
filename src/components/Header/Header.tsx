@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Header.scss';
 import { ReactComponent as Burger } from './icon/Burger.svg';
 import { ReactComponent as CloseBurger } from './icon/closeBurger.svg';
 import { ReactComponent as Search } from './icon/search.svg';
-import { HeaderName } from "./components/HeaderName/HeaderName";
+import { HeaderName } from "../HeaderName";
 import { Button } from '../Button/Button';
-import { BurgerMain } from './components/BurgerMain/BurgerMain';
+import { BurgerMain } from '../BurgerMain/BurgerMain';
+import { useUserInfo } from "../../features/userInfo";
 import { useSearchPosts } from "../../features/searchPosts";
 import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
 
+    const { userInfo } = useUserInfo();
     const { setValueSearch } = useSearchPosts();
 
     const [burgerValue, setBurgerValue] = useState(false);
     const [searchValue, setSearchValue] = useState(false);
 
+    const [username, setUsername] = useState('')
+
+    useEffect(() => {
+        if(userInfo) {
+            setUsername(userInfo?.username)
+        }
+    }, [userInfo])
     const navigate = useNavigate();
 
     const searchInput = (event: any) => {
@@ -42,8 +51,7 @@ export const Header = () => {
                 {burgerValue 
                 && 
                 <BurgerMain 
-                    firstName='Daniil' 
-                    lastName='Benyash' 
+                    username={username}  
                 />}
                 {searchValue 
                 &&
@@ -66,8 +74,7 @@ export const Header = () => {
                     disabled={false}
                 />
                 <HeaderName 
-                    firstName='Daniil' 
-                    lastName='Benyash' 
+                    username={username} 
                 />
             </div>
         </header>
